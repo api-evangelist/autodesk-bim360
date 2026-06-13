@@ -1,0 +1,79 @@
+specificationVersion: "0.1"
+id: autodesk-bim360-plans-pricing
+name: Autodesk BIM 360 / APS Plans and Pricing
+description: >
+  Autodesk BIM 360 APIs are accessed through Autodesk Platform Services (APS),
+  which introduced a new business model effective December 8, 2025. The model
+  provides Free and Paid tiers. BIM 360-specific APIs (Account Admin, Issues,
+  Assets, Cost Management, Model Coordination, RFIs, Checklists, Data Connector,
+  Locations, Relationships, Document Management) are generally available under
+  the non-rated category and remain free with no usage restrictions. Rated APIs
+  such as Model Derivative and Automation API have monthly caps under the free
+  tier and require paid tokens for additional usage.
+url: https://aps.autodesk.com/pricing
+plans:
+  - name: Free Tier
+    description: >
+      Available to all developers to test, learn, and build proofs of concept.
+      Non-rated BIM 360 APIs have no usage restrictions. Rated APIs (Model
+      Derivative, Automation, Flow Graph Engine, Reality Capture) have monthly
+      usage caps; access is suspended until the next month if caps are exceeded.
+    price: 0
+    currency: USD
+    period: monthly
+    features:
+      - BIM 360 Account Admin API (unlimited)
+      - BIM 360 Issues API (unlimited)
+      - BIM 360 Assets API (unlimited)
+      - BIM 360 Cost Management API (unlimited)
+      - BIM 360 Model Coordination API (unlimited)
+      - BIM 360 RFIs API (unlimited)
+      - BIM 360 Checklists API (unlimited)
+      - BIM 360 Data Connector API (unlimited)
+      - BIM 360 Locations API (unlimited)
+      - BIM 360 Relationships API (unlimited)
+      - BIM 360 Document Management API (unlimited)
+      - Monthly caps on rated APIs (Model Derivative, Automation, Flow Graph, Reality Capture)
+      - OAuth 2.0 authentication via APS
+  - name: Prepay (Flex Tokens)
+    description: >
+      Prepurchased token bundles consumed before Pay as You Go billing. Tokens
+      expire one year from purchase. Volume discounts apply at 5,000+ tokens.
+      One token equals 300,000 Basic Interaction API calls. Used to extend
+      access beyond free tier caps for rated APIs.
+    price: varies
+    currency: USD
+    period: one-time purchase (tokens valid 1 year)
+    minimumPurchase: 100 tokens
+    features:
+      - All Free Tier features
+      - Extended access to rated APIs beyond monthly free caps
+      - Volume discounts at 5,000+ tokens
+      - Tokens consumed before Pay as You Go charges
+      - 1 token = 300,000 Basic Interaction API calls
+  - name: Pay as You Go
+    description: >
+      Monthly billing based on actual usage above free tier limits. No upfront
+      commitment required. Available in US, Canada, Australia, New Zealand,
+      Japan, EEA, UK, and Switzerland. Eligibility requirements apply.
+    price: varies
+    currency: USD
+    period: monthly
+    features:
+      - All Free Tier features
+      - Usage-based billing for rated API calls above free tier
+      - No minimum commitment
+      - Regional availability in US, Canada, Australia, New Zealand, Japan, EEA, UK, Switzerland
+  - name: Subscription Included
+    description: >
+      Customers with qualifying Autodesk product subscriptions (e.g., BIM 360,
+      Autodesk Construction Cloud) receive monthly API usage credits included
+      with their subscription, allowing API access beyond the standard free tier
+      without additional payment.
+    price: included with Autodesk product subscription
+    currency: USD
+    period: monthly
+    features:
+      - Monthly API usage included with qualifying Autodesk subscriptions
+      - Extends rated API access without separate token purchase
+      - Covers BIM 360 and AEC Data Model APIs

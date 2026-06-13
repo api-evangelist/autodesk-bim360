@@ -1,0 +1,63 @@
+specificationVersion: "0.1"
+id: autodesk-bim360-rate-limits
+name: Autodesk BIM 360 API Rate Limits
+description: >
+  Autodesk BIM 360 APIs enforce per-minute rate limits on individual endpoints.
+  When an application exceeds the published rate limit, the API returns HTTP 429
+  "Too Many Requests" with a Retry-After header indicating when to retry.
+  Different API modules have separate rate limit tiers. ADN members may request
+  higher limits by submitting a formal request with usage analysis for
+  evaluation by the relevant product team.
+url: https://aps.autodesk.com/en/docs/bim360/v1/rate-limits
+rateLimits:
+  - name: General APS Rate Limit Policy
+    description: >
+      All Autodesk Platform Services APIs enforce rate limits per application
+      per minute. Exceeding limits returns HTTP 429 with a Retry-After header.
+      Limits vary by API module and endpoint type.
+    window: 1 minute
+    errorCode: HTTP 429
+    retryAfterHeader: true
+    increaseProcess: Submit formal request with usage analysis to ADN; evaluated on a case-by-case basis
+  - name: BIM 360 Document Management API
+    description: >
+      Rate limits for BIM 360 Document Management API endpoints covering file
+      uploads, downloads, folder navigation, and document version management.
+    url: https://aps.autodesk.com/en/docs/bim360/v1/rate-limits/document-management-rate-limits
+    window: 1 minute
+    notes: Specific per-endpoint limits documented at the URL above; limits vary by operation type
+  - name: BIM 360 Issues API
+    description: >
+      Rate limits for the BIM 360 Issues API covering GET, POST, PATCH, and
+      DELETE operations on issues, attachments, and comments.
+    url: https://aps.autodesk.com/en/docs/bim360/v1/rate-limits/issues-rate-limits
+    window: 1 minute
+    notes: Separate limits apply to read (GET) and write (POST/PATCH/DELETE) operations
+  - name: BIM 360 Assets API
+    description: >
+      Rate limits for the BIM 360 Assets API covering asset CRUD operations,
+      category management, custom attribute configuration, and status sets.
+    url: https://aps.autodesk.com/en/docs/bim360/v1/rate-limits/assets-rate-limits
+    window: 1 minute
+    notes: Specific per-endpoint limits documented at the URL above
+  - name: BIM 360 Model Coordination API
+    description: >
+      Rate limits for the BIM 360 Model Coordination API covering model set
+      creation, clash detection jobs, and coordination issue management.
+    url: https://aps.autodesk.com/en/docs/bim360/v1/rate-limits/model-coordination-rate-limits
+    window: 1 minute
+    notes: Clash detection jobs may have additional processing quotas beyond per-minute call limits
+  - name: APS Rated APIs Monthly Quotas
+    description: >
+      Rated APIs (Model Derivative, Automation, Flow Graph Engine, Reality
+      Capture) have monthly usage caps under the free tier. These are separate
+      from per-minute rate limits and govern total monthly consumption. Exceeding
+      monthly caps suspends access until the next calendar month or until
+      additional tokens are purchased.
+    period: monthly
+    ratedAPIs:
+      - Model Derivative API
+      - Automation API
+      - Flow Graph Engine API
+      - Reality Capture API
+    notes: BIM 360-specific APIs are non-rated and have no monthly consumption caps

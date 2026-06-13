@@ -1,0 +1,75 @@
+specificationVersion: "1.0"
+id: autodesk-bim360-finops
+name: Autodesk BIM 360 FinOps Framework
+description: >
+  Financial operations framework for managing Autodesk BIM 360 API costs through
+  Autodesk Platform Services (APS). BIM 360-specific APIs are non-rated and
+  remain free with no consumption-based costs. Rated APIs (Model Derivative,
+  Automation, Flow Graph Engine, Reality Capture) consume Flex tokens or incur
+  Pay as You Go charges when free tier monthly caps are exceeded. The APS
+  business model effective December 8, 2025 uses a token system where 1 token
+  equals 300,000 Basic Interaction API calls.
+framework: FinOps Framework 1.0
+focus:
+  currency: USD
+costManagement:
+  - category: API Call Costs
+    description: BIM 360-specific API calls (non-rated)
+    cost: 0
+    notes: Account Admin, Issues, Assets, Cost Management, Model Coordination, RFIs, Checklists, Data Connector, Locations, Relationships, and Document Management APIs are all free with no per-call cost
+  - category: Rated API Tokens
+    description: Flex token consumption for rated APIs (Model Derivative, Automation, Flow Graph Engine, Reality Capture)
+    unit: token
+    unitEquivalent: 300000 Basic Interaction API calls per token
+    minimumPurchase: 100 tokens
+    tokenValidity: 1 year from purchase
+    volumeDiscountThreshold: 5000 tokens
+  - category: Pay as You Go Rated APIs
+    description: Monthly billing for rated API usage above free tier caps with no upfront commitment
+    billingPeriod: monthly
+    notes: Available in US, Canada, Australia, New Zealand, Japan, EEA, UK, Switzerland
+  - category: Subscription Included Usage
+    description: Monthly API usage credits included with qualifying Autodesk product subscriptions
+    cost: 0 (included in Autodesk product subscription)
+    notes: Reduces or eliminates token purchases for qualifying BIM 360 and ACC subscribers
+optimization:
+  - strategy: Leverage Non-Rated APIs
+    description: >
+      Prioritize use of BIM 360-specific APIs (Issues, Assets, Cost Management,
+      RFIs, Checklists, etc.) which are non-rated and free, avoiding rated API
+      usage where possible.
+  - strategy: Monitor Rated API Consumption
+    description: >
+      Track monthly consumption of Model Derivative, Automation, Flow Graph,
+      and Reality Capture APIs against free tier caps to avoid unexpected
+      suspension or overage charges.
+  - strategy: Bundle with Autodesk Subscription
+    description: >
+      Organizations with existing BIM 360 or Autodesk Construction Cloud
+      subscriptions should leverage included monthly API credits before
+      purchasing Flex tokens.
+  - strategy: Prepay vs Pay as You Go Analysis
+    description: >
+      For predictable high-volume usage of rated APIs, Flex token prepurchase
+      with volume discounts (5,000+ tokens) is more cost-effective than Pay as
+      You Go monthly billing.
+  - strategy: Token Expiry Management
+    description: >
+      Flex tokens expire one year from purchase. Plan purchases to match
+      expected annual consumption to avoid waste from unused tokens.
+allocation:
+  - dimension: Project
+    description: Track API usage per BIM 360 project using project IDs in API calls
+  - dimension: API Module
+    description: Separate cost tracking per API module (Issues, Assets, Cost Management, etc.)
+  - dimension: Application
+    description: Track costs per APS application (client ID) to attribute usage across teams
+reporting:
+  - metric: Monthly Non-Rated API Calls
+    description: Total calls to free BIM 360 APIs; informational only with no cost impact
+  - metric: Monthly Rated API Token Consumption
+    description: Flex tokens consumed by rated APIs; tracked against annual token balance
+  - metric: Free Tier Cap Utilization
+    description: Percentage of monthly free cap consumed for each rated API to predict overage
+  - metric: Cost Per Construction Project
+    description: Apportioned API costs allocated per active BIM 360 project for chargeback
