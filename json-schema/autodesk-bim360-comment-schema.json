@@ -1,0 +1,56 @@
+{
+  "title": "comment",
+  "type": "object",
+  "x-stoplight": {
+    "id": "t2dkwitlw6jgu"
+  },
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "The comment ID."
+    },
+    "body": {
+      "type": "string",
+      "description": "The comment content. A \\n indicates a new line, e.g.: Hey\\nAharon will be a 2 lines comment.\nMax length: 10000"
+    },
+    "createdAt": {
+      "type": "string",
+      "description": "The date and time the custom attribute was created, in the following format: YYYY-MM-DDThh:mm:ss.sz."
+    },
+    "createdBy": {
+      "type": "string",
+      "description": "The Autodesk ID of the user who created the comment."
+    },
+    "updatedAt": {
+      "type": "string",
+      "description": "Not relevant"
+    },
+    "deletedAt": {
+      "type": "string",
+      "description": "Not relevant"
+    },
+    "clientCreatedAt": {
+      "type": "string",
+      "description": "Not relevant"
+    },
+    "clientUpdatedAt": {
+      "type": "string",
+      "description": "Not relevant"
+    },
+    "permittedActions": {
+      "type": "array",
+      "description": "Not relevant",
+      "items": {
+        "type": "string"
+      }
+    },
+    "permittedAttributes": {
+      "type": "array",
+      "description": "Not relevant",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}

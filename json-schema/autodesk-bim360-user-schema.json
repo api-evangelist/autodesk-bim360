@@ -1,0 +1,118 @@
+{
+  "title": "User",
+  "x-stoplight": {
+    "id": "fx3z9ao4dnpxy"
+  },
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "BIM 360 user ID"
+    },
+    "account_id": {
+      "type": "string",
+      "description": "Account ID"
+    },
+    "role": {
+      "description": "The role of the user in the account. New user should be account_user only.",
+      "type": "string"
+    },
+    "status": {
+      "description": "Status of the user in the system. A new account user is always not_invited.",
+      "type": "string"
+    },
+    "company_id": {
+      "type": "string",
+      "description": "The user\u2019s default company ID in BIM 360"
+    },
+    "company_name": {
+      "type": "string",
+      "description": "The name of the user\u2019s default company name in BIM 360"
+    },
+    "last_sign_in": {
+      "type": "string",
+      "description": "Timestamp of the last sign in, YYYY-MM-DDThh:mm:ss.sssZ format"
+    },
+    "email": {
+      "type": "string",
+      "description": "User\u2019s email "
+    },
+    "name": {
+      "type": "string",
+      "description": "Default display name"
+    },
+    "nickname": {
+      "type": "string",
+      "description": "Nick name for user"
+    },
+    "first_name": {
+      "type": "string",
+      "description": "User\u2019s first name"
+    },
+    "last_name": {
+      "type": "string",
+      "description": "User\u2019s last name"
+    },
+    "uid": {
+      "type": "string",
+      "description": "User\u2019s Autodesk ID"
+    },
+    "image_url": {
+      "type": "string",
+      "description": "URL for user\u2019s profile image"
+    },
+    "address_line_1": {
+      "type": "string",
+      "description": "User\u2019s address line 1"
+    },
+    "address_line_2": {
+      "type": "string",
+      "description": "User\u2019s address line 2"
+    },
+    "city": {
+      "type": "string",
+      "description": "City in which user is located"
+    },
+    "state_or_province": {
+      "type": "string",
+      "description": "State or province in which user is located"
+    },
+    "postal_code": {
+      "type": "string",
+      "description": "Postal code for the user\u2019s location"
+    },
+    "country": {
+      "type": "string",
+      "description": "Country for this user"
+    },
+    "phone": {
+      "type": "string",
+      "description": "Contact phone number for the user"
+    },
+    "company": {
+      "type": "string",
+      "description": "Company information from the Autodesk user profile"
+    },
+    "job_title": {
+      "type": "string",
+      "description": "User\u2019s job title"
+    },
+    "industry": {
+      "type": "string",
+      "description": "Industry information for user"
+    },
+    "about_me": {
+      "type": "string",
+      "description": "Short description about the user"
+    },
+    "created_at": {
+      "type": "string",
+      "description": "YYYY-MM-DDThh:mm:ss.sssZ format"
+    },
+    "updated_at": {
+      "type": "string",
+      "description": "YYYY-MM-DDThh:mm:ss.sssZ format"
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}

@@ -1,0 +1,266 @@
+{
+  "title": "Project",
+  "x-stoplight": {
+    "id": "ebkpy57pcvey6"
+  },
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "The internally generated ID for the project."
+    },
+    "name": {
+      "type": "string",
+      "description": "The name of the project.\nMax length: 255",
+      "x-stoplight": {
+        "id": "6cf9wq5ozzjck"
+      }
+    },
+    "startDate": {
+      "type": "string",
+      "description": "The estimated start date for the project, in ISO 8601 format.",
+      "x-stoplight": {
+        "id": "qxtctrcqpzdim"
+      }
+    },
+    "endDate": {
+      "type": "string",
+      "x-stoplight": {
+        "id": "0wy8z5fu7edd3"
+      },
+      "description": "The estimated end date for the project, in ISO 8601 format."
+    },
+    "type": {
+      "description": "The type of the project.",
+      "x-stoplight": {
+        "id": "0rmvamrt2vu0p"
+      },
+      "type": "string"
+    },
+    "classification": {
+      "type": "string",
+      "description": "The project\u2019s purpose. Possible values: production, template, component, sample",
+      "x-stoplight": {
+        "id": "la722kcrq302p"
+      }
+    },
+    "projectValue": {
+      "type": "object",
+      "description": "The value of the project. When updating the project value, both the value and currency parameters are required.",
+      "x-stoplight": {
+        "id": "7jyuuuw47s1zg"
+      }
+    },
+    "status": {
+      "type": "string",
+      "description": "The status of the project.",
+      "x-stoplight": {
+        "id": "gr9ymnwepgsvy"
+      }
+    },
+    "jobNumber": {
+      "type": "string",
+      "description": "A job identifier that\u2019s defined for the project by the user. This ID was defined when the project was created.\nMax length: 100"
+    },
+    "addressLine1": {
+      "type": "string",
+      "description": "Address line 1 for the project.\nMax length: 255"
+    },
+    "addressLine2": {
+      "type": "string",
+      "x-stoplight": {
+        "id": "1upgay7epgz9b"
+      },
+      "description": "Address line 2 for the project.\nMax length: 255"
+    },
+    "city": {
+      "type": "string",
+      "x-stoplight": {
+        "id": "0oc4qp1v0ftdm"
+      },
+      "description": "The city in which the project is located."
+    },
+    "stateOrProvince": {
+      "type": "string",
+      "x-stoplight": {
+        "id": "ubo3fqfnmgqug"
+      },
+      "description": "The state or province in which the project is located. Only valid state/province names and ISO 3166-1 alpha-2 codes is accepted. The provided state or province must exist in the country of the project."
+    },
+    "postalCode": {
+      "type": "string",
+      "x-stoplight": {
+        "id": "5t24tmhaqskus"
+      },
+      "description": "The zip or postal code in which the project is located."
+    },
+    "country": {
+      "type": "string",
+      "x-stoplight": {
+        "id": "xg4z9ewblj1w5"
+      },
+      "description": "The country in which the project is located. Only valid country names and ISO 3166-1 alpha-2 codes is accepted."
+    },
+    "latitude": {
+      "type": "string",
+      "x-stoplight": {
+        "id": "qsply44us8h4h"
+      },
+      "description": "The latitude of the location of the project."
+    },
+    "longitude": {
+      "type": "string",
+      "x-stoplight": {
+        "id": "zp562dse6o7hj"
+      },
+      "description": "The longitude of the location of the project."
+    },
+    "timezone": {
+      "type": "string",
+      "x-stoplight": {
+        "id": "o53ui6vd71sgp"
+      },
+      "description": "The time zone in which the project is located. Note that this field can be NULL."
+    },
+    "constructionType": {
+      "type": "string",
+      "x-stoplight": {
+        "id": "f8bnng42rt1bj"
+      },
+      "description": "The construction type of the project. Following is a list of recommended values; however, any value is accepted."
+    },
+    "deliveryMethod": {
+      "type": "string",
+      "x-stoplight": {
+        "id": "6bswlp8p3pzsa"
+      },
+      "description": "The delivery method of the project. Following is a list of recommended values; however, any value is accepted."
+    },
+    "contractType": {
+      "type": "string",
+      "x-stoplight": {
+        "id": "m9xai1gdvbprg"
+      },
+      "description": "The contract type of the project. Following is a list of recommended values; however, any value is accepted."
+    },
+    "currentPhase": {
+      "type": "string",
+      "x-stoplight": {
+        "id": "5k6oorhq27hxk"
+      },
+      "description": "The current phase of the project. Following is a list of recommended values; however, any value is accepted."
+    },
+    "businessUnitId": {
+      "type": "string",
+      "x-stoplight": {
+        "id": "ww05qb8kr01ru"
+      },
+      "description": "The ID of the business unit that the project is associated with."
+    },
+    "lastSignIn": {
+      "type": "string",
+      "x-stoplight": {
+        "id": "im38ovifkrbyv"
+      },
+      "description": "The timestamp of the last time someone signed into the project."
+    },
+    "imageUrl": {
+      "type": "string",
+      "x-stoplight": {
+        "id": "8d45mnflzgs33"
+      },
+      "description": "The URL of the project image."
+    },
+    "thumbnailImageUrl": {
+      "type": "string",
+      "x-stoplight": {
+        "id": "pscimqfva5dqw"
+      },
+      "description": "The URL of the project thumbnail image."
+    },
+    "createdAt": {
+      "type": "string",
+      "x-stoplight": {
+        "id": "h4j1z55w3l122"
+      },
+      "description": "The timestamp when the project was created, in ISO 8601 format."
+    },
+    "updatedAt": {
+      "type": "string",
+      "x-stoplight": {
+        "id": "wxbzhsi71d8hl"
+      },
+      "description": "The timestamp when the project was last updated, in ISO 8601 format. This reflects only changes to the project fields and not changes to any resources in the project."
+    },
+    "memberGroupId": {
+      "type": "string",
+      "x-stoplight": {
+        "id": "8v9h1l147em3f"
+      },
+      "description": "Not relevant"
+    },
+    "adminGroupId": {
+      "type": "string",
+      "x-stoplight": {
+        "id": "mc5b6njjbon60"
+      },
+      "description": "Not relevant"
+    },
+    "accountId": {
+      "type": "string",
+      "x-stoplight": {
+        "id": "ngfv3tuq4xk65"
+      },
+      "description": "The ID of the account the project is associated with."
+    },
+    "sheetCount": {
+      "type": "integer",
+      "x-stoplight": {
+        "id": "r58ypjbag6lil"
+      },
+      "description": "The total number of sheets associated with the project."
+    },
+    "products": {
+      "type": "array",
+      "x-stoplight": {
+        "id": "15j7grna78zar"
+      },
+      "description": "An array of the product objects associated with the project.",
+      "items": {
+        "x-stoplight": {
+          "id": "qv9mwsm0079v3"
+        },
+        "type": "object"
+      }
+    },
+    "platform": {
+      "type": "string",
+      "x-stoplight": {
+        "id": "l2bslup34ygq3"
+      },
+      "description": "The APS platform that the project belongs to."
+    },
+    "companyCount": {
+      "type": "integer",
+      "x-stoplight": {
+        "id": "hurzujkff3e2j"
+      },
+      "description": "The total number of companies associated with the project."
+    },
+    "memberCount": {
+      "type": "integer",
+      "x-stoplight": {
+        "id": "4n7prnedw1mqu"
+      },
+      "description": "The total number of members on the project."
+    },
+    "templateId": {
+      "type": "string",
+      "x-stoplight": {
+        "id": "zpt9et6ahhjj8"
+      },
+      "description": "The ID of the project that was used as a template to create this project."
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}

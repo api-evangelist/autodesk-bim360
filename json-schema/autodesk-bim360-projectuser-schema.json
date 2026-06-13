@@ -1,0 +1,210 @@
+{
+  "title": "ProjectUser",
+  "x-stoplight": {
+    "id": "yr7m0t04g7srf"
+  },
+  "type": "object",
+  "properties": {
+    "email": {
+      "type": "string",
+      "x-stoplight": {
+        "id": "4l126as65h226"
+      },
+      "description": "The email of the user.\nMax length: 255"
+    },
+    "id": {
+      "type": "string",
+      "description": "The ACC ID of the user."
+    },
+    "name": {
+      "type": "string",
+      "description": "The full name of the user."
+    },
+    "firstName": {
+      "type": "string",
+      "description": "The user\u2019s first name. This data syncs from the user\u2019s Autodesk profile.\nMax length: 255"
+    },
+    "lastName": {
+      "type": "string",
+      "description": "The user\u2019s last name. This data syncs from the user\u2019s Autodesk profile.\nMax length: 255"
+    },
+    "autodeskId": {
+      "type": "string",
+      "description": "The ID of the user\u2019s Autodesk profile.\nMax length: 255"
+    },
+    "analyticsId": {
+      "type": "string",
+      "description": "Not relevant"
+    },
+    "addressLine1": {
+      "type": "string",
+      "description": "The user\u2019s address line 1. This data syncs from the user\u2019s Autodesk profile.\nMax length: 255"
+    },
+    "addressLine2": {
+      "type": "string",
+      "description": "The user\u2019s address line 2. This data syncs from the user\u2019s Autodesk profile.\nMax length: 255"
+    },
+    "city": {
+      "type": "string",
+      "description": "The User\u2019s city. This data syncs from the user\u2019s Autodesk profile.\nMax length: 255"
+    },
+    "stateOrProvince": {
+      "type": "string",
+      "description": "The state or province of the user. The accepted values here change depending on which country is provided. This data syncs from the user\u2019s Autodesk profile.\nMax length: 255"
+    },
+    "postalCode": {
+      "type": "string",
+      "description": "The zip or postal code of the user. This data syncs from the user\u2019s Autodesk profile.\nMax length: 255"
+    },
+    "country": {
+      "type": "string",
+      "description": "The user\u2019s country. This data syncs from the user\u2019s Autodesk profile.\nMax length: 255"
+    },
+    "imageUrl": {
+      "type": "string",
+      "description": "The URL of the user\u2019s avatar. This data syncs from the user\u2019s Autodesk profile.\nMax length: 255"
+    },
+    "phone": {
+      "description": "The user\u2019s phone number. This data syncs from the user\u2019s Autodesk profile.",
+      "type": "object",
+      "properties": {
+        "number": {
+          "type": "string",
+          "x-stoplight": {
+            "id": "9jn34var2c9nu"
+          },
+          "description": "User\u2019s phone number"
+        },
+        "phoneType": {
+          "type": "string",
+          "x-stoplight": {
+            "id": "i4870b3euojc3"
+          },
+          "description": "The user\u2019s phone type."
+        },
+        "extension": {
+          "type": "string",
+          "x-stoplight": {
+            "id": "wz1h6mlxohgqp"
+          },
+          "description": "User\u2019s phone extension."
+        }
+      }
+    },
+    "jobTitle": {
+      "type": "string",
+      "description": "The user\u2019s job title. This data syncs from the user\u2019s Autodesk profile.\nMax length: 255"
+    },
+    "industry": {
+      "type": "string",
+      "description": "The industry the user works in. This data syncs from the user\u2019s Autodesk profile.\nMax length: 255"
+    },
+    "aboutMe": {
+      "type": "string",
+      "description": "A short bio about the user. This data syncs from the user\u2019s Autodesk profile.\nMax length: 255"
+    },
+    "accessLevels": {
+      "description": "Flags that identify a returned user\u2019s access levels in the account or project.",
+      "type": "object",
+      "properties": {
+        "accountAdmin": {
+          "type": "boolean",
+          "x-stoplight": {
+            "id": "uit3quf92pt7c"
+          },
+          "description": "Indicates whether the user is an account administrator for the account."
+        },
+        "projectAdmin": {
+          "type": "boolean",
+          "x-stoplight": {
+            "id": "19r2u8did6fgi"
+          },
+          "description": "Indicates whether the user is a project administrator for the project."
+        },
+        "executive": {
+          "type": "boolean",
+          "x-stoplight": {
+            "id": "vwasqda2gcmm0"
+          },
+          "description": "Indicates whether the user is an executive in the account."
+        }
+      }
+    },
+    "addedOn": {
+      "type": "string",
+      "description": "The timestamp when the user was first given access to any product on the project."
+    },
+    "updatedAt": {
+      "type": "string",
+      "description": "The timestamp when the project user was last updated, in ISO 8601 format."
+    },
+    "companyId": {
+      "type": "string",
+      "description": "The ID of the company that the user is representing in the project. To obtain a list of all company IDs associated with a project, call GET projects/:projectId/companies."
+    },
+    "companyName": {
+      "type": "string",
+      "description": "The name of the company to which the user belongs.\nMax length: 255"
+    },
+    "roleIds": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "A list of IDs of the roles that the user belongs to in the project."
+    },
+    "roles": {
+      "description": "A list of the role IDs and names that are associated with the user in the project.",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "x-stoplight": {
+              "id": "k4i4pyorywmgu"
+            },
+            "description": "The ID of a role that the user belongs to in the project."
+          },
+          "name": {
+            "type": "string",
+            "x-stoplight": {
+              "id": "06k3jj0ewbula"
+            },
+            "description": "The name of a role that the user belongs to in the project."
+          }
+        }
+      }
+    },
+    "status": {
+      "type": "string",
+      "description": "The status of the user in the project. A pending user could be waiting for their products to activate, or the user hasn\u2019t accepted an email to create an account with Autodesk."
+    },
+    "products": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "x-stoplight": {
+          "id": "hasrcy0zzx3bm"
+        },
+        "properties": {
+          "key": {
+            "type": "string",
+            "x-stoplight": {
+              "id": "wkmu7n556lqbw"
+            },
+            "description": "A keyword that identifies the product."
+          },
+          "access": {
+            "type": "string",
+            "x-stoplight": {
+              "id": "2hg7ktpbupezj"
+            },
+            "description": "The user\u2019s type of access to the product identified by key."
+          }
+        }
+      }
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}

@@ -1,0 +1,187 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "bim360": "https://aps.autodesk.com/vocab/bim360/",
+    "schema": "https://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "dcterms": "http://purl.org/dc/terms/",
+
+    "Project": "bim360:Project",
+    "Account": "bim360:Account",
+    "User": "bim360:User",
+    "Company": "bim360:Company",
+    "BusinessUnit": "bim360:BusinessUnit",
+    "Role": "bim360:Role",
+    "Issue": "bim360:Issue",
+    "IssueType": "bim360:IssueType",
+    "Comment": "bim360:Comment",
+    "Attachment": "bim360:Attachment",
+    "RootCauseCategory": "bim360:RootCauseCategory",
+    "AttributeDefinition": "bim360:AttributeDefinition",
+    "Document": "bim360:Document",
+    "Asset": "bim360:Asset",
+    "CostItem": "bim360:CostItem",
+    "ModelSet": "bim360:ModelSet",
+    "Clash": "bim360:Clash",
+    "RFI": "bim360:RFI",
+    "Checklist": "bim360:Checklist",
+    "Location": "bim360:Location",
+    "Relationship": "bim360:Relationship",
+
+    "id": "@id",
+    "type": "@type",
+
+    "accountId": {
+      "@id": "bim360:accountId",
+      "@type": "xsd:string"
+    },
+    "projectId": {
+      "@id": "bim360:projectId",
+      "@type": "xsd:string"
+    },
+    "containerId": {
+      "@id": "bim360:containerId",
+      "@type": "xsd:string"
+    },
+    "name": {
+      "@id": "schema:name",
+      "@type": "xsd:string"
+    },
+    "description": {
+      "@id": "schema:description",
+      "@type": "xsd:string"
+    },
+    "status": {
+      "@id": "bim360:status",
+      "@type": "xsd:string"
+    },
+    "email": {
+      "@id": "schema:email",
+      "@type": "xsd:string"
+    },
+    "firstName": {
+      "@id": "schema:givenName",
+      "@type": "xsd:string"
+    },
+    "lastName": {
+      "@id": "schema:familyName",
+      "@type": "xsd:string"
+    },
+    "phone": {
+      "@id": "schema:telephone",
+      "@type": "xsd:string"
+    },
+    "addressLine1": {
+      "@id": "schema:streetAddress",
+      "@type": "xsd:string"
+    },
+    "city": {
+      "@id": "schema:addressLocality",
+      "@type": "xsd:string"
+    },
+    "stateOrProvince": {
+      "@id": "schema:addressRegion",
+      "@type": "xsd:string"
+    },
+    "postalCode": {
+      "@id": "schema:postalCode",
+      "@type": "xsd:string"
+    },
+    "country": {
+      "@id": "schema:addressCountry",
+      "@type": "xsd:string"
+    },
+    "createdAt": {
+      "@id": "dcterms:created",
+      "@type": "xsd:dateTime"
+    },
+    "updatedAt": {
+      "@id": "dcterms:modified",
+      "@type": "xsd:dateTime"
+    },
+    "startDate": {
+      "@id": "schema:startDate",
+      "@type": "xsd:date"
+    },
+    "endDate": {
+      "@id": "schema:endDate",
+      "@type": "xsd:date"
+    },
+    "dueDate": {
+      "@id": "bim360:dueDate",
+      "@type": "xsd:date"
+    },
+    "title": {
+      "@id": "dcterms:title",
+      "@type": "xsd:string"
+    },
+    "classification": {
+      "@id": "bim360:classification",
+      "@type": "xsd:string"
+    },
+    "timezone": {
+      "@id": "bim360:timezone",
+      "@type": "xsd:string"
+    },
+    "currency": {
+      "@id": "bim360:currency",
+      "@type": "xsd:string"
+    },
+    "platform": {
+      "@id": "bim360:platform",
+      "@type": "xsd:string"
+    },
+    "assignedTo": {
+      "@id": "bim360:assignedTo",
+      "@type": "xsd:string"
+    },
+    "assignedToType": {
+      "@id": "bim360:assignedToType",
+      "@type": "xsd:string"
+    },
+    "locationId": {
+      "@id": "bim360:locationId",
+      "@type": "xsd:string"
+    },
+    "locationDetails": {
+      "@id": "bim360:locationDetails",
+      "@type": "xsd:string"
+    },
+    "rootCauseId": {
+      "@id": "bim360:rootCauseId",
+      "@type": "xsd:string"
+    },
+    "issueTypeId": {
+      "@id": "bim360:issueTypeId",
+      "@type": "xsd:string"
+    },
+    "issueSubtypeId": {
+      "@id": "bim360:issueSubtypeId",
+      "@type": "xsd:string"
+    },
+    "ownerId": {
+      "@id": "bim360:ownerId",
+      "@type": "xsd:string"
+    },
+    "createdBy": {
+      "@id": "dcterms:creator",
+      "@type": "xsd:string"
+    },
+    "imageUrl": {
+      "@id": "schema:image",
+      "@type": "@id"
+    },
+    "jobNumber": {
+      "@id": "bim360:jobNumber",
+      "@type": "xsd:string"
+    },
+    "companyId": {
+      "@id": "bim360:companyId",
+      "@type": "xsd:string"
+    },
+    "accessLevel": {
+      "@id": "bim360:accessLevel",
+      "@type": "xsd:string"
+    }
+  }
+}

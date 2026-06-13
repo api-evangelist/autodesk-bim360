@@ -1,0 +1,61 @@
+{
+  "title": "BusinessUnit",
+  "x-stoplight": {
+    "id": "2g2vpfiwr1evd"
+  },
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Business unit ID"
+    },
+    "account_id": {
+      "type": "string",
+      "x-stoplight": {
+        "id": "87d5kevscjst5"
+      },
+      "description": "Account ID"
+    },
+    "parent_id": {
+      "type": "string",
+      "x-stoplight": {
+        "id": "ripvdy2jdxt5h"
+      },
+      "description": "The ID of the parent business unit;\nused to configure the tree structure of business units"
+    },
+    "name": {
+      "type": "string",
+      "x-stoplight": {
+        "id": "e5y59vjyh9u3g"
+      },
+      "description": "The name of the business unit\n"
+    },
+    "path": {
+      "type": "string",
+      "x-stoplight": {
+        "id": "y2vcp5y80gjjj"
+      },
+      "description": "The path of the business unit in the tree structure"
+    },
+    "description": {
+      "type": "string",
+      "x-stoplight": {
+        "id": "wywguzh955t9m"
+      },
+      "description": "The description of the business unit"
+    },
+    "created_at": {
+      "type": "string",
+      "x-stoplight": {
+        "id": "4bta8t8vaq96a"
+      }
+    },
+    "updated_at": {
+      "type": "string",
+      "x-stoplight": {
+        "id": "epd0mv6uik60l"
+      }
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}

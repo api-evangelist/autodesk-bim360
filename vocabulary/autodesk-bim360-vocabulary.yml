@@ -1,0 +1,192 @@
+vocabulary:
+  name: Autodesk BIM 360 Vocabulary
+  description: >
+    Domain vocabulary for Autodesk BIM 360 construction project management APIs.
+    Covers account administration, issues tracking, document management, assets,
+    cost management, model coordination, RFIs, checklists, and data connector.
+  version: "1.0"
+  updated: "2026-06-13"
+  baseURL: https://developer.api.autodesk.com
+
+terms:
+
+  # Core entities
+  - term: Project
+    definition: >
+      A construction project within a BIM 360 account. Contains configuration
+      such as classification, status, timezone, currency, and key dates.
+    domain: Account Administration
+    relatedPaths:
+      - /construction/admin/v1/accounts/{accountId}/projects
+      - /construction/admin/v1/projects/{projectId}
+
+  - term: Account
+    definition: >
+      A BIM 360 account that groups one or more construction projects under
+      a single organizational entity. Corresponds to a hub in Data Management API.
+    domain: Account Administration
+
+  - term: User
+    definition: >
+      A person who has been granted access to BIM 360 account or project.
+      Users can have different roles and access levels across projects.
+    domain: Account Administration
+    relatedPaths:
+      - /hq/v1/accounts/{account_id}/users
+
+  - term: Company
+    definition: >
+      A partner or member company associated with a BIM 360 account.
+      Companies can be linked to projects and assigned to users.
+    domain: Account Administration
+    relatedPaths:
+      - /hq/v1/accounts/{account_id}/companies
+
+  - term: BusinessUnit
+    definition: >
+      An organizational subdivision within a BIM 360 account used to
+      group projects and users by department or functional area.
+    domain: Account Administration
+
+  - term: Role
+    definition: >
+      A named set of permissions defining what actions a user can perform
+      within a BIM 360 project or account.
+    domain: Account Administration
+
+  - term: Issue
+    definition: >
+      An item created in BIM 360 for tracking, managing, and communicating
+      tasks, problems, safety concerns, and other points needing resolution.
+    domain: Issues
+    relatedPaths:
+      - /construction/issues/v1/projects/{projectId}/issues
+      - /construction/issues/v1/projects/{projectId}/issues/{issueId}
+
+  - term: IssueType
+    definition: >
+      A classification category for issues (e.g., safety, design, commissioning)
+      that determines available subtypes and workflow behaviors.
+    domain: Issues
+    relatedPaths:
+      - /construction/issues/v1/projects/{projectId}/issue-types
+
+  - term: Comment
+    definition: >
+      A text annotation added to an issue to communicate status updates,
+      questions, or resolution notes among team members.
+    domain: Issues
+    relatedPaths:
+      - /construction/issues/v1/projects/{projectId}/issues/{issueId}/comments
+
+  - term: Attachment
+    definition: >
+      A file or document linked to an issue to provide supporting evidence,
+      photographs, or reference materials.
+    domain: Issues
+    relatedPaths:
+      - /construction/issues/v1/projects/{projectId}/attachments
+
+  - term: RootCauseCategory
+    definition: >
+      A classification of the underlying cause of an issue, used for
+      reporting and trend analysis across construction projects.
+    domain: Issues
+
+  - term: AttributeDefinition
+    definition: >
+      A custom field definition attached to issues, allowing projects to
+      capture domain-specific metadata beyond the standard issue fields.
+    domain: Issues
+
+  - term: Document
+    definition: >
+      A file stored in BIM 360 Docs, including 2D plans, 3D BIM models,
+      PDFs, and other project documents with version control.
+    domain: Document Management
+
+  - term: Asset
+    definition: >
+      A physical or logical construction asset tracked through its lifecycle,
+      including categories, custom attributes, and status transitions.
+    domain: Assets
+
+  - term: CostItem
+    definition: >
+      A line item within the project budget or cost management system,
+      representing budget allocations, contracts, or change orders.
+    domain: Cost Management
+
+  - term: ModelSet
+    definition: >
+      A collection of 3D models from different design disciplines aggregated
+      for clash detection and coordination review.
+    domain: Model Coordination
+
+  - term: Clash
+    definition: >
+      A detected conflict between elements from two or more 3D models
+      in the coordinated model set.
+    domain: Model Coordination
+
+  - term: RFI
+    definition: >
+      A Request for Information submitted during construction to clarify
+      design intent, specifications, or other project details.
+    domain: RFIs
+
+  - term: Checklist
+    definition: >
+      A quality inspection form used in field operations to verify that
+      work meets project standards and specifications.
+    domain: Checklists
+
+  - term: Location
+    definition: >
+      A node in the hierarchical location tree representing a physical
+      area within a construction project (e.g., building, floor, room).
+    domain: Locations
+
+  - term: Relationship
+    definition: >
+      A typed link between two entities across BIM 360 domains, enabling
+      traceability (e.g., linking an issue to an RFI or document).
+    domain: Relationships
+
+  # Status values
+  - term: status
+    definition: >
+      The lifecycle state of a project or entity. For projects: active,
+      inactive, pending. For issues: open, answered, closed, void.
+    domain: Common
+
+  # Authentication and access
+  - term: OAuth2
+    definition: >
+      The authentication protocol used by all BIM 360 APIs via Autodesk
+      Platform Services (APS), supporting two-legged and three-legged flows.
+    domain: Authentication
+
+  - term: accessLevel
+    definition: >
+      The permission tier granted to a user within a project, controlling
+      which actions they can perform (e.g., admin, member, project_admin).
+    domain: Account Administration
+
+  - term: containerId
+    definition: >
+      The unique identifier of a BIM 360 service container (e.g., Issues
+      container) within a project, used as a path parameter in API calls.
+    domain: Common
+
+  - term: accountId
+    definition: >
+      The unique identifier for a BIM 360 account. Derived from the Data
+      Management hub ID by removing the "b." prefix.
+    domain: Common
+
+  - term: projectId
+    definition: >
+      The unique identifier for a BIM 360 project, used as a path parameter
+      across all project-scoped API endpoints.
+    domain: Common

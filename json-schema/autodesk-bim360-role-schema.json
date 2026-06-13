@@ -1,0 +1,66 @@
+{
+  "title": "Role",
+  "x-stoplight": {
+    "id": "mwi2mj854b6ap"
+  },
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "x-stoplight": {
+        "id": "058zts2ymshko"
+      },
+      "description": "The unique ID of the role."
+    },
+    "status": {
+      "type": "string",
+      "x-stoplight": {
+        "id": "1nbbaygm0mwqq"
+      },
+      "description": "The role status. Possible values: active, inactive."
+    },
+    "name": {
+      "type": "string",
+      "x-stoplight": {
+        "id": "v1ouk468js1ew"
+      },
+      "description": "The name of the role. Predefined roles are localized based on the request language.\r\nMax length: 255"
+    },
+    "key": {
+      "type": "string",
+      "x-stoplight": {
+        "id": "gv2k753jxgux3"
+      },
+      "description": "The internal key used for translating predefined role names.\r\nMax length: 255"
+    },
+    "createdAt": {
+      "type": "string",
+      "x-stoplight": {
+        "id": "awpgr8sjxn7gb"
+      },
+      "description": "The timestamp when the role was created."
+    },
+    "updatedAt": {
+      "type": "string",
+      "x-stoplight": {
+        "id": "edcid2f8livhy"
+      },
+      "description": "The timestamp when the role was last updated."
+    },
+    "projectIds": {
+      "type": "array",
+      "x-stoplight": {
+        "id": "zzo7mn0r5oqr9"
+      },
+      "description": "The list of projects where the user is associated with this role.",
+      "items": {
+        "x-stoplight": {
+          "id": "15ubmz0q77t5g"
+        },
+        "type": "string"
+      }
+    }
+  },
+  "description": "The requested page of roles associated with the user.",
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}

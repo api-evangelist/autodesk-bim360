@@ -1,0 +1,14 @@
+{
+  "id": "user-uuid-9876",
+  "accountId": "b.account-uuid-5678",
+  "email": "jane.smith@construction.com",
+  "name": "Jane Smith",
+  "firstName": "Jane",
+  "lastName": "Smith",
+  "company": "Smith Construction Group",
+  "companyId": "company-uuid-1111",
+  "imageUrl": "https://cdn.autodesk.com/avatars/jane-smith.jpg",
+  "status": "active",
+  "createdAt": "2023-08-01T10:00:00.000Z",
+  "updatedAt": "2024-05-15T09:30:00.000Z"
+}

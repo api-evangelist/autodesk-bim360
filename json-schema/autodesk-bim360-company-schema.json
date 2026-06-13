@@ -1,0 +1,112 @@
+{
+  "title": "Company",
+  "x-stoplight": {
+    "id": "a07ikbbdxen99"
+  },
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Company ID"
+    },
+    "account_id": {
+      "type": "string",
+      "x-stoplight": {
+        "id": "p5xb64wnh4wmx"
+      },
+      "description": "Account ID"
+    },
+    "name": {
+      "type": "string",
+      "x-stoplight": {
+        "id": "iet5cvhxxlpk0"
+      },
+      "description": "Company name should be unique under an account"
+    },
+    "trade": {
+      "type": "string",
+      "x-stoplight": {
+        "id": "1b2guw2drwxjr"
+      },
+      "description": "Trade type based on specialization"
+    },
+    "address_line_1": {
+      "type": "string",
+      "x-stoplight": {
+        "id": "12voppe6n4dem"
+      },
+      "description": "Company address line 1"
+    },
+    "address_line_2": {
+      "type": "string",
+      "x-stoplight": {
+        "id": "ovz2wunnvpu7r"
+      },
+      "description": "Company address line 2"
+    },
+    "city": {
+      "type": "string",
+      "x-stoplight": {
+        "id": "cxd0ahqxpo1en"
+      },
+      "description": "City in which company is located"
+    },
+    "state_or_province": {
+      "type": "string",
+      "x-stoplight": {
+        "id": "3z6lmdqunni69"
+      },
+      "description": "State or province in which company is located"
+    },
+    "postal_code": {
+      "type": "string",
+      "x-stoplight": {
+        "id": "mrqr2ey51mfag"
+      },
+      "description": "Postal code for the company location"
+    },
+    "country": {
+      "type": "string",
+      "x-stoplight": {
+        "id": "q8j06kajtg0v8"
+      },
+      "description": "Country for this company"
+    },
+    "phone": {
+      "type": "string",
+      "x-stoplight": {
+        "id": "x5siwgk3npdvx"
+      },
+      "description": "Business phone number for the company"
+    },
+    "website_url": {
+      "type": "string",
+      "x-stoplight": {
+        "id": "lubzf7q51z7o8"
+      },
+      "description": "Company website"
+    },
+    "description": {
+      "type": "string",
+      "x-stoplight": {
+        "id": "i6e14q3h6b0sx"
+      },
+      "description": "Short description or overview for company"
+    },
+    "erp_id": {
+      "type": "string",
+      "x-stoplight": {
+        "id": "jz2sci73ene74"
+      },
+      "description": "Used to associate a company in BIM 360 with the company data in an ERP system"
+    },
+    "tax_id": {
+      "type": "string",
+      "x-stoplight": {
+        "id": "k6ponb7ozqs5j"
+      },
+      "description": "Used to associate a company in BIM 360 with the company data from public and industry sources"
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}
