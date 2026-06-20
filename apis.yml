@@ -13,7 +13,7 @@ description: >
   coordination, and field management, making it a central hub for construction
   data integration and workflow automation.
 type: Index
-image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 url: https://raw.githubusercontent.com/api-evangelist/autodesk-bim360/refs/heads/main/apis.yml
 created: "2026-06-13"
 modified: "2026-06-13"
@@ -36,7 +36,7 @@ apis:
       and partner company directories, and synchronizing data with external
       systems. Enables programmatic control of BIM 360 account-level
       administration tasks.
-    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
     humanURL: https://aps.autodesk.com/en/docs/bim360/v1/tutorials/account-admin
     baseURL: https://developer.api.autodesk.com
     tags:
@@ -53,7 +53,7 @@ apis:
       points of concern through to resolution. Version 2 of the API simplifies
       the response format and provides additional features such as local
       attachments.
-    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
     humanURL: https://aps.autodesk.com/en/docs/bim360/v1/overview/field-guide/issues
     baseURL: https://developer.api.autodesk.com
     tags:
@@ -69,7 +69,7 @@ apis:
       and any other project documents to maximize collaboration. Provides
       programmatic access to BIM 360 Docs for document storage and version
       control.
-    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
     humanURL: https://aps.autodesk.com/en/docs/bim360/v1/tutorials/getting-started/manage-access-to-docs/
     baseURL: https://developer.api.autodesk.com
     tags:
@@ -85,7 +85,7 @@ apis:
       developers to define settings such as categories, custom attributes, and
       sets of statuses. Provides full programmatic access to asset tracking
       and lifecycle management within construction projects.
-    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
     humanURL: https://aps.autodesk.com/en/docs/bim360/v1/overview/field-guide/assets
     baseURL: https://developer.api.autodesk.com
     tags:
@@ -101,7 +101,7 @@ apis:
       including budget, contract, and change order information. Enables
       integration with financial systems and programmatic management of project
       cost data throughout the construction lifecycle.
-    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
     humanURL: https://aps.autodesk.com/en/docs/bim360/v1/overview/field-guide/cost-management
     baseURL: https://developer.api.autodesk.com
     tags:
@@ -117,7 +117,7 @@ apis:
       Model Coordination web application. Enables detection and management of
       clashes and issues that arise when 3D models from different design
       disciplines are combined in a single coordinated model.
-    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
     humanURL: https://aps.autodesk.com/en/docs/bim360/v1/overview/field-guide/model-coordination
     baseURL: https://developer.api.autodesk.com
     tags:
@@ -132,7 +132,7 @@ apis:
       Creates, tracks, and updates RFIs (Requests for Information) within BIM
       360 projects. Provides programmatic access to the RFI workflow, enabling
       integration with external project management and communication tools.
-    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
     humanURL: https://aps.autodesk.com/en/docs/bim360/v1/overview/field-guide/rfis
     baseURL: https://developer.api.autodesk.com
     tags:
@@ -148,7 +148,7 @@ apis:
       field inspection workflows and quality assurance processes by providing
       programmatic access to checklist templates and responses in construction
       field operations.
-    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
     humanURL: https://aps.autodesk.com/en/docs/bim360/v1/tutorials/checklists/
     baseURL: https://developer.api.autodesk.com
     tags:
@@ -163,7 +163,7 @@ apis:
       Retrieves aggregated data from BIM 360 services including Admin, Issues,
       Locations, Submittals, Cost, and RFIs. Enables bulk data extraction for
       analytics, reporting, and integration with business intelligence platforms.
-    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
     humanURL: https://aps.autodesk.com/en/docs/bim360/v1/overview/field-guide/data-connector
     baseURL: https://developer.api.autodesk.com
     tags:
@@ -179,7 +179,7 @@ apis:
       projects. Provides programmatic access to location trees used to organize
       and contextualize issues, assets, and other project data by physical
       location.
-    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
     humanURL: https://aps.autodesk.com/en/docs/bim360/v1/overview/field-guide/locations
     baseURL: https://developer.api.autodesk.com
     tags:
@@ -195,7 +195,7 @@ apis:
       BIM 360. Enables cross-domain data linking between issues, RFIs, assets,
       documents, and other project entities to provide traceability throughout
       the construction workflow.
-    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
     humanURL: https://aps.autodesk.com/en/docs/bim360/v1/overview/field-guide/relationships
     baseURL: https://developer.api.autodesk.com
     tags:
