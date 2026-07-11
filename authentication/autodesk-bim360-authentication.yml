@@ -1,0 +1,35 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/autodesk-bim360-account-admin-openapi.yml, openapi/autodesk-bim360-issues-openapi.yml
+summary:
+  types:
+  - oauth2
+  oauth2_flows:
+  - authorizationCode
+  - clientCredentials
+  - implicit
+schemes:
+- name: 2-legged
+  type: oauth2
+  flows:
+  - flow: clientCredentials
+    scopes: 0
+  sources:
+  - openapi/autodesk-bim360-account-admin-openapi.yml
+  - openapi/autodesk-bim360-issues-openapi.yml
+- name: 3-legged-implicit
+  type: oauth2
+  flows:
+  - flow: implicit
+    scopes: 0
+  sources:
+  - openapi/autodesk-bim360-account-admin-openapi.yml
+  - openapi/autodesk-bim360-issues-openapi.yml
+- name: 3-legged
+  type: oauth2
+  flows:
+  - flow: authorizationCode
+    scopes: 0
+  sources:
+  - openapi/autodesk-bim360-account-admin-openapi.yml
+  - openapi/autodesk-bim360-issues-openapi.yml
