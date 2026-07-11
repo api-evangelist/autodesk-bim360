@@ -1,0 +1,114 @@
+generated: '2026-07-11'
+method: searched
+docs: https://aps.autodesk.com/en/docs/oauth/v2/developers_guide/scopes/
+source: openapi/autodesk-bim360-account-admin-openapi.yml, openapi/autodesk-bim360-issues-openapi.yml
+schemes:
+- name: 2-legged
+  source: openapi/autodesk-bim360-account-admin-openapi.yml
+  flows:
+  - flow: clientCredentials
+- name: 3-legged-implicit
+  source: openapi/autodesk-bim360-account-admin-openapi.yml
+  flows:
+  - flow: implicit
+- name: 3-legged
+  source: openapi/autodesk-bim360-account-admin-openapi.yml
+  flows:
+  - flow: authorizationCode
+- name: 2-legged
+  source: openapi/autodesk-bim360-issues-openapi.yml
+  flows:
+  - flow: clientCredentials
+- name: 3-legged
+  source: openapi/autodesk-bim360-issues-openapi.yml
+  flows:
+  - flow: authorizationCode
+- name: 3-legged-implicit
+  source: openapi/autodesk-bim360-issues-openapi.yml
+  flows:
+  - flow: implicit
+scopes:
+- scope: user-profile:read
+  description: The application will be able to read the end user's profile data
+    (not including associated products and services).
+  sources:
+  - https://aps.autodesk.com/en/docs/oauth/v2/developers_guide/scopes/
+- scope: user:read
+  description: The application will be able to read the end user's profile data,
+    including associated products and services.
+  sources:
+  - https://aps.autodesk.com/en/docs/oauth/v2/developers_guide/scopes/
+- scope: user:write
+  description: The application will be able to create, update, and delete the end
+    user's profile data, including associated products and services.
+  sources:
+  - https://aps.autodesk.com/en/docs/oauth/v2/developers_guide/scopes/
+- scope: viewables:read
+  description: The application will only be able to read the end user's viewable
+    data (e.g., PNG and SVF files) within the Autodesk ecosystem.
+  sources:
+  - https://aps.autodesk.com/en/docs/oauth/v2/developers_guide/scopes/
+- scope: data:read
+  description: The application will be able to read all the end user's data (viewable
+    and non-viewable) within the Autodesk ecosystem.
+  sources:
+  - https://aps.autodesk.com/en/docs/oauth/v2/developers_guide/scopes/
+- scope: data:write
+  description: The application will be able to create, update, and delete data on
+    behalf of the end user within the Autodesk ecosystem.
+  sources:
+  - https://aps.autodesk.com/en/docs/oauth/v2/developers_guide/scopes/
+- scope: data:create
+  description: The application will be able to create data on behalf of the end user
+    within the Autodesk ecosystem.
+  sources:
+  - https://aps.autodesk.com/en/docs/oauth/v2/developers_guide/scopes/
+- scope: data:search
+  description: The application will be able to search the end user's data within
+    the Autodesk ecosystem.
+  sources:
+  - https://aps.autodesk.com/en/docs/oauth/v2/developers_guide/scopes/
+- scope: bucket:create
+  description: The application will be able to create an OSS bucket it will own.
+  sources:
+  - https://aps.autodesk.com/en/docs/oauth/v2/developers_guide/scopes/
+- scope: bucket:read
+  description: The application will be able to read the metadata and list contents
+    for OSS buckets that it has access to.
+  sources:
+  - https://aps.autodesk.com/en/docs/oauth/v2/developers_guide/scopes/
+- scope: bucket:update
+  description: The application will be able to set permissions and entitlements for
+    OSS buckets that it has permission to modify.
+  sources:
+  - https://aps.autodesk.com/en/docs/oauth/v2/developers_guide/scopes/
+- scope: bucket:delete
+  description: The application will be able to delete a bucket that it has permission
+    to delete.
+  sources:
+  - https://aps.autodesk.com/en/docs/oauth/v2/developers_guide/scopes/
+- scope: code:all
+  description: The application will be able to author and execute code on behalf
+    of the end user (e.g., scripts processed by the Design Automation API).
+  sources:
+  - https://aps.autodesk.com/en/docs/oauth/v2/developers_guide/scopes/
+- scope: account:read
+  description: For Product APIs, the application will be able to read the account
+    data the end user has entitlements to.
+  sources:
+  - https://aps.autodesk.com/en/docs/oauth/v2/developers_guide/scopes/
+- scope: account:write
+  description: For Product APIs, the application will be able to update the account
+    data the end user has entitlements to.
+  sources:
+  - https://aps.autodesk.com/en/docs/oauth/v2/developers_guide/scopes/
+- scope: openid
+  description: The application requires this scope to generate an id_token.
+  sources:
+  - https://aps.autodesk.com/en/docs/oauth/v2/developers_guide/scopes/
+- scope: data:read:<URN_OF_RESOURCE>
+  description: Dynamic scope that allows the client to access only the specific resource
+    with the URN/Object ID specified by <URN_OF_RESOURCE> (a raw urn:adsk.* URN, not
+    Base64 encoded).
+  sources:
+  - https://aps.autodesk.com/en/docs/oauth/v2/developers_guide/scopes/

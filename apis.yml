@@ -206,6 +206,8 @@ apis:
       - type: Documentation
         url: https://aps.autodesk.com/en/docs/bim360/v1/overview/field-guide/relationships
 common:
+  - type: OAuthScopes
+    url: scopes/autodesk-bim360-scopes.yml
   - type: Website
     url: https://construction.autodesk.com/products/autodesk-bim-360/
   - type: Documentation
