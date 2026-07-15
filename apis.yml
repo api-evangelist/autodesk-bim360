@@ -206,6 +206,8 @@ apis:
       - type: Documentation
         url: https://aps.autodesk.com/en/docs/bim360/v1/overview/field-guide/relationships
 common:
+  - type: AgenticAccess
+    url: agentic-access/autodesk-bim360-agentic-access.yml
   - type: DomainSecurity
     url: security/autodesk-bim360-domain-security.yml
   - type: Authentication
