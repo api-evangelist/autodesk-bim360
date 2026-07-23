@@ -1,0 +1,1462 @@
+openapi: 3.0.0
+info:
+  title: Construction.Account.Admin Account Users Projects API
+  version: '1.0'
+  contact:
+    name: Autodesk Plaform Services
+    url: https://aps.autodesk.com/
+    email: aps.help@autodesk.com
+  termsOfService: https://www.autodesk.com/company/legal-notices-trademarks/terms-of-service-autodesk360-web-services/forge-platform-web-services-api-terms-of-service
+  x-support: https://stackoverflow.com/questions/tagged/autodesk-platform-services
+  description: 'The Account Admin API automates creating and managing projects, assigning and managing project users, and managing member and partner company directories. You can also synchronize data with external systems.
+
+    '
+servers:
+- url: https://developer.api.autodesk.com
+security:
+- 2-legged: []
+- 3-legged: []
+tags:
+- name: Projects
+paths:
+  /construction/admin/v1/accounts/{accountId}/projects:
+    parameters:
+    - schema:
+        type: string
+      name: accountId
+      in: path
+      required: true
+      description: The ID of the ACC account that contains the project being created or the projects being retrieved. This corresponds to the hub ID in the Data Management API. To convert a hub ID into an account ID, remove the “b.” prefix. For example, a hub ID of b.c8b0c73d-3ae9 translates to an account ID of c8b0c73d-3ae9.
+    get:
+      summary: Get Project in account
+      responses:
+        '200':
+          description: A list of requested projects.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProjectsPage'
+        '400':
+          description: The request could not be understood by the server due to malformed syntax.
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Resource Not Found
+        '406':
+          description: Not Acceptable
+        '410':
+          description: Access to the target resource is no longer available.
+        '429':
+          description: User has sent too many requests in a given amount of time.
+        '500':
+          description: Internal Server Error
+        '503':
+          description: Service Unavailable
+      operationId: getProjects
+      description: Retrieves a list of the projects in the specified account.
+      parameters:
+      - schema:
+          type: string
+        in: header
+        name: Accept-Language
+        description: This header is not currently supported in the Account Admin API.
+      - schema:
+          $ref: '#/components/schemas/Region'
+        in: header
+        name: Region
+        description: 'The region where the bucket resides. Acceptable values: US, EMEA, AUS, CAN, DEU, IND, JPN, GBR.'
+      - schema:
+          type: string
+        in: header
+        name: User-Id
+        description: Note that this header is not relevant for Account Admin GET endpoints. The ID of a user on whose behalf your API request is acting. Required if you’re using a 2-legged authentication context, which must be 2-legged OAuth2 security with user impersonation.  Your app has access to all users specified by the administrator in the SaaS integrations UI. Provide this header value to identify the user to be affected by the request.  You can use either the user’s ACC ID (id), or their Autodesk ID (autodeskId).
+      - schema:
+          $ref: '#/components/schemas/fields_internal'
+        in: query
+        name: fields
+        description: 'A comma-separated list of the project fields to include in the response. Default value: all fields.'
+      - schema:
+          $ref: '#/components/schemas/filterClassification_internal'
+        in: query
+        name: filter[classification]
+        description: 'A list of the classifications of projects to include in the response. Possible values: production, template, component, sample.'
+      - schema:
+          $ref: '#/components/schemas/filterPlatform_internal'
+        in: query
+        name: filter[platform]
+        description: 'Filter resource by platform. Possible values: acc and bim360.'
+      - schema:
+          $ref: '#/components/schemas/products_internal'
+        in: query
+        name: filter[products]
+        description: A comma-separated list of the products that the returned projects must use. Only projects that use one or more of the listed products are returned.
+      - schema:
+          type: string
+        in: query
+        name: filter[name]
+        description: 'A project name or name pattern to filter projects by. Can be a partial match based on the value of filterTextMatch that you provide; for example: filter[name]=ABCco filterTextMatch=startsWith.  Max length: 255'
+      - schema:
+          $ref: '#/components/schemas/filterType'
+        in: query
+        name: filter[type]
+        description: A list of project types to filter projects by. To exclude a project type from the response, prefix it with - (a hyphen); for example, -Bridge excludes bridge projects.
+      - schema:
+          $ref: '#/components/schemas/status_internal'
+        in: query
+        name: filter[status]
+        description: 'A list of the statuses of projects to include in the response. Possible values:  active pending archived suspended'
+      - schema:
+          type: string
+        in: query
+        name: filter[businessUnitId]
+        description: The ID of the business unit that returned projects must be associated with.
+      - schema:
+          type: string
+        in: query
+        name: filter[jobNumber]
+        description: The user-defined identifier for a project to be returned. This ID was defined when the project was created. This filter accepts a partial match based on the value of filterTextMatch that you provide.
+      - schema:
+          type: string
+        in: query
+        name: filter[updatedAt]
+        description: A range of dates during which the desired projects were updated. The range must be specified with dates in ISO 8601 format with time required. Separate multiple values with commas.
+      - schema:
+          $ref: '#/components/schemas/filterTextMatch'
+        in: query
+        name: filterTextMatch
+        description: 'When filtering on a text-based field, this value indicates how to do the matching. Default value: contains. Possible values: contains, startsWith, endsWith and equals.'
+      - schema:
+          $ref: '#/components/schemas/sort_internal'
+        in: query
+        name: sort
+        description: A list of fields to sort the returned projects by. Multiple sort fields are applied in sequence order — each sort field produces groupings of projects with the same values of that field; the next sort field applies within the groupings produced by the previous sort field.
+      - schema:
+          type: integer
+        in: query
+        name: limit
+        description: 'The maximum number of records to return in a single request. Possible range: 1-200. Default value: 20.'
+      - schema:
+          type: integer
+        in: query
+        name: offset
+        description: The record number that the returned page should start with. When the total number of records exceeds the value of limit, increase the offset value in subsequent requests to continue getting the remaining results.
+      security:
+      - 2-legged: []
+      - 3-legged-implicit: []
+      - 3-legged: []
+      tags:
+      - Projects
+    post:
+      summary: Create new Project
+      responses:
+        '202':
+          description: APS has received the request but not yet completed it.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Project'
+        '400':
+          description: The request could not be understood by the server due to malformed syntax.
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Resource Not Found
+        '406':
+          description: Not Acceptable
+        '410':
+          description: Access to the target resource is no longer available.
+        '415':
+          description: The server refuses to accept the request because the payload format is in an unsupported format.
+        '429':
+          description: User has sent too many requests in a given amount of time.
+        '500':
+          description: Internal Server Error
+        '503':
+          description: Service Unavailable
+      operationId: createProject
+      description: Creates a new project in the specified account. You can create the project directly, or clone the project from a project template.
+      parameters:
+      - schema:
+          type: string
+        in: header
+        name: Accept-Language
+        description: This header is not currently supported in the Account Admin API.
+      - schema:
+          $ref: '#/components/schemas/Region'
+        in: header
+        name: Region
+        description: 'The region where the bucket resides. Acceptable values: US, EMEA, AUS, CAN, DEU, IND, JPN, GBR.'
+      - schema:
+          type: string
+        in: header
+        name: User-Id
+        description: Note that this header is not relevant for Account Admin GET endpoints. The ID of a user on whose behalf your API request is acting. Required if you’re using a 2-legged authentication context, which must be 2-legged OAuth2 security with user impersonation.  Your app has access to all users specified by the administrator in the SaaS integrations UI. Provide this header value to identify the user to be affected by the request.  You can use either the user’s ACC ID (id), or their Autodesk ID (autodeskId).
+      security:
+      - 2-legged: []
+      - 3-legged-implicit: []
+      - 3-legged: []
+      tags:
+      - Projects
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProjectPayload'
+  /construction/admin/v1/projects/{projectId}:
+    parameters:
+    - schema:
+        type: string
+      name: projectId
+      in: path
+      required: true
+    get:
+      summary: Get a project by ID
+      responses:
+        '200':
+          description: A list of requested projects.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Project'
+        '400':
+          description: The request could not be understood by the server due to malformed syntax.
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Resource Not Found
+        '406':
+          description: Not Acceptable
+        '407':
+          description: Proxy Authentication Required
+        '410':
+          description: Access to the target resource is no longer available.
+        '429':
+          description: User has sent too many requests in a given amount of time.
+        '500':
+          description: Internal Server Error
+        '503':
+          description: Service Unavailable
+      operationId: getProject
+      description: Retrieves a project specified by project ID.
+      parameters:
+      - schema:
+          type: string
+        in: header
+        name: Accept-Language
+        description: This header is not currently supported in the Account Admin API.
+      - schema:
+          $ref: '#/components/schemas/Region'
+        in: header
+        name: Region
+        description: 'The region where the bucket resides. Acceptable values: US, EMEA, AUS, CAN, DEU, IND, JPN, GBR.'
+      - schema:
+          type: string
+        in: header
+        name: User-Id
+        description: Note that this header is not relevant for Account Admin GET endpoints. The ID of a user on whose behalf your API request is acting. Required if you’re using a 2-legged authentication context, which must be 2-legged OAuth2 security with user impersonation.  Your app has access to all users specified by the administrator in the SaaS integrations UI. Provide this header value to identify the user to be affected by the request.  You can use either the user’s ACC ID (id), or their Autodesk ID (autodeskId).
+      - in: query
+        name: fields
+        description: 'A comma-separated list of the project fields to include in the response. Default value: all fields.'
+        schema:
+          $ref: '#/components/schemas/fields_internal'
+      security:
+      - 2-legged: []
+      - 3-legged: []
+      - 3-legged-implicit: []
+      tags:
+      - Projects
+  /hq/v1/accounts/{account_id}/projects/{project_id}/image:
+    parameters:
+    - schema:
+        type: string
+      name: project_id
+      in: path
+      required: true
+      description: The account ID of the project. This corresponds to hub ID in the Data Management API. To convert a hub ID into an account ID you need to remove the “b.” prefix. For example, a hub ID of b.c8b0c73d-3ae9 translates to an account ID of c8b0c73d-3ae9.
+    - schema:
+        type: string
+      name: account_id
+      in: path
+      required: true
+      description: The ID of the project. This corresponds to project ID in the Data Management API. To convert a project ID in the Data Management API into a project ID in the BIM 360 API you need to remove the “b.” prefix. For example, a project ID of b.a4be0c34a-4ab7 translates to a project ID of a4be0c34a-4ab7.
+    patch:
+      summary: Create or update a project’s image
+      operationId: createProjectImage
+      responses:
+        '200':
+          description: A list of requested projects.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProjectPatch'
+        '400':
+          description: The request could not be understood by the server due to malformed syntax.
+        '403':
+          description: Forbidden
+        '404':
+          description: Resource Not Found
+        '409':
+          description: Conflict
+        '422':
+          description: The request was unable to be followed due to restrictions.
+        '500':
+          description: Internal Server Error
+      description: Create or update a project’s image.
+      security:
+      - 2-legged: []
+      - 3-legged: []
+      - 3-legged-implicit: []
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              required:
+              - body
+              properties:
+                body:
+                  type: string
+                  description: The file to be uploaded as HTTP multipart (chunk) data. Supported MIME types are image/png, image/jpeg, image/jpg, image/bmp, and image/gif.
+                  format: binary
+      tags:
+      - Projects
+      parameters:
+      - schema:
+          $ref: '#/components/schemas/Region'
+        in: header
+        name: Region
+        description: 'The geographic area where the data is stored. Acceptable values: US, EMEA, AUS, CAN, DEU, IND, JPN, GBR. By default, it is set to US.'
+components:
+  schemas:
+    Pagination:
+      title: Pagination
+      x-stoplight:
+        id: q1bi13503pl18
+      type: object
+      properties:
+        limit:
+          type: integer
+          x-stoplight:
+            id: 8izi1f176ek68
+        offset:
+          type: integer
+          x-stoplight:
+            id: v1vdhhbk5vhtj
+        totalResults:
+          type: integer
+          x-stoplight:
+            id: o7y9s28pvovds
+        nextUrl:
+          type: string
+          x-stoplight:
+            id: egebyg74p2y51
+        previousUrl:
+          type: string
+          x-stoplight:
+            id: rhoc949ms1w0p
+      description: "\tContains pagination details for the records returned by the endpoint."
+    ProjectPatch:
+      title: ProjectPatch
+      x-stoplight:
+        id: g4k3if9lta3pg
+      type: object
+      properties:
+        id:
+          type: string
+          description: Project ID
+        account_id:
+          type: string
+          x-stoplight:
+            id: e67zvdyuagrvb
+          description: Account ID
+        name:
+          type: string
+          x-stoplight:
+            id: dmzvvk6gp4fvg
+          description: Name of the project
+        start_date:
+          type: string
+          x-stoplight:
+            id: xn0vpzsk6nrpn
+          description: 'The starting date of a project; must be earlier than end_date
+
+            Format: YYYY-MM-DD'
+        end_date:
+          type: string
+          x-stoplight:
+            id: 8k65nul995k5g
+          description: 'The ending date of a project; must be later than start_date
+
+            Format: YYYY-MM-DD'
+        project_type:
+          type: string
+          x-stoplight:
+            id: 0ougx4e12wc5e
+          description: The type of project; accepts preconfigured and customized project types
+        value:
+          type: number
+          x-stoplight:
+            id: 3gfeukdzeddnr
+          description: Monetary value of the project
+        currency:
+          type: string
+          x-stoplight:
+            id: e1jzwyjpobyt8
+          description: Currency for project value
+        status:
+          x-stoplight:
+            id: gruqhoco7k1hr
+          description: The status of project.
+          type: string
+        job_number:
+          type: string
+          x-stoplight:
+            id: x97wzdzwxscc8
+          description: Project job number to connect a BIM 360 project to project or job in a financial or ERP system.
+        address_line_1:
+          type: string
+          x-stoplight:
+            id: be7zse4sz643m
+          description: Project address line 1
+        address_line_2:
+          type: string
+          x-stoplight:
+            id: unu5zecux1alc
+          description: Project address line 2
+        city:
+          type: string
+          x-stoplight:
+            id: mcn6w0lvgnp20
+          description: City in which project is located
+        state_or_province:
+          type: string
+          x-stoplight:
+            id: w39x7lnnh9myp
+          description: State or province in which project is located
+        postal_code:
+          type: string
+          x-stoplight:
+            id: owsyshcr8hvna
+          description: Postal code for the project location
+        country:
+          type: string
+          x-stoplight:
+            id: 8p08o8arqn17l
+          description: Country for this project
+        business_unit_id:
+          type: string
+          x-stoplight:
+            id: 17xu7kyhn7del
+          description: The business unit ID of this project
+        timezone:
+          type: string
+          x-stoplight:
+            id: qs32hyvg8ajfy
+          description: Time zone for this project
+        language:
+          x-stoplight:
+            id: g6dvm8dmqd5yw
+          description: Language of the project; applicable to the BIM 360 Field service only
+          type: string
+        construction_type:
+          x-stoplight:
+            id: beot2pj6n3azw
+          description: Type of construction
+          type: string
+        contract_type:
+          x-stoplight:
+            id: ovt9kdgv1cqxh
+          description: Contract Type for your project
+          type: string
+        last_sign_in:
+          type: string
+          x-stoplight:
+            id: 10g0wn1qosciu
+          description: Timestamp of the last sign in, YYYY-MM-DDThh:mm:ss.sssZ format
+    status:
+      title: status
+      x-stoplight:
+        id: 7imcqgahx8744
+      type: string
+      enum:
+      - active
+      - pending
+      - archived
+      - suspended
+    ProjectPayload:
+      title: ProjectPayload
+      x-stoplight:
+        id: ie1rcbkmjt2yc
+      type: object
+      properties:
+        name:
+          type: string
+          description: 'The name of the project.
+
+            Max length: 255'
+          x-stoplight:
+            id: 6cf9wq5ozzjck
+        startDate:
+          type: string
+          description: The estimated start date for the project, in ISO 8601 format.
+          x-stoplight:
+            id: qxtctrcqpzdim
+        endDate:
+          type: string
+          x-stoplight:
+            id: 0wy8z5fu7edd3
+          description: The estimated end date for the project, in ISO 8601 format.
+        type:
+          description: The type of the project.
+          x-stoplight:
+            id: 0rmvamrt2vu0p
+          type: string
+        classification:
+          $ref: '#/components/schemas/classification'
+          description: 'The project’s purpose. '
+          x-stoplight:
+            id: la722kcrq302p
+        projectValue:
+          type: object
+          description: The value of the project. When updating the project value, both the value and currency parameters are required.
+          x-stoplight:
+            id: 7jyuuuw47s1zg
+          properties:
+            value:
+              type: integer
+              x-stoplight:
+                id: uc6040iee54lw
+              description: The estimated value or cost of the project based on the currency specified in the currency field. The default value is 0.
+            currency:
+              $ref: '#/components/schemas/currency'
+              x-stoplight:
+                id: 3bhkzguqw0sv3
+              description: 'The currency of the project value for the project. Default value: USD.'
+        jobNumber:
+          type: string
+          description: 'A job identifier that’s defined for the project by the user. This ID was defined when the project was created.
+
+            Max length: 100'
+        addressLine1:
+          type: string
+          description: 'Address line 1 for the project.
+
+            Max length: 255'
+        addressLine2:
+          type: string
+          x-stoplight:
+            id: 1upgay7epgz9b
+          description: 'Address line 2 for the project.
+
+            Max length: 255'
+        city:
+          type: string
+          x-stoplight:
+            id: 0oc4qp1v0ftdm
+          description: The city in which the project is located.
+        stateOrProvince:
+          type: string
+          x-stoplight:
+            id: ubo3fqfnmgqug
+          description: The state or province in which the project is located. Only valid state/province names and ISO 3166-1 alpha-2 codes is accepted. The provided state or province must exist in the country of the project.
+        postalCode:
+          type: string
+          x-stoplight:
+            id: 5t24tmhaqskus
+          description: The zip or postal code in which the project is located.
+        country:
+          type: string
+          x-stoplight:
+            id: xg4z9ewblj1w5
+          description: The country in which the project is located. Only valid country names and ISO 3166-1 alpha-2 codes is accepted.
+        latitude:
+          type: string
+          x-stoplight:
+            id: qsply44us8h4h
+          description: The latitude of the location of the project.
+        longitude:
+          type: string
+          x-stoplight:
+            id: zp562dse6o7hj
+          description: The longitude of the location of the project.
+        timezone:
+          $ref: '#/components/schemas/timezone'
+          x-stoplight:
+            id: o53ui6vd71sgp
+          description: The time zone in which the project is located. Note that this field can be NULL.
+        constructionType:
+          type: string
+          x-stoplight:
+            id: f8bnng42rt1bj
+          description: The construction type of the project. Following is a list of recommended values; however, any value is accepted.
+        deliveryMethod:
+          type: string
+          x-stoplight:
+            id: 6bswlp8p3pzsa
+          description: The delivery method of the project. Following is a list of recommended values; however, any value is accepted.
+        contractType:
+          type: string
+          x-stoplight:
+            id: m9xai1gdvbprg
+          description: The contract type of the project. Following is a list of recommended values; however, any value is accepted.
+        currentPhase:
+          type: string
+          x-stoplight:
+            id: 5k6oorhq27hxk
+          description: The current phase of the project. Following is a list of recommended values; however, any value is accepted.
+        businessUnitId:
+          type: string
+          x-stoplight:
+            id: ww05qb8kr01ru
+          description: The ID of the business unit that the project is associated with.
+        sheetCount:
+          type: integer
+          x-stoplight:
+            id: r58ypjbag6lil
+          description: The total number of sheets associated with the project.
+        products:
+          type: array
+          x-stoplight:
+            id: 15j7grna78zar
+          description: An array of the product objects associated with the project.
+          items:
+            x-stoplight:
+              id: qv9mwsm0079v3
+            type: string
+        platform:
+          $ref: '#/components/schemas/platform'
+          x-stoplight:
+            id: l2bslup34ygq3
+          description: 'The APS platform that the project belongs to. Possible values: acc, bim360'
+        companyCount:
+          type: integer
+          x-stoplight:
+            id: hurzujkff3e2j
+          description: The total number of companies associated with the project.
+        memberCount:
+          type: integer
+          x-stoplight:
+            id: 4n7prnedw1mqu
+          description: The total number of members on the project.
+        template:
+          type: object
+          x-stoplight:
+            id: 24muiuk2wr82k
+          description: 'Information about a project in the current user’s account that is configured as a template from which to copy products and settings when creating a new project:
+
+            If you include this object in a POST accounts/:accountId/projects request, the cloned project’s products and settings will match those of the template project.
+
+            If you omit this object from a POST accounts/:accountId/projects request, all of the current ACC account’s products are added to the cloned project and activated.'
+          properties:
+            projectId:
+              type: string
+              x-stoplight:
+                id: zwze88rqhbow0
+              description: The ID of a project template in the current ACC account from which to clone the new project and copy products and settings.
+            options:
+              type: object
+              x-stoplight:
+                id: wigltykwfys3w
+              description: Information about what to include when cloning a project template.
+              properties:
+                field:
+                  type: object
+                  x-stoplight:
+                    id: jdnmtzcvswyqk
+                  description: Project template options specific to classic field.
+                  properties:
+                    includeCompanies:
+                      type: boolean
+                      x-stoplight:
+                        id: h6w5dse4kw4vu
+                      description: 'Indicates whether to include company data when copying from the project template.
+
+                        true: Include company data.
+
+                        false: Exclude company data.'
+                    includeLocations:
+                      type: boolean
+                      x-stoplight:
+                        id: zrg9252udrk4x
+                      description: 'Indicates whether to include location data when copying from the template project.
+
+                        true: Include location data.
+
+                        false: Exclude location data.'
+          required:
+          - projectId
+      required:
+      - name
+      - type
+    classification:
+      title: classification
+      x-stoplight:
+        id: kiltb9wsm9iye
+      type: string
+      enum:
+      - production
+      - template
+      - component
+      - sample
+    fields_internal:
+      title: fields_internal
+      x-stoplight:
+        id: gllpnqude53mp
+      type: array
+      items:
+        $ref: '#/components/schemas/fields'
+        x-stoplight:
+          id: eak8q4id1p2i3
+    products_internal:
+      title: products_internal
+      x-stoplight:
+        id: 9c80166a5fe5a
+      type: array
+      items:
+        $ref: '#/components/schemas/products'
+        x-stoplight:
+          id: qeezmlysbidw9
+    Region:
+      title: Region
+      x-stoplight:
+        id: 5rz8jxdpgo4zq
+      type: string
+      enum:
+      - US
+      - EMEA
+      - AUS
+      - CAN
+      - DEU
+      - IND
+      - JPN
+      - GBR
+      description: 'Specifies the region where your request should be routed. Possible values are:
+
+        - ``US`` - Data center for the US region.
+
+        - ``EMEA`` - Data center for the European Union, Middle East, and Africa regions.
+
+        - ``AUS`` - Data center for the Australia region.
+
+        - ``CAN`` - Data center for the Canada region.
+
+        - ``DEU`` - Data center for the Germany region.
+
+        - ``IND`` - Data center for the India region.
+
+        - ``JPN`` - Data center for the Japan region.
+
+        - ``GBR`` - Data center for the United Kingdom region.'
+    sortBy:
+      title: sortBy
+      x-stoplight:
+        id: th8hud7fjoevd
+      type: string
+      enum:
+      - name asc
+      - startDate asc
+      - endDate asc
+      - type asc
+      - status asc
+      - jobNumber asc
+      - constructionType asc
+      - deliveryMethod asc
+      - contractType asc
+      - currentPhase asc
+      - companyCount asc
+      - memberCount asc
+      - createdAt asc
+      - updatedAt asc
+      - name desc
+      - startDate desc
+      - endDate desc
+      - type desc
+      - status desc
+      - jobNumber desc
+      - constructionType desc
+      - deliveryMethod desc
+      - contractType desc
+      - currentPhase desc
+      - companyCount desc
+      - memberCount desc
+      - createdAt desc
+      - updatedAt desc
+    timezone:
+      title: timezone
+      type: string
+      enum:
+      - Pacific/Honolulu
+      - America/Juneau
+      - America/Los_Angeles
+      - America/Phoenix
+      - America/Denver
+      - America/Chicago
+      - America/New_York
+      - America/Indiana/Indianapolis
+      - Pacific/Pago_Pago
+      - Pacific/Midway
+      - America/Tijuana
+      - America/Chihuahua
+      - America/Mazatlan
+      - America/Guatemala
+      - America/Mexico_City
+      - America/Monterrey
+      - America/Regina
+      - America/Bogota
+      - America/Lima
+      - America/Caracas
+      - America/Halifax
+      - America/Guyana
+      - America/La_Paz
+      - America/Santiago
+      - America/St_Johns
+      - America/Sao_Paulo
+      - America/Argentina/Buenos_Aires
+      - America/Godthab
+      - Atlantic/South_Georgia
+      - Atlantic/Azores
+      - Atlantic/Cape_Verde
+      - Africa/Casablanca
+      - Europe/Dublin
+      - Europe/Lisbon
+      - Europe/London
+      - Africa/Monrovia
+      - Etc/UTC
+      - Europe/Amsterdam
+      - Europe/Belgrade
+      - Europe/Berlin
+      - Europe/Bratislava
+      - Europe/Brussels
+      - Europe/Budapest
+      - Europe/Copenhagen
+      - Europe/Ljubljana
+      - Europe/Madrid
+      - Europe/Paris
+      - Europe/Prague
+      - Europe/Rome
+      - Europe/Sarajevo
+      - Europe/Skopje
+      - Europe/Stockholm
+      - Europe/Vienna
+      - Europe/Warsaw
+      - Africa/Algiers
+      - Europe/Zagreb
+      - Europe/Athens
+      - Europe/Bucharest
+      - Africa/Cairo
+      - Africa/Harare
+      - Europe/Helsinki
+      - Europe/Istanbul
+      - Asia/Jerusalem
+      - Europe/Kiev
+      - Africa/Johannesburg
+      - Europe/Riga
+      - Europe/Sofia
+      - Europe/Tallinn
+      - Europe/Vilnius
+      - Asia/Baghdad
+      - Asia/Kuwait
+      - Europe/Minsk
+      - Africa/Nairobi
+      - Asia/Riyadh
+      - Asia/Tehran
+      - Asia/Muscat
+      - Asia/Baku
+      - Europe/Moscow
+      - Asia/Tbilisi
+      - Asia/Yerevan
+      - Asia/Kabul
+      - Asia/Karachi
+      - Asia/Tashkent
+      - Asia/Kolkata
+      - Asia/Colombo
+      - Asia/Kathmandu
+      - Asia/Almaty
+      - Asia/Dhaka
+      - Asia/Yekaterinburg
+      - Asia/Rangoon
+      - Asia/Bangkok
+      - Asia/Jakarta
+      - Asia/Novosibirsk
+      - Asia/Shanghai
+      - Asia/Chongqing
+      - Asia/Hong_Kong
+      - Asia/Krasnoyarsk
+      - Asia/Kuala_Lumpur
+      - Australia/Perth
+      - Asia/Singapore
+      - Asia/Taipei
+      - Asia/Ulaanbaatar
+      - Asia/Urumqi
+      - Asia/Irkutsk
+      - Asia/Tokyo
+      - Asia/Seoul
+      - Australia/Adelaide
+      - Australia/Darwin
+      - Australia/Brisbane
+      - Australia/Melbourne
+      - Pacific/Guam
+      - Australia/Hobart
+      - Pacific/Port_Moresby
+      - Australia/Sydney
+      - Asia/Yakutsk
+      - Pacific/Noumea
+      - Asia/Vladivostok
+      - Pacific/Auckland
+      - Pacific/Fiji
+      - Asia/Kamchatka
+      - Asia/Magadan
+      - Pacific/Majuro
+      - Pacific/Guadalcanal
+      - Pacific/Tongatapu
+      - Pacific/Apia
+      - Pacific/Fakaofo
+    filterPlatform_internal:
+      title: filterPlatform_internal
+      x-stoplight:
+        id: 07osm8uexhmzc
+      type: array
+      items:
+        $ref: '#/components/schemas/platform'
+        x-stoplight:
+          id: blbjael8tal1d
+    sort_internal:
+      title: sort_internal
+      type: array
+      items:
+        $ref: '#/components/schemas/sortBy'
+        x-stoplight:
+          id: rco9c6oaws4eh
+    filterType:
+      title: filterType
+      type: array
+      items:
+        type: string
+    filterClassification_internal:
+      title: filterClassification_internal
+      type: array
+      items:
+        $ref: '#/components/schemas/classification'
+    filterTextMatch:
+      title: filterTextMatch
+      x-stoplight:
+        id: l613i9qr8h8a6
+      type: string
+      enum:
+      - contains
+      - startsWith
+      - endsWith
+      - equals
+    platform:
+      title: platform
+      x-stoplight:
+        id: w4j4h1zy6fji2
+      type: string
+      enum:
+      - acc
+      - bim360
+    Project:
+      title: Project
+      x-stoplight:
+        id: ebkpy57pcvey6
+      type: object
+      properties:
+        id:
+          type: string
+          description: The internally generated ID for the project.
+        name:
+          type: string
+          description: 'The name of the project.
+
+            Max length: 255'
+          x-stoplight:
+            id: 6cf9wq5ozzjck
+        startDate:
+          type: string
+          description: The estimated start date for the project, in ISO 8601 format.
+          x-stoplight:
+            id: qxtctrcqpzdim
+        endDate:
+          type: string
+          x-stoplight:
+            id: 0wy8z5fu7edd3
+          description: The estimated end date for the project, in ISO 8601 format.
+        type:
+          description: The type of the project.
+          x-stoplight:
+            id: 0rmvamrt2vu0p
+          type: string
+        classification:
+          type: string
+          description: 'The project’s purpose. Possible values: production, template, component, sample'
+          x-stoplight:
+            id: la722kcrq302p
+        projectValue:
+          type: object
+          description: The value of the project. When updating the project value, both the value and currency parameters are required.
+          x-stoplight:
+            id: 7jyuuuw47s1zg
+        status:
+          type: string
+          description: The status of the project.
+          x-stoplight:
+            id: gr9ymnwepgsvy
+        jobNumber:
+          type: string
+          description: 'A job identifier that’s defined for the project by the user. This ID was defined when the project was created.
+
+            Max length: 100'
+        addressLine1:
+          type: string
+          description: 'Address line 1 for the project.
+
+            Max length: 255'
+        addressLine2:
+          type: string
+          x-stoplight:
+            id: 1upgay7epgz9b
+          description: 'Address line 2 for the project.
+
+            Max length: 255'
+        city:
+          type: string
+          x-stoplight:
+            id: 0oc4qp1v0ftdm
+          description: The city in which the project is located.
+        stateOrProvince:
+          type: string
+          x-stoplight:
+            id: ubo3fqfnmgqug
+          description: The state or province in which the project is located. Only valid state/province names and ISO 3166-1 alpha-2 codes is accepted. The provided state or province must exist in the country of the project.
+        postalCode:
+          type: string
+          x-stoplight:
+            id: 5t24tmhaqskus
+          description: The zip or postal code in which the project is located.
+        country:
+          type: string
+          x-stoplight:
+            id: xg4z9ewblj1w5
+          description: The country in which the project is located. Only valid country names and ISO 3166-1 alpha-2 codes is accepted.
+        latitude:
+          type: string
+          x-stoplight:
+            id: qsply44us8h4h
+          description: The latitude of the location of the project.
+        longitude:
+          type: string
+          x-stoplight:
+            id: zp562dse6o7hj
+          description: The longitude of the location of the project.
+        timezone:
+          type: string
+          x-stoplight:
+            id: o53ui6vd71sgp
+          description: The time zone in which the project is located. Note that this field can be NULL.
+        constructionType:
+          type: string
+          x-stoplight:
+            id: f8bnng42rt1bj
+          description: The construction type of the project. Following is a list of recommended values; however, any value is accepted.
+        deliveryMethod:
+          type: string
+          x-stoplight:
+            id: 6bswlp8p3pzsa
+          description: The delivery method of the project. Following is a list of recommended values; however, any value is accepted.
+        contractType:
+          type: string
+          x-stoplight:
+            id: m9xai1gdvbprg
+          description: The contract type of the project. Following is a list of recommended values; however, any value is accepted.
+        currentPhase:
+          type: string
+          x-stoplight:
+            id: 5k6oorhq27hxk
+          description: The current phase of the project. Following is a list of recommended values; however, any value is accepted.
+        businessUnitId:
+          type: string
+          x-stoplight:
+            id: ww05qb8kr01ru
+          description: The ID of the business unit that the project is associated with.
+        lastSignIn:
+          type: string
+          x-stoplight:
+            id: im38ovifkrbyv
+          description: The timestamp of the last time someone signed into the project.
+        imageUrl:
+          type: string
+          x-stoplight:
+            id: 8d45mnflzgs33
+          description: The URL of the project image.
+        thumbnailImageUrl:
+          type: string
+          x-stoplight:
+            id: pscimqfva5dqw
+          description: The URL of the project thumbnail image.
+        createdAt:
+          type: string
+          x-stoplight:
+            id: h4j1z55w3l122
+          description: The timestamp when the project was created, in ISO 8601 format.
+        updatedAt:
+          type: string
+          x-stoplight:
+            id: wxbzhsi71d8hl
+          description: The timestamp when the project was last updated, in ISO 8601 format. This reflects only changes to the project fields and not changes to any resources in the project.
+        memberGroupId:
+          type: string
+          x-stoplight:
+            id: 8v9h1l147em3f
+          description: Not relevant
+        adminGroupId:
+          type: string
+          x-stoplight:
+            id: mc5b6njjbon60
+          description: Not relevant
+        accountId:
+          type: string
+          x-stoplight:
+            id: ngfv3tuq4xk65
+          description: The ID of the account the project is associated with.
+        sheetCount:
+          type: integer
+          x-stoplight:
+            id: r58ypjbag6lil
+          description: The total number of sheets associated with the project.
+        products:
+          type: array
+          x-stoplight:
+            id: 15j7grna78zar
+          description: An array of the product objects associated with the project.
+          items:
+            x-stoplight:
+              id: qv9mwsm0079v3
+            type: object
+        platform:
+          type: string
+          x-stoplight:
+            id: l2bslup34ygq3
+          description: The APS platform that the project belongs to.
+        companyCount:
+          type: integer
+          x-stoplight:
+            id: hurzujkff3e2j
+          description: The total number of companies associated with the project.
+        memberCount:
+          type: integer
+          x-stoplight:
+            id: 4n7prnedw1mqu
+          description: The total number of members on the project.
+        templateId:
+          type: string
+          x-stoplight:
+            id: zpt9et6ahhjj8
+          description: The ID of the project that was used as a template to create this project.
+    products:
+      title: products
+      x-stoplight:
+        id: qr6chlzpjohw0
+      type: string
+      enum:
+      - build
+      - docs
+      - takeoff
+      - cost
+      - autospecs
+      - financials
+      - buildingConnected
+      - capitalPlanning
+      - accountAdministration
+      - workshopxr
+      - insight
+      - projectAdministration
+      - modelCoordination
+      - designCollaboration
+      - cloudWorksharing
+      - fieldManagement
+      - costManagement
+      - glue
+      - documentManagement
+      - projectHome
+      - assets
+      - quantification
+      - plan
+      - field
+      - projectManagement
+      description: ''
+    fields:
+      title: fields
+      x-stoplight:
+        id: 2u11626lmta32
+      type: string
+      enum:
+      - accountId
+      - addressLine1
+      - addressLine2
+      - businessUnitId
+      - city
+      - companyCount
+      - constructionType
+      - country
+      - createdAt
+      - deliveryMethod
+      - endDate
+      - imageUrl
+      - jobNumber
+      - lastSignIn
+      - latitude
+      - longitude
+      - memberCount
+      - name
+      - platform
+      - postalCode
+      - products
+      - projectValue
+      - sheetCount
+      - startDate
+      - stateOrProvince
+      - status
+      - thumbnailImageUrl
+      - timezone
+      - type
+      - updatedAt
+    ProjectsPage:
+      title: Projects
+      x-stoplight:
+        id: ikvjx87zn5n72
+      type: object
+      properties:
+        pagination:
+          $ref: '#/components/schemas/Pagination'
+        results:
+          type: array
+          description: The requested page of projects.
+          items:
+            $ref: '#/components/schemas/Project'
+    currency:
+      title: currency
+      type: string
+      enum:
+      - AED
+      - AFN
+      - ALL
+      - AMD
+      - ANG
+      - AOA
+      - ARS
+      - AUD
+      - AWG
+      - AZN
+      - BAM
+      - BBD
+      - BDT
+      - BGN
+      - BHD
+      - BIF
+      - BMD
+      - BND
+      - BOB
+      - BOV
+      - BRL
+      - BSD
+      - BTN
+      - BWP
+      - BYN
+      - BYR
+      - BZD
+      - CAD
+      - CDF
+      - CHE
+      - CHF
+      - CHW
+      - CLF
+      - CLP
+      - CNY
+      - COP
+      - COU
+      - CRC
+      - CUC
+      - CUP
+      - CVE
+      - CZK
+      - DJF
+      - DKK
+      - DOP
+      - DZD
+      - EEK
+      - EGP
+      - ERN
+      - ETB
+      - EUR
+      - FJD
+      - FKP
+      - GBP
+      - GEL
+      - GHS
+      - GIP
+      - GMD
+      - GNF
+      - GTQ
+      - GYD
+      - HKD
+      - HNL
+      - HRK
+      - HTG
+      - HUF
+      - IDR
+      - ILS
+      - INR
+      - IQD
+      - IRR
+      - ISK
+      - JMD
+      - JOD
+      - JPY
+      - KES
+      - KGS
+      - KHR
+      - KMF
+      - KPW
+      - KRW
+      - KWD
+      - KYD
+      - KZT
+      - LAK
+      - LBP
+      - LKR
+      - LRD
+      - LSL
+      - LTL
+      - LVL
+      - LYD
+      - MAD
+      - MDL
+      - MGA
+      - MKD
+      - MMK
+      - MNT
+      - MOP
+      - MRU
+      - MUR
+      - MVR
+      - MWK
+      - MXN
+      - MXV
+      - MYR
+      - MZN
+      - NAD
+      - NGN
+      - NIO
+      - NOK
+      - NPR
+      - NZD
+      - OMR
+      - PAB
+      - PEN
+      - PGK
+      - PHP
+      - PKR
+      - PLN
+      - PYG
+      - QAR
+      - RON
+      - RSD
+      - RUB
+      - RWF
+      - SAR
+      - SBD
+      - SCR
+      - SDG
+      - SEK
+      - SGD
+      - SHP
+      - SLE
+      - SLL
+      - SOS
+      - SRD
+      - SSP
+      - STN
+      - SVC
+      - SYP
+      - SZL
+      - THB
+      - TJS
+      - TMT
+      - TND
+      - TOP
+      - TRL
+      - TRY
+      - TTD
+      - TWD
+      - TZS
+      - UAH
+      - UGX
+      - USD
+      - USN
+      - UYI
+      - UYU
+      - UYW
+      - UZS
+      - VED
+      - VES
+      - VND
+      - VUV
+      - WST
+      - XAF
+      - XAG
+      - XAU
+      - XBA
+      - XBB
+      - XBC
+      - XBD
+      - XCD
+      - XDR
+      - XOF
+      - XPD
+      - XPF
+      - XPT
+      - XSU
+      - XTS
+      - XUA
+      - XXX
+      - YER
+      - ZAR
+      - ZMW
+      - ZWL
+    status_internal:
+      title: status_internal
+      type: array
+      items:
+        $ref: '#/components/schemas/status'
+        x-stoplight:
+          id: 3sxoqp01jo0t2
+  securitySchemes:
+    2-legged:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: ''
+          refreshUrl: ''
+          scopes: {}
+    3-legged-implicit:
+      type: oauth2
+      flows:
+        implicit:
+          authorizationUrl: ''
+          refreshUrl: ''
+          scopes: {}
+    3-legged:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: ''
+          tokenUrl: ''
+          refreshUrl: ''
+          scopes: {}
+x-stoplight:
+  id: zm6m3b30rcbon
