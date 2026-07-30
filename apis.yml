@@ -13,7 +13,20 @@ description: >
   coordination, and field management, making it a central hub for construction
   data integration and workflow automation.
 type: Index
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: freemium
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Freemium · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/autodesk-bim360.png
 url: https://raw.githubusercontent.com/api-evangelist/autodesk-bim360/refs/heads/main/apis.yml
 created: "2026-06-13"
 modified: "2026-06-13"
@@ -30,181 +43,316 @@ tags:
   - RFIs
   - Checklists
 apis:
-  - name: BIM 360 Account Admin API
-    description: >
-      Automates setting up projects, assigning project admins, managing member
-      and partner company directories, and synchronizing data with external
-      systems. Enables programmatic control of BIM 360 account-level
-      administration tasks.
-    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-    humanURL: https://aps.autodesk.com/en/docs/bim360/v1/tutorials/account-admin
-    baseURL: https://developer.api.autodesk.com
-    tags:
-      - Account Administration
-      - Project Setup
-      - Member Management
-    properties:
-      - type: Documentation
-        url: https://aps.autodesk.com/en/docs/bim360/v1/tutorials/account-admin
-  - name: BIM 360 Issues API
-    description: >
-      Creates, tracks, and updates issues within BIM 360 projects. Issues are
-      items created for tracking, managing, and communicating problems and other
-      points of concern through to resolution. Version 2 of the API simplifies
-      the response format and provides additional features such as local
-      attachments.
-    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-    humanURL: https://aps.autodesk.com/en/docs/bim360/v1/overview/field-guide/issues
-    baseURL: https://developer.api.autodesk.com
-    tags:
-      - Issues
-      - Tracking
-      - Quality Control
-    properties:
-      - type: Documentation
-        url: https://aps.autodesk.com/en/docs/bim360/v1/overview/field-guide/issues
-  - name: BIM 360 Document Management API
-    description: >
-      Connects BIM APIs to access, upload, and share 2D plans, 3D BIM models,
-      and any other project documents to maximize collaboration. Provides
-      programmatic access to BIM 360 Docs for document storage and version
-      control.
-    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-    humanURL: https://aps.autodesk.com/en/docs/bim360/v1/tutorials/getting-started/manage-access-to-docs/
-    baseURL: https://developer.api.autodesk.com
-    tags:
-      - Document Management
-      - File Storage
-      - BIM Models
-    properties:
-      - type: Documentation
-        url: https://aps.autodesk.com/en/docs/bim360/v1/tutorials/getting-started/manage-access-to-docs/
-  - name: BIM 360 Assets API
-    description: >
-      Creates and manages assets in the BIM 360 Assets service, allowing
-      developers to define settings such as categories, custom attributes, and
-      sets of statuses. Provides full programmatic access to asset tracking
-      and lifecycle management within construction projects.
-    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-    humanURL: https://aps.autodesk.com/en/docs/bim360/v1/overview/field-guide/assets
-    baseURL: https://developer.api.autodesk.com
-    tags:
-      - Assets
-      - Asset Management
-      - Construction
-    properties:
-      - type: Documentation
-        url: https://aps.autodesk.com/en/docs/bim360/v1/overview/field-guide/assets
-  - name: BIM 360 Cost Management API
-    description: >
-      Provides access to cost and budget changes within construction projects,
-      including budget, contract, and change order information. Enables
-      integration with financial systems and programmatic management of project
-      cost data throughout the construction lifecycle.
-    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-    humanURL: https://aps.autodesk.com/en/docs/bim360/v1/overview/field-guide/cost-management
-    baseURL: https://developer.api.autodesk.com
-    tags:
-      - Cost Management
-      - Budget
-      - Finance
-    properties:
-      - type: Documentation
-        url: https://aps.autodesk.com/en/docs/bim360/v1/overview/field-guide/cost-management
-  - name: BIM 360 Model Coordination API
-    description: >
-      Provides full access to model coordination services used by the BIM 360
-      Model Coordination web application. Enables detection and management of
-      clashes and issues that arise when 3D models from different design
-      disciplines are combined in a single coordinated model.
-    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-    humanURL: https://aps.autodesk.com/en/docs/bim360/v1/overview/field-guide/model-coordination
-    baseURL: https://developer.api.autodesk.com
-    tags:
-      - Model Coordination
-      - Clash Detection
-      - 3D Models
-    properties:
-      - type: Documentation
-        url: https://aps.autodesk.com/en/docs/bim360/v1/overview/field-guide/model-coordination
-  - name: BIM 360 RFIs API
-    description: >
-      Creates, tracks, and updates RFIs (Requests for Information) within BIM
-      360 projects. Provides programmatic access to the RFI workflow, enabling
-      integration with external project management and communication tools.
-    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-    humanURL: https://aps.autodesk.com/en/docs/bim360/v1/overview/field-guide/rfis
-    baseURL: https://developer.api.autodesk.com
-    tags:
-      - RFIs
-      - Requests for Information
-      - Construction Workflow
-    properties:
-      - type: Documentation
-        url: https://aps.autodesk.com/en/docs/bim360/v1/overview/field-guide/rfis
-  - name: BIM 360 Checklists API
-    description: >
-      Creates and tracks quality checklists within BIM 360 projects. Supports
-      field inspection workflows and quality assurance processes by providing
-      programmatic access to checklist templates and responses in construction
-      field operations.
-    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-    humanURL: https://aps.autodesk.com/en/docs/bim360/v1/tutorials/checklists/
-    baseURL: https://developer.api.autodesk.com
-    tags:
-      - Checklists
-      - Quality Control
-      - Field Management
-    properties:
-      - type: Documentation
-        url: https://aps.autodesk.com/en/docs/bim360/v1/tutorials/checklists/
-  - name: BIM 360 Data Connector API
-    description: >
-      Retrieves aggregated data from BIM 360 services including Admin, Issues,
-      Locations, Submittals, Cost, and RFIs. Enables bulk data extraction for
-      analytics, reporting, and integration with business intelligence platforms.
-    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-    humanURL: https://aps.autodesk.com/en/docs/bim360/v1/overview/field-guide/data-connector
-    baseURL: https://developer.api.autodesk.com
-    tags:
-      - Data Connector
-      - Analytics
-      - Reporting
-    properties:
-      - type: Documentation
-        url: https://aps.autodesk.com/en/docs/bim360/v1/overview/field-guide/data-connector
-  - name: BIM 360 Locations API
-    description: >
-      Manages and shares the hierarchy of building areas within construction
-      projects. Provides programmatic access to location trees used to organize
-      and contextualize issues, assets, and other project data by physical
-      location.
-    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-    humanURL: https://aps.autodesk.com/en/docs/bim360/v1/overview/field-guide/locations
-    baseURL: https://developer.api.autodesk.com
-    tags:
-      - Locations
-      - Building Areas
-      - Spatial Management
-    properties:
-      - type: Documentation
-        url: https://aps.autodesk.com/en/docs/bim360/v1/overview/field-guide/locations
-  - name: BIM 360 Relationships API
-    description: >
-      Creates, retrieves, and deletes links between entities across domains in
-      BIM 360. Enables cross-domain data linking between issues, RFIs, assets,
-      documents, and other project entities to provide traceability throughout
-      the construction workflow.
-    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-    humanURL: https://aps.autodesk.com/en/docs/bim360/v1/overview/field-guide/relationships
-    baseURL: https://developer.api.autodesk.com
-    tags:
-      - Relationships
-      - Entity Linking
-      - Traceability
-    properties:
-      - type: Documentation
-        url: https://aps.autodesk.com/en/docs/bim360/v1/overview/field-guide/relationships
+- name: BIM 360 Account Admin API
+  description: >
+    Automates setting up projects, assigning project admins, managing member and partner company directories,
+    and synchronizing data with external systems. Enables programmatic control of BIM 360 account-level
+    administration tasks.
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://aps.autodesk.com/en/docs/bim360/v1/tutorials/account-admin
+  baseURL: https://developer.api.autodesk.com
+  tags:
+  - Account Administration
+  - Project Setup
+  - Member Management
+  properties:
+  - type: Documentation
+    url: https://aps.autodesk.com/en/docs/bim360/v1/tutorials/account-admin
+- name: BIM 360 Issues API
+  description: >
+    Creates, tracks, and updates issues within BIM 360 projects. Issues are items created for tracking,
+    managing, and communicating problems and other points of concern through to resolution. Version 2
+    of the API simplifies the response format and provides additional features such as local attachments.
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://aps.autodesk.com/en/docs/bim360/v1/overview/field-guide/issues
+  baseURL: https://developer.api.autodesk.com
+  tags:
+  - Issues
+  - Tracking
+  - Quality Control
+  properties:
+  - type: Documentation
+    url: https://aps.autodesk.com/en/docs/bim360/v1/overview/field-guide/issues
+- name: BIM 360 Document Management API
+  description: >
+    Connects BIM APIs to access, upload, and share 2D plans, 3D BIM models, and any other project documents
+    to maximize collaboration. Provides programmatic access to BIM 360 Docs for document storage and version
+    control.
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: >-
+    https://aps.autodesk.com/en/docs/bim360/v1/tutorials/getting-started/manage-access-to-docs/
+  baseURL: https://developer.api.autodesk.com
+  tags:
+  - Document Management
+  - File Storage
+  - BIM Models
+  properties:
+  - type: Documentation
+    url: >-
+      https://aps.autodesk.com/en/docs/bim360/v1/tutorials/getting-started/manage-access-to-docs/
+- name: BIM 360 Assets API
+  description: >
+    Creates and manages assets in the BIM 360 Assets service, allowing developers to define settings such
+    as categories, custom attributes, and sets of statuses. Provides full programmatic access to asset
+    tracking and lifecycle management within construction projects.
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://aps.autodesk.com/en/docs/bim360/v1/overview/field-guide/assets
+  baseURL: https://developer.api.autodesk.com
+  tags:
+  - Assets
+  - Asset Management
+  - Construction
+  properties:
+  - type: Documentation
+    url: https://aps.autodesk.com/en/docs/bim360/v1/overview/field-guide/assets
+- name: BIM 360 Cost Management API
+  description: >
+    Provides access to cost and budget changes within construction projects, including budget, contract,
+    and change order information. Enables integration with financial systems and programmatic management
+    of project cost data throughout the construction lifecycle.
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://aps.autodesk.com/en/docs/bim360/v1/overview/field-guide/cost-management
+  baseURL: https://developer.api.autodesk.com
+  tags:
+  - Cost Management
+  - Budget
+  - Finance
+  properties:
+  - type: Documentation
+    url: https://aps.autodesk.com/en/docs/bim360/v1/overview/field-guide/cost-management
+- name: BIM 360 Model Coordination API
+  description: >
+    Provides full access to model coordination services used by the BIM 360 Model Coordination web application.
+    Enables detection and management of clashes and issues that arise when 3D models from different design
+    disciplines are combined in a single coordinated model.
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://aps.autodesk.com/en/docs/bim360/v1/overview/field-guide/model-coordination
+  baseURL: https://developer.api.autodesk.com
+  tags:
+  - Model Coordination
+  - Clash Detection
+  - 3D Models
+  properties:
+  - type: Documentation
+    url: https://aps.autodesk.com/en/docs/bim360/v1/overview/field-guide/model-coordination
+- name: BIM 360 RFIs API
+  description: >
+    Creates, tracks, and updates RFIs (Requests for Information) within BIM 360 projects. Provides programmatic
+    access to the RFI workflow, enabling integration with external project management and communication
+    tools.
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://aps.autodesk.com/en/docs/bim360/v1/overview/field-guide/rfis
+  baseURL: https://developer.api.autodesk.com
+  tags:
+  - RFIs
+  - Requests for Information
+  - Construction Workflow
+  properties:
+  - type: Documentation
+    url: https://aps.autodesk.com/en/docs/bim360/v1/overview/field-guide/rfis
+- name: BIM 360 Checklists API
+  description: >
+    Creates and tracks quality checklists within BIM 360 projects. Supports field inspection workflows
+    and quality assurance processes by providing programmatic access to checklist templates and responses
+    in construction field operations.
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://aps.autodesk.com/en/docs/bim360/v1/tutorials/checklists/
+  baseURL: https://developer.api.autodesk.com
+  tags:
+  - Checklists
+  - Quality Control
+  - Field Management
+  properties:
+  - type: Documentation
+    url: https://aps.autodesk.com/en/docs/bim360/v1/tutorials/checklists/
+- name: BIM 360 Data Connector API
+  description: >
+    Retrieves aggregated data from BIM 360 services including Admin, Issues, Locations, Submittals, Cost,
+    and RFIs. Enables bulk data extraction for analytics, reporting, and integration with business intelligence
+    platforms.
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://aps.autodesk.com/en/docs/bim360/v1/overview/field-guide/data-connector
+  baseURL: https://developer.api.autodesk.com
+  tags:
+  - Data Connector
+  - Analytics
+  - Reporting
+  properties:
+  - type: Documentation
+    url: https://aps.autodesk.com/en/docs/bim360/v1/overview/field-guide/data-connector
+- name: BIM 360 Locations API
+  description: >
+    Manages and shares the hierarchy of building areas within construction projects. Provides programmatic
+    access to location trees used to organize and contextualize issues, assets, and other project data
+    by physical location.
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://aps.autodesk.com/en/docs/bim360/v1/overview/field-guide/locations
+  baseURL: https://developer.api.autodesk.com
+  tags:
+  - Locations
+  - Building Areas
+  - Spatial Management
+  properties:
+  - type: Documentation
+    url: https://aps.autodesk.com/en/docs/bim360/v1/overview/field-guide/locations
+- name: BIM 360 Relationships API
+  description: >
+    Creates, retrieves, and deletes links between entities across domains in BIM 360. Enables cross-domain
+    data linking between issues, RFIs, assets, documents, and other project entities to provide traceability
+    throughout the construction workflow.
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://aps.autodesk.com/en/docs/bim360/v1/overview/field-guide/relationships
+  baseURL: https://developer.api.autodesk.com
+  tags:
+  - Relationships
+  - Entity Linking
+  - Traceability
+  properties:
+  - type: Documentation
+    url: https://aps.autodesk.com/en/docs/bim360/v1/overview/field-guide/relationships
+- aid: autodesk-bim360:autodesk-bim360-account-users-api
+  name: Autodesk BIM 360 Account Users API
+  description: The Account Users API from Autodesk BIM 360 — 6 operation(s) for account users.
+  humanURL: https://aps.autodesk.com/en/docs/bim360/v1/tutorials/account-admin
+  baseURL: https://developer.api.autodesk.com
+  tags:
+  - Account Users
+  properties:
+  - type: OpenAPI
+    url: openapi/autodesk-bim360-account-users-api-openapi.yml
+- aid: autodesk-bim360:autodesk-bim360-business-units-api
+  name: Autodesk BIM 360 Business Units API
+  description: The Business Units API from Autodesk BIM 360 — 1 operation(s) for business units.
+  humanURL: https://aps.autodesk.com/en/docs/bim360/v1/tutorials/account-admin
+  baseURL: https://developer.api.autodesk.com
+  tags:
+  - Business Units
+  properties:
+  - type: OpenAPI
+    url: openapi/autodesk-bim360-business-units-api-openapi.yml
+- aid: autodesk-bim360:autodesk-bim360-companies-api
+  name: Autodesk BIM 360 Companies API
+  description: The Companies API from Autodesk BIM 360 — 7 operation(s) for companies.
+  humanURL: https://aps.autodesk.com/en/docs/bim360/v1/tutorials/account-admin
+  baseURL: https://developer.api.autodesk.com
+  tags:
+  - Companies
+  properties:
+  - type: OpenAPI
+    url: openapi/autodesk-bim360-companies-api-openapi.yml
+- aid: autodesk-bim360:autodesk-bim360-issue-attachments-api
+  name: Autodesk BIM 360 Issue Attachments API
+  description: The Issue Attachments API from Autodesk BIM 360 — 3 operation(s) for issue attachments.
+  humanURL: https://aps.autodesk.com/en/docs/bim360/v1/tutorials/account-admin
+  baseURL: https://developer.api.autodesk.com
+  tags:
+  - Issue Attachments
+  properties:
+  - type: OpenAPI
+    url: openapi/autodesk-bim360-issue-attachments-api-openapi.yml
+- aid: autodesk-bim360:autodesk-bim360-issue-attribute-definitions-api
+  name: Autodesk BIM 360 Issue Attribute Definitions API
+  description: >-
+    The Issue Attribute Definitions API from Autodesk BIM 360 — 1 operation(s) for issue attribute definitions.
+  humanURL: https://aps.autodesk.com/en/docs/bim360/v1/tutorials/account-admin
+  baseURL: https://developer.api.autodesk.com
+  tags:
+  - Issue Attribute Definitions
+  properties:
+  - type: OpenAPI
+    url: openapi/autodesk-bim360-issue-attribute-definitions-api-openapi.yml
+- aid: autodesk-bim360:autodesk-bim360-issue-attribute-mappings-api
+  name: Autodesk BIM 360 Issue Attribute Mappings API
+  description: >-
+    The Issue Attribute Mappings API from Autodesk BIM 360 — 1 operation(s) for issue attribute mappings.
+  humanURL: https://aps.autodesk.com/en/docs/bim360/v1/tutorials/account-admin
+  baseURL: https://developer.api.autodesk.com
+  tags:
+  - Issue Attribute Mappings
+  properties:
+  - type: OpenAPI
+    url: openapi/autodesk-bim360-issue-attribute-mappings-api-openapi.yml
+- aid: autodesk-bim360:autodesk-bim360-issue-comments-api
+  name: Autodesk BIM 360 Issue Comments API
+  description: The Issue Comments API from Autodesk BIM 360 — 1 operation(s) for issue comments.
+  humanURL: https://aps.autodesk.com/en/docs/bim360/v1/tutorials/account-admin
+  baseURL: https://developer.api.autodesk.com
+  tags:
+  - Issue Comments
+  properties:
+  - type: OpenAPI
+    url: openapi/autodesk-bim360-issue-comments-api-openapi.yml
+- aid: autodesk-bim360:autodesk-bim360-issue-root-cause-categories-api
+  name: Autodesk BIM 360 Issue Root Cause Categories API
+  description: >-
+    The Issue Root Cause Categories API from Autodesk BIM 360 — 1 operation(s) for issue root cause categories.
+  humanURL: https://aps.autodesk.com/en/docs/bim360/v1/tutorials/account-admin
+  baseURL: https://developer.api.autodesk.com
+  tags:
+  - Issue Root Cause Categories
+  properties:
+  - type: OpenAPI
+    url: openapi/autodesk-bim360-issue-root-cause-categories-api-openapi.yml
+- aid: autodesk-bim360:autodesk-bim360-issue-types-api
+  name: Autodesk BIM 360 Issue Types API
+  description: The Issue Types API from Autodesk BIM 360 — 1 operation(s) for issue types.
+  humanURL: https://aps.autodesk.com/en/docs/bim360/v1/tutorials/account-admin
+  baseURL: https://developer.api.autodesk.com
+  tags:
+  - Issue Types
+  properties:
+  - type: OpenAPI
+    url: openapi/autodesk-bim360-issue-types-api-openapi.yml
+- aid: autodesk-bim360:autodesk-bim360-issues-api
+  name: Autodesk BIM 360 Issues API
+  description: The Issues API from Autodesk BIM 360 — 2 operation(s) for issues.
+  humanURL: https://aps.autodesk.com/en/docs/bim360/v1/tutorials/account-admin
+  baseURL: https://developer.api.autodesk.com
+  tags:
+  - Issues
+  properties:
+  - type: OpenAPI
+    url: openapi/autodesk-bim360-issues-api-openapi.yml
+- aid: autodesk-bim360:autodesk-bim360-issues-profile-api
+  name: Autodesk BIM 360 Issues Profile API
+  description: The Issues Profile API from Autodesk BIM 360 — 1 operation(s) for issues profile.
+  humanURL: https://aps.autodesk.com/en/docs/bim360/v1/tutorials/account-admin
+  baseURL: https://developer.api.autodesk.com
+  tags:
+  - Issues Profile
+  properties:
+  - type: OpenAPI
+    url: openapi/autodesk-bim360-issues-profile-api-openapi.yml
+- aid: autodesk-bim360:autodesk-bim360-project-users-api
+  name: Autodesk BIM 360 Project Users API
+  description: The Project Users API from Autodesk BIM 360 — 3 operation(s) for project users.
+  humanURL: https://aps.autodesk.com/en/docs/bim360/v1/tutorials/account-admin
+  baseURL: https://developer.api.autodesk.com
+  tags:
+  - Project Users
+  properties:
+  - type: OpenAPI
+    url: openapi/autodesk-bim360-project-users-api-openapi.yml
+- aid: autodesk-bim360:autodesk-bim360-projects-api
+  name: Autodesk BIM 360 Projects API
+  description: The Projects API from Autodesk BIM 360 — 3 operation(s) for projects.
+  humanURL: https://aps.autodesk.com/en/docs/bim360/v1/tutorials/account-admin
+  baseURL: https://developer.api.autodesk.com
+  tags:
+  - Projects
+  properties:
+  - type: OpenAPI
+    url: openapi/autodesk-bim360-projects-api-openapi.yml
+- aid: autodesk-bim360:autodesk-bim360-user-projects-api
+  name: Autodesk BIM 360 User Projects API
+  description: The User Projects API from Autodesk BIM 360 — 1 operation(s) for user projects.
+  humanURL: https://aps.autodesk.com/en/docs/bim360/v1/tutorials/account-admin
+  baseURL: https://developer.api.autodesk.com
+  tags:
+  - User Projects
+  properties:
+  - type: OpenAPI
+    url: openapi/autodesk-bim360-user-projects-api-openapi.yml
 common:
   - type: AgenticAccess
     url: agentic-access/autodesk-bim360-agentic-access.yml
