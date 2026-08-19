@@ -1,0 +1,533 @@
+{
+  "item": [
+    {
+      "id": "6d4c032c-5c36-42a5-b5a3-4f2c994d94c2",
+      "name": "Issue Types",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "000ce5d3-5fca-487a-8c4e-5fbff12e2cd9",
+          "name": "Your GET endpoint",
+          "request": {
+            "name": "Your GET endpoint",
+            "description": {
+              "content": "Retrieves a project’s categories and types.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "construction",
+                "issues",
+                "v1",
+                "projects",
+                ":projectId",
+                "issue-types"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "include",
+                  "value": "<string>",
+                  "description": "Use include=subtypes to include the types (subtypes) for each category (type)."
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>",
+                  "description": "Add limit=20 to limit the results count (together with the offset to support pagination)."
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>",
+                  "description": "Add offset=20 to get partial results (together with the limit to support pagination)."
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[updatedAt]",
+                  "value": "<string>",
+                  "description": "Retrieves types that were last updated at the specified date and time, in in one of the following URL-encoded formats: YYYY-MM-DDThh:mm:ss.sz or YYYY-MM-DD. Separate multiple values with commas."
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[isActive]",
+                  "value": "<boolean>",
+                  "description": "Filter types by status e.g. filter[isActive]=true will only return active types. Default value: undefined (meaning both active & inactive issue type categories will return)."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "projectId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "key": "x-ads-region",
+                "value": "<string>",
+                "description": ""
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "grant_type",
+                  "value": "client_credentials"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "9c8ddbe8-5f20-479e-afcf-a51dfe438fb7",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "construction",
+                    "issues",
+                    "v1",
+                    "projects",
+                    ":projectId",
+                    "issue-types"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "include",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "filter[updatedAt]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[isActive]",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "projectId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "key": "x-ads-region",
+                    "value": "<string>",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"pagination\": {\n    \"limit\": 4055,\n    \"offset\": 8470,\n    \"totalResults\": 9487\n  },\n  \"results\": [\n    {\n      \"id\": \"string\",\n      \"containerId\": \"string\",\n      \"title\": \"string\",\n      \"isActive\": false,\n      \"orderIndex\": 1665,\n      \"permittedActions\": [\n        \"string\",\n        \"string\"\n      ],\n      \"permittedAttributes\": [\n        \"string\",\n        \"string\"\n      ],\n      \"subtypes\": [\n        {\n          \"id\": \"string\",\n          \"issueTypeId\": \"string\",\n          \"title\": \"string\",\n          \"code\": \"string\",\n          \"isActive\": true,\n          \"orderIndex\": 4751,\n          \"isReadOnly\": true,\n          \"permittedActions\": [\n            \"string\",\n            \"string\"\n          ],\n          \"permittedAttributes\": [\n            \"string\",\n            \"string\"\n          ],\n          \"createdBy\": \"string\",\n          \"createdAt\": \"string\",\n          \"updatedBy\": \"string\",\n          \"updatedAt\": \"string\",\n          \"deletedBy\": \"string\",\n          \"deletedAt\": \"string\"\n        },\n        {\n          \"id\": \"string\",\n          \"issueTypeId\": \"string\",\n          \"title\": \"string\",\n          \"code\": \"string\",\n          \"isActive\": true,\n          \"orderIndex\": 3204,\n          \"isReadOnly\": true,\n          \"permittedActions\": [\n            \"string\",\n            \"string\"\n          ],\n          \"permittedAttributes\": [\n            \"string\",\n            \"string\"\n          ],\n          \"createdBy\": \"string\",\n          \"createdAt\": \"string\",\n          \"updatedBy\": \"string\",\n          \"updatedAt\": \"string\",\n          \"deletedBy\": \"string\",\n          \"deletedAt\": \"string\"\n        }\n      ],\n      \"statusSet\": \"string\",\n      \"createdBy\": \"string\",\n      \"createdAt\": \"string\",\n      \"updatedBy\": \"string\",\n      \"updatedAt\": \"string\",\n      \"deletedBy\": \"string\",\n      \"deletedAt\": \"string\"\n    },\n    {\n      \"id\": \"string\",\n      \"containerId\": \"string\",\n      \"title\": \"string\",\n      \"isActive\": false,\n      \"orderIndex\": 3673,\n      \"permittedActions\": [\n        \"string\",\n        \"string\"\n      ],\n      \"permittedAttributes\": [\n        \"string\",\n        \"string\"\n      ],\n      \"subtypes\": [\n        {\n          \"id\": \"string\",\n          \"issueTypeId\": \"string\",\n          \"title\": \"string\",\n          \"code\": \"string\",\n          \"isActive\": true,\n          \"orderIndex\": 8744,\n          \"isReadOnly\": false,\n          \"permittedActions\": [\n            \"string\",\n            \"string\"\n          ],\n          \"permittedAttributes\": [\n            \"string\",\n            \"string\"\n          ],\n          \"createdBy\": \"string\",\n          \"createdAt\": \"string\",\n          \"updatedBy\": \"string\",\n          \"updatedAt\": \"string\",\n          \"deletedBy\": \"string\",\n          \"deletedAt\": \"string\"\n        },\n        {\n          \"id\": \"string\",\n          \"issueTypeId\": \"string\",\n          \"title\": \"string\",\n          \"code\": \"string\",\n          \"isActive\": false,\n          \"orderIndex\": 1234,\n          \"isReadOnly\": true,\n          \"permittedActions\": [\n            \"string\",\n            \"string\"\n          ],\n          \"permittedAttributes\": [\n            \"string\",\n            \"string\"\n          ],\n          \"createdBy\": \"string\",\n          \"createdAt\": \"string\",\n          \"updatedBy\": \"string\",\n          \"updatedAt\": \"string\",\n          \"deletedBy\": \"string\",\n          \"deletedAt\": \"string\"\n        }\n      ],\n      \"statusSet\": \"string\",\n      \"createdBy\": \"string\",\n      \"createdAt\": \"string\",\n      \"updatedBy\": \"string\",\n      \"updatedAt\": \"string\",\n      \"deletedBy\": \"string\",\n      \"deletedAt\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9a11785d-0d70-4ce8-9971-fe2192d7d178",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "construction",
+                    "issues",
+                    "v1",
+                    "projects",
+                    ":projectId",
+                    "issue-types"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "include",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "filter[updatedAt]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[isActive]",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "projectId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "key": "x-ads-region",
+                    "value": "<string>",
+                    "description": ""
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "2fd161f6-4f07-4969-81f7-6e39d7512c20",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "construction",
+                    "issues",
+                    "v1",
+                    "projects",
+                    ":projectId",
+                    "issue-types"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "include",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "filter[updatedAt]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[isActive]",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "projectId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "key": "x-ads-region",
+                    "value": "<string>",
+                    "description": ""
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "f4dc2714-b36b-4b44-8731-dcf87d0df831",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "construction",
+                    "issues",
+                    "v1",
+                    "projects",
+                    ":projectId",
+                    "issue-types"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "include",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "filter[updatedAt]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[isActive]",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "projectId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "key": "x-ads-region",
+                    "value": "<string>",
+                    "description": ""
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "44ac6e9d-a42e-46b9-bc94-359debb7c5c1",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "construction",
+                    "issues",
+                    "v1",
+                    "projects",
+                    ":projectId",
+                    "issue-types"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "include",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "filter[updatedAt]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[isActive]",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "projectId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "key": "x-ads-region",
+                    "value": "<string>",
+                    "description": ""
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://developer.api.autodesk.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "grant_type",
+        "value": "client_credentials"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "e8070926-001e-4f5e-998e-4ba08bd1525e",
+    "name": "Construction.Account.Admin Account Users Issue Types API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Account Admin API automates creating and managing projects, assigning and managing project users, and managing member and partner company directories. You can also synchronize data with external systems.\n\n\nContact Support:\n Name: Autodesk Plaform Services\n Email: aps.help@autodesk.com",
+      "type": "text/plain"
+    }
+  }
+}

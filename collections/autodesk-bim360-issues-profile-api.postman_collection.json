@@ -1,0 +1,407 @@
+{
+  "item": [
+    {
+      "id": "074ec657-f6b7-4789-847c-a614a87f6da5",
+      "name": "Issues Profile",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "1cf95eb2-4ee5-4697-bc0a-552a60f2c4a2",
+          "name": "Your GET endpoint",
+          "request": {
+            "name": "Your GET endpoint",
+            "description": {
+              "content": "Returns the current user permissions.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "construction",
+                "issues",
+                "v1",
+                "projects",
+                ":projectId",
+                "users",
+                "me"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "projectId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "key": "x-ads-region",
+                "value": "<string>",
+                "description": ""
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "grant_type",
+                  "value": "client_credentials"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "9950b0d7-e955-4474-b517-379857417465",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "construction",
+                    "issues",
+                    "v1",
+                    "projects",
+                    ":projectId",
+                    "users",
+                    "me"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "projectId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "key": "x-ads-region",
+                    "value": "<string>",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"isProjectAdmin\": true,\n  \"canManageTemplates\": false,\n  \"issues\": {\n    \"new\": {\n      \"permittedActions\": [\n        \"string\",\n        \"string\"\n      ],\n      \"permittedAttributes\": [\n        \"string\",\n        \"string\"\n      ],\n      \"permittedStatuses\": [\n        \"string\",\n        \"string\"\n      ],\n      \"permitted_actions\": [\n        \"string\",\n        \"string\"\n      ],\n      \"permitted_attributes\": [\n        \"string\",\n        \"string\"\n      ],\n      \"permitted_statuses\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    \"filter\": {\n      \"permittedStatuses\": [\n        \"string\",\n        \"string\"\n      ]\n    }\n  },\n  \"permissionLevels\": [\n    \"write\",\n    \"write\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "cee6e1b6-d191-4f0b-a41b-dd2da16b127c",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "construction",
+                    "issues",
+                    "v1",
+                    "projects",
+                    ":projectId",
+                    "users",
+                    "me"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "projectId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "key": "x-ads-region",
+                    "value": "<string>",
+                    "description": ""
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "dc2395a9-7b2d-4e9c-adb1-117449bc32f2",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "construction",
+                    "issues",
+                    "v1",
+                    "projects",
+                    ":projectId",
+                    "users",
+                    "me"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "projectId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "key": "x-ads-region",
+                    "value": "<string>",
+                    "description": ""
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "bfba3ce8-03f7-43d6-9f66-311de730f4cd",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "construction",
+                    "issues",
+                    "v1",
+                    "projects",
+                    ":projectId",
+                    "users",
+                    "me"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "projectId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "key": "x-ads-region",
+                    "value": "<string>",
+                    "description": ""
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "0205c508-79e1-4463-be0b-6ee1fc2b4dad",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "construction",
+                    "issues",
+                    "v1",
+                    "projects",
+                    ":projectId",
+                    "users",
+                    "me"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "projectId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "key": "x-ads-region",
+                    "value": "<string>",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"isProjectAdmin\": true,\n  \"canManageTemplates\": true,\n  \"issues\": {\n    \"new\": {\n      \"permittedActions\": [\n        \"string\",\n        \"string\"\n      ],\n      \"permittedAttributes\": [\n        \"string\",\n        \"string\"\n      ],\n      \"permittedStatuses\": [\n        \"string\",\n        \"string\"\n      ],\n      \"permitted_actions\": [\n        \"string\",\n        \"string\"\n      ],\n      \"permitted_attributes\": [\n        \"string\",\n        \"string\"\n      ],\n      \"permitted_statuses\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    \"filter\": {\n      \"permittedStatuses\": [\n        \"string\",\n        \"string\"\n      ]\n    }\n  },\n  \"permissionLevels\": [\n    \"write\",\n    \"read\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://developer.api.autodesk.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "grant_type",
+        "value": "client_credentials"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "20093b4c-6c49-4f06-8e9a-c8c33fd7e65a",
+    "name": "Construction.Account.Admin Account Users Issues Profile API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Account Admin API automates creating and managing projects, assigning and managing project users, and managing member and partner company directories. You can also synchronize data with external systems.\n\n\nContact Support:\n Name: Autodesk Plaform Services\n Email: aps.help@autodesk.com",
+      "type": "text/plain"
+    }
+  }
+}

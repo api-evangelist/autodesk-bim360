@@ -1,0 +1,237 @@
+{
+  "item": [
+    {
+      "id": "c0872397-94a2-47a0-9c5f-9d7af4a1535c",
+      "name": "Issue Attribute Mappings",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "02fc212e-4cdd-4d98-9820-c58379eb1b81",
+          "name": "Your GET endpoint",
+          "request": {
+            "name": "Your GET endpoint",
+            "description": {
+              "content": "Retrieves information about the issue custom attributes (custom fields) that are assigned to issue categories and issue types.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "construction",
+                "issues",
+                "v1",
+                "projects",
+                ":projectId",
+                "issue-attribute-mappings"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>",
+                  "description": "The number of custom attribute mappings to return in the response payload. For example, limit=2. Acceptable values: 1-200. Default value: 200."
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>",
+                  "description": "The number of custom attribute mappings you want to begin retrieving results from."
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[createdAt]",
+                  "value": "<string>",
+                  "description": "Retrieves items that were created at the specified date and time, in one of the following URL-encoded formats: YYYY-MM-DDThh:mm:ss.sz or YYYY-MM-DD. Separate multiple values with commas."
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[updatedAt]",
+                  "value": "<string>",
+                  "description": "Retrieves items that were last updated at the specified date and time, in one of the following URL-encoded formats: YYYY-MM-DDThh:mm:ss.sz or YYYY-MM-DD. Separate multiple values with commas."
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[deletedAt]",
+                  "value": "<string>",
+                  "description": "Retrieves types that were deleted at the specified date and time, in one of the following URL-encoded formats: YYYY-MM-DDThh:mm:ss.sz or YYYY-MM-DD. Separate multiple values with commas."
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[attributeDefinitionId]",
+                  "value": "<string>",
+                  "description": "Retrieves issue custom attribute mappings associated with the specified issue custom attribute definitions. Separate multiple values with commas. For example: filter[attributeDefinitionId]=18ee5858-cbf1-451a-a525-7c6ff8156775."
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[mappedItemId]",
+                  "value": "<string>",
+                  "description": "Retrieves issue custom attribute mappings associated with the specified items (project, type, or subtype). Separate multiple values with commas. For example: filter[mappedItemId]=18ee5858-cbf1-451a-a525-7c6ff8156775. Note that this does not retrieve inherited custom attribute mappings or custom attribute mappings of descendants."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "projectId",
+                  "description": "(Required) The ID of the project."
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "key": "x-ads-region",
+                "value": "<string>",
+                "description": ""
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "grant_type",
+                  "value": "client_credentials"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "25d0facf-af70-4252-803f-b62a5c1ec84d",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "construction",
+                    "issues",
+                    "v1",
+                    "projects",
+                    ":projectId",
+                    "issue-attribute-mappings"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "filter[createdAt]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[updatedAt]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[deletedAt]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[attributeDefinitionId]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[mappedItemId]",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "projectId",
+                      "description": "(Required) The ID of the project."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "key": "x-ads-region",
+                    "value": "<string>",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"pagination\": {\n    \"limit\": 7211,\n    \"offset\": 929,\n    \"totalResults\": 4728\n  },\n  \"results\": [\n    {\n      \"id\": \"string\",\n      \"attributeDefinitionId\": \"string\",\n      \"containerId\": \"string\",\n      \"title\": \"string\",\n      \"mappedItemType\": \"string\",\n      \"mappedItemId\": \"string\",\n      \"order\": 6502,\n      \"permittedActions\": [\n        \"string\",\n        \"string\"\n      ],\n      \"permittedAttributes\": [\n        \"string\",\n        \"string\"\n      ],\n      \"createdAt\": \"string\",\n      \"createdBy\": \"string\",\n      \"updatedAt\": \"string\",\n      \"updatedBy\": \"string\",\n      \"deletedAt\": \"string\",\n      \"deletedBy\": \"string\",\n      \"description\": \"string\"\n    },\n    {\n      \"id\": \"string\",\n      \"attributeDefinitionId\": \"string\",\n      \"containerId\": \"string\",\n      \"title\": \"string\",\n      \"mappedItemType\": \"string\",\n      \"mappedItemId\": \"string\",\n      \"order\": 2687,\n      \"permittedActions\": [\n        \"string\",\n        \"string\"\n      ],\n      \"permittedAttributes\": [\n        \"string\",\n        \"string\"\n      ],\n      \"createdAt\": \"string\",\n      \"createdBy\": \"string\",\n      \"updatedAt\": \"string\",\n      \"updatedBy\": \"string\",\n      \"deletedAt\": \"string\",\n      \"deletedBy\": \"string\",\n      \"description\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://developer.api.autodesk.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "grant_type",
+        "value": "client_credentials"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "4ec400d9-f4a7-41e0-a2fa-e093d136bd6d",
+    "name": "Construction.Account.Admin Account Users Issue Attribute Mappings API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Account Admin API automates creating and managing projects, assigning and managing project users, and managing member and partner company directories. You can also synchronize data with external systems.\n\n\nContact Support:\n Name: Autodesk Plaform Services\n Email: aps.help@autodesk.com",
+      "type": "text/plain"
+    }
+  }
+}
