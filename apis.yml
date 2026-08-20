@@ -35,6 +35,17 @@ tags:
   - Construction
   - Project Management
   - BIM
+  - Document-Management
+  - Field Management
+  - Issues Tracking
+  - Cost Management
+  - Model Coordination
+  - RFIs
+  - Checklists
+tags_raw:
+  - Construction
+  - Project Management
+  - BIM
   - Document Management
   - Field Management
   - Issues Tracking
@@ -83,6 +94,10 @@ apis:
     https://aps.autodesk.com/en/docs/bim360/v1/tutorials/getting-started/manage-access-to-docs/
   baseURL: https://developer.api.autodesk.com
   tags:
+  - Document-Management
+  - File Storage
+  - BIM Models
+  tags_raw:
   - Document Management
   - File Storage
   - BIM Models
@@ -339,6 +354,8 @@ apis:
   humanURL: https://aps.autodesk.com/en/docs/bim360/v1/tutorials/account-admin
   baseURL: https://developer.api.autodesk.com
   tags:
+  - Project
+  tags_raw:
   - Projects
   properties:
   - type: OpenAPI
