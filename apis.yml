@@ -383,6 +383,9 @@ apis:
   - type: OpenAPI
     url: openapi/autodesk-bim360-user-projects-api-openapi.yml
 common:
+  - type: CapabilityMap
+    url: capabilities/autodesk-bim360-capability-edges.yml
+    name: Autodesk BIM 360 Business Capability Map
   - type: AgenticAccess
     url: agentic-access/autodesk-bim360-agentic-access.yml
   - type: DomainSecurity
