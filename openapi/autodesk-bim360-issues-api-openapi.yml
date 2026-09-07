@@ -1,4 +1,4 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
   title: Construction.Account.Admin Account Users Issues API
   version: '1.0'
@@ -296,75 +296,14 @@ paths:
       - Issues
 components:
   schemas:
-    filterissueSubtypeId:
-      title: filterissueSubtypeId
+    filterclosedBy:
+      title: filterrootCauseId
       x-stoplight:
-        id: kbtr780g1ioa3
+        id: jiz1hji0gp0o5
       type: array
       items:
         x-stoplight:
-          id: zmn50bfqs15li
-        type: string
-    Pagination:
-      type: object
-      description: The pagination object.
-      properties:
-        limit:
-          type: integer
-          description: The number of items per page.
-        offset:
-          type: integer
-          description: The page number that the results begin from.
-        totalResults:
-          type: integer
-          description: The number of items in the response.
-    region:
-      title: region
-      x-stoplight:
-        id: pvg574irwjt8w
-      type: string
-      enum:
-      - US
-      - EMEA
-      - AUS
-      - CAN
-      - DEU
-      - IND
-      - JPN
-      - GBR
-      description: "Specifies where the bucket containing the object is stored. Possible values are:\n            - ``US`` - (Default) Data center for the US region.\n            - ``EMEA`` - Data center for the European Union, Middle East, and Africa.\n            - ``AUS`` -  Data center for Australia.\n            - ``CAN`` - Data center for the Canada region.\n            - ``DEU`` - Data center for the Germany region.\n            - ``IND`` - Data center for the India region.\n            - ``JPN`` - Data center for the Japan region.\n            - ``GBR`` - Data center for the United Kingdom region.\n**Note:** Beta features are subject to change. Please do not use in production environments."
-    status:
-      type: string
-      x-stoplight:
-        id: w3v9ah58nfw7e
-      description: The current status of the issue. To check the available statuses for the project, call GET users/me and check the permitted statuses list (issue.new.permittedStatuses). For more information about statuses, see the Help documentation.
-      enum:
-      - draft
-      - open
-      - pending
-      - in_progress
-      - in_review
-      - completed
-      - not_approved
-      - in_dispute
-      - closed
-    filterassignedTo:
-      title: filterassignedTo
-      x-stoplight:
-        id: chrtdtj1ebfb3
-      type: array
-      items:
-        x-stoplight:
-          id: x44vzy9svtq9p
-        type: string
-    filtercustomAttributes:
-      title: filtercustomAttributes
-      x-stoplight:
-        id: ja16zkxz19t3s
-      type: array
-      items:
-        x-stoplight:
-          id: nq5ihyumsc9l3
+          id: isppzqxf1r4c9
         type: string
     filterupdatedBy:
       title: filterupdatedBy
@@ -376,68 +315,42 @@ components:
           id: 64w55gwhiyl87
         type: string
       description: Filter issues by the unique identifier of the user who updated the issue. Separate multiple values with commas.
-    filtersubLocationId:
+    assignedToType:
+      title: assignedToType
+      x-stoplight:
+        id: b4ak99p50pp97
+      type: string
+      enum:
+      - user
+      - company
+      - role
+    filterlocationId:
       title: filterrootCauseId
       x-stoplight:
-        id: srhxvujb00n6a
+        id: o6mccjxmn3fxg
       type: array
       items:
         x-stoplight:
           id: isppzqxf1r4c9
         type: string
-    fields_internal:
-      title: fields_internal
+    filtercustomAttributes:
+      title: filtercustomAttributes
       x-stoplight:
-        id: 8s1gy4e6hc4pr
-      type: array
-      items:
-        $ref: '#/components/schemas/fields'
-    sortBy:
-      title: sortBy
-      x-stoplight:
-        id: j8v94gty0f6up
-      type: string
-      enum:
-      - createdAt
-      - updatedAt
-      - createdBy
-      - displayId
-      - title
-      - description
-      - status
-      - assignedTo
-      - assignedToType
-      - dueDate
-      - locationDetails
-      - published
-      - closedBy
-      - closedAt
-      - issueSubType
-      - issueType
-      - customAttributes
-      - startDate
-    filterissueTypeId:
-      title: filterissueTypeId
-      x-stoplight:
-        id: wiudkmxcv9nbu
+        id: ja16zkxz19t3s
       type: array
       items:
         x-stoplight:
-          id: oes0op5k8yucv
+          id: nq5ihyumsc9l3
         type: string
-    IssuesPage:
-      title: issues
+    filterissueSubtypeId:
+      title: filterissueSubtypeId
       x-stoplight:
-        id: ea3111d9b097d
-      type: object
-      properties:
-        pagination:
-          $ref: '#/components/schemas/Pagination'
-        results:
-          type: array
-          description: The list of issues in the current page
-          items:
-            $ref: '#/components/schemas/Issue'
+        id: kbtr780g1ioa3
+      type: array
+      items:
+        x-stoplight:
+          id: zmn50bfqs15li
+        type: string
     IssuePayload:
       title: issue_payload
       x-stoplight:
@@ -577,25 +490,6 @@ components:
       - title
       - issueSubtypeId
       - status
-    filtercreatedBy:
-      title: filtercreatedBy
-      x-stoplight:
-        id: 2drtvpglpzdg5
-      type: array
-      items:
-        type: string
-    filterlinkedDocumentUrn:
-      title: filterlinkedDocumentUrn
-      x-stoplight:
-        id: e4lcm68omr5g2
-      type: array
-      items:
-        x-stoplight:
-          id: ex53iql10n0of
-        type: string
-      description: 'Retrieves pushpin issues associated with the specified files. We support all file types that are compatible with the Files tool. You need to specify the URL-encoded file item IDs. To find the file item IDs, use the Data Management API.
-
-        Note that you need to specify the 3D model item ID, which retrieves all pushpins associated with all 2D sheets and views associated with the 3D model. Similarly, if you specify a specific PDF file it retrieves all the pushpin issues associated with all the PDF file pages. We do not currently support retrieving pushpin issues associated with a specific 2D sheet or view.'
     filterid:
       title: filterid
       x-stoplight:
@@ -605,33 +499,15 @@ components:
         x-stoplight:
           id: 9dnhirox70yde
         type: string
-    filterrootCauseId:
-      title: filterrootCauseId
+    filterassignedTo:
+      title: filterassignedTo
       x-stoplight:
-        id: yij9lduzyuzd1
+        id: chrtdtj1ebfb3
       type: array
       items:
         x-stoplight:
-          id: isppzqxf1r4c9
+          id: x44vzy9svtq9p
         type: string
-    filterclosedBy:
-      title: filterrootCauseId
-      x-stoplight:
-        id: jiz1hji0gp0o5
-      type: array
-      items:
-        x-stoplight:
-          id: isppzqxf1r4c9
-        type: string
-    assignedToType:
-      title: assignedToType
-      x-stoplight:
-        id: b4ak99p50pp97
-      type: string
-      enum:
-      - user
-      - company
-      - role
     fields:
       title: fields
       x-stoplight:
@@ -667,13 +543,81 @@ components:
       - updatedBy
       - updatedAt
       - customAttributes
-    sortBy_internal:
-      title: sortBy_internal
+    sortBy:
+      title: sortBy
       x-stoplight:
-        id: jf3fxohnckp1q
+        id: j8v94gty0f6up
+      type: string
+      enum:
+      - createdAt
+      - updatedAt
+      - createdBy
+      - displayId
+      - title
+      - description
+      - status
+      - assignedTo
+      - assignedToType
+      - dueDate
+      - locationDetails
+      - published
+      - closedBy
+      - closedAt
+      - issueSubType
+      - issueType
+      - customAttributes
+      - startDate
+    IssuesPage:
+      title: issues
+      x-stoplight:
+        id: ea3111d9b097d
+      type: object
+      properties:
+        pagination:
+          $ref: '#/components/schemas/Pagination'
+        results:
+          type: array
+          description: The list of issues in the current page
+          items:
+            $ref: '#/components/schemas/Issue'
+    fields_internal:
+      title: fields_internal
+      x-stoplight:
+        id: 8s1gy4e6hc4pr
       type: array
       items:
-        $ref: '#/components/schemas/sortBy'
+        $ref: '#/components/schemas/fields'
+    region:
+      title: region
+      x-stoplight:
+        id: pvg574irwjt8w
+      type: string
+      enum:
+      - US
+      - EMEA
+      - AUS
+      - CAN
+      - DEU
+      - IND
+      - JPN
+      - GBR
+      description: "Specifies where the bucket containing the object is stored. Possible values are:\n            - ``US`` - (Default) Data center for the US region.\n            - ``EMEA`` - Data center for the European Union, Middle East, and Africa.\n            - ``AUS`` -  Data center for Australia.\n            - ``CAN`` - Data center for the Canada region.\n            - ``DEU`` - Data center for the Germany region.\n            - ``IND`` - Data center for the India region.\n            - ``JPN`` - Data center for the Japan region.\n            - ``GBR`` - Data center for the United Kingdom region.\n**Note:** Beta features are subject to change. Please do not use in production environments."
+    filtercreatedBy:
+      title: filtercreatedBy
+      x-stoplight:
+        id: 2drtvpglpzdg5
+      type: array
+      items:
+        type: string
+    filtersubLocationId:
+      title: filterrootCauseId
+      x-stoplight:
+        id: srhxvujb00n6a
+      type: array
+      items:
+        x-stoplight:
+          id: isppzqxf1r4c9
+        type: string
     Issue:
       title: issue
       type: object
@@ -929,16 +873,74 @@ components:
           type: boolean
           x-stoplight:
             id: n16cah32tk3r8
-          description: "Not relevant\r\n"
-    filterlocationId:
+          description: 'Not relevant
+
+            '
+    status:
+      type: string
+      x-stoplight:
+        id: w3v9ah58nfw7e
+      description: The current status of the issue. To check the available statuses for the project, call GET users/me and check the permitted statuses list (issue.new.permittedStatuses). For more information about statuses, see the Help documentation.
+      enum:
+      - draft
+      - open
+      - pending
+      - in_progress
+      - in_review
+      - completed
+      - not_approved
+      - in_dispute
+      - closed
+    filterissueTypeId:
+      title: filterissueTypeId
+      x-stoplight:
+        id: wiudkmxcv9nbu
+      type: array
+      items:
+        x-stoplight:
+          id: oes0op5k8yucv
+        type: string
+    filterrootCauseId:
       title: filterrootCauseId
       x-stoplight:
-        id: o6mccjxmn3fxg
+        id: yij9lduzyuzd1
       type: array
       items:
         x-stoplight:
           id: isppzqxf1r4c9
         type: string
+    sortBy_internal:
+      title: sortBy_internal
+      x-stoplight:
+        id: jf3fxohnckp1q
+      type: array
+      items:
+        $ref: '#/components/schemas/sortBy'
+    filterlinkedDocumentUrn:
+      title: filterlinkedDocumentUrn
+      x-stoplight:
+        id: e4lcm68omr5g2
+      type: array
+      items:
+        x-stoplight:
+          id: ex53iql10n0of
+        type: string
+      description: 'Retrieves pushpin issues associated with the specified files. We support all file types that are compatible with the Files tool. You need to specify the URL-encoded file item IDs. To find the file item IDs, use the Data Management API.
+
+        Note that you need to specify the 3D model item ID, which retrieves all pushpins associated with all 2D sheets and views associated with the 3D model. Similarly, if you specify a specific PDF file it retrieves all the pushpin issues associated with all the PDF file pages. We do not currently support retrieving pushpin issues associated with a specific 2D sheet or view.'
+    Pagination:
+      type: object
+      description: The pagination object.
+      properties:
+        limit:
+          type: integer
+          description: The number of items per page.
+        offset:
+          type: integer
+          description: The page number that the results begin from.
+        totalResults:
+          type: integer
+          description: The number of items in the response.
   parameters:
     x-ads-region:
       name: x-ads-region

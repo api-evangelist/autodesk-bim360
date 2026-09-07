@@ -35,6 +35,22 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
+  "notes": [
+    "autodesk-bim360-account-users-api-openapi.yml: upgraded openapi 3.0.0 -> OpenAPI 3.2.0",
+    "autodesk-bim360-business-units-api-openapi.yml: upgraded openapi 3.0.0 -> OpenAPI 3.2.0",
+    "autodesk-bim360-companies-api-openapi.yml: upgraded openapi 3.0.0 -> OpenAPI 3.2.0",
+    "autodesk-bim360-issue-attachments-api-openapi.yml: upgraded openapi 3.0.0 -> OpenAPI 3.2.0",
+    "autodesk-bim360-issue-attribute-definitions-api-openapi.yml: upgraded openapi 3.0.0 -> OpenAPI 3.2.0",
+    "autodesk-bim360-issue-attribute-mappings-api-openapi.yml: upgraded openapi 3.0.0 -> OpenAPI 3.2.0",
+    "autodesk-bim360-issue-comments-api-openapi.yml: upgraded openapi 3.0.0 -> OpenAPI 3.2.0",
+    "autodesk-bim360-issue-root-cause-categories-api-openapi.yml: upgraded openapi 3.0.0 -> OpenAPI 3.2.0",
+    "autodesk-bim360-issue-types-api-openapi.yml: upgraded openapi 3.0.0 -> OpenAPI 3.2.0",
+    "autodesk-bim360-issues-api-openapi.yml: upgraded openapi 3.0.0 -> OpenAPI 3.2.0",
+    "autodesk-bim360-issues-profile-api-openapi.yml: upgraded openapi 3.0.0 -> OpenAPI 3.2.0",
+    "autodesk-bim360-project-users-api-openapi.yml: upgraded openapi 3.0.0 -> OpenAPI 3.2.0",
+    "autodesk-bim360-projects-api-openapi.yml: upgraded openapi 3.0.0 -> OpenAPI 3.2.0",
+    "autodesk-bim360-user-projects-api-openapi.yml: upgraded openapi 3.0.0 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
   "skipped": []
 }

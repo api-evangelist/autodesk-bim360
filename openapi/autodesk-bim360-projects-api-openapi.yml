@@ -1,4 +1,4 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
   title: Construction.Account.Admin Account Users Projects API
   version: '1.0'
@@ -333,33 +333,6 @@ paths:
         description: 'The geographic area where the data is stored. Acceptable values: US, EMEA, AUS, CAN, DEU, IND, JPN, GBR. By default, it is set to US.'
 components:
   schemas:
-    Pagination:
-      title: Pagination
-      x-stoplight:
-        id: q1bi13503pl18
-      type: object
-      properties:
-        limit:
-          type: integer
-          x-stoplight:
-            id: 8izi1f176ek68
-        offset:
-          type: integer
-          x-stoplight:
-            id: v1vdhhbk5vhtj
-        totalResults:
-          type: integer
-          x-stoplight:
-            id: o7y9s28pvovds
-        nextUrl:
-          type: string
-          x-stoplight:
-            id: egebyg74p2y51
-        previousUrl:
-          type: string
-          x-stoplight:
-            id: rhoc949ms1w0p
-      description: "\tContains pagination details for the records returned by the endpoint."
     ProjectPatch:
       title: ProjectPatch
       x-stoplight:
@@ -478,16 +451,389 @@ components:
           x-stoplight:
             id: 10g0wn1qosciu
           description: Timestamp of the last sign in, YYYY-MM-DDThh:mm:ss.sssZ format
-    status:
-      title: status
+    products:
+      title: products
       x-stoplight:
-        id: 7imcqgahx8744
+        id: qr6chlzpjohw0
       type: string
       enum:
-      - active
-      - pending
-      - archived
-      - suspended
+      - build
+      - docs
+      - takeoff
+      - cost
+      - autospecs
+      - financials
+      - buildingConnected
+      - capitalPlanning
+      - accountAdministration
+      - workshopxr
+      - insight
+      - projectAdministration
+      - modelCoordination
+      - designCollaboration
+      - cloudWorksharing
+      - fieldManagement
+      - costManagement
+      - glue
+      - documentManagement
+      - projectHome
+      - assets
+      - quantification
+      - plan
+      - field
+      - projectManagement
+      description: ''
+    Region:
+      title: Region
+      x-stoplight:
+        id: 5rz8jxdpgo4zq
+      type: string
+      enum:
+      - US
+      - EMEA
+      - AUS
+      - CAN
+      - DEU
+      - IND
+      - JPN
+      - GBR
+      description: 'Specifies the region where your request should be routed. Possible values are:
+
+        - ``US`` - Data center for the US region.
+
+        - ``EMEA`` - Data center for the European Union, Middle East, and Africa regions.
+
+        - ``AUS`` - Data center for the Australia region.
+
+        - ``CAN`` - Data center for the Canada region.
+
+        - ``DEU`` - Data center for the Germany region.
+
+        - ``IND`` - Data center for the India region.
+
+        - ``JPN`` - Data center for the Japan region.
+
+        - ``GBR`` - Data center for the United Kingdom region.'
+    status_internal:
+      title: status_internal
+      type: array
+      items:
+        $ref: '#/components/schemas/status'
+        x-stoplight:
+          id: 3sxoqp01jo0t2
+    sort_internal:
+      title: sort_internal
+      type: array
+      items:
+        $ref: '#/components/schemas/sortBy'
+        x-stoplight:
+          id: rco9c6oaws4eh
+    fields:
+      title: fields
+      x-stoplight:
+        id: 2u11626lmta32
+      type: string
+      enum:
+      - accountId
+      - addressLine1
+      - addressLine2
+      - businessUnitId
+      - city
+      - companyCount
+      - constructionType
+      - country
+      - createdAt
+      - deliveryMethod
+      - endDate
+      - imageUrl
+      - jobNumber
+      - lastSignIn
+      - latitude
+      - longitude
+      - memberCount
+      - name
+      - platform
+      - postalCode
+      - products
+      - projectValue
+      - sheetCount
+      - startDate
+      - stateOrProvince
+      - status
+      - thumbnailImageUrl
+      - timezone
+      - type
+      - updatedAt
+    sortBy:
+      title: sortBy
+      x-stoplight:
+        id: th8hud7fjoevd
+      type: string
+      enum:
+      - name asc
+      - startDate asc
+      - endDate asc
+      - type asc
+      - status asc
+      - jobNumber asc
+      - constructionType asc
+      - deliveryMethod asc
+      - contractType asc
+      - currentPhase asc
+      - companyCount asc
+      - memberCount asc
+      - createdAt asc
+      - updatedAt asc
+      - name desc
+      - startDate desc
+      - endDate desc
+      - type desc
+      - status desc
+      - jobNumber desc
+      - constructionType desc
+      - deliveryMethod desc
+      - contractType desc
+      - currentPhase desc
+      - companyCount desc
+      - memberCount desc
+      - createdAt desc
+      - updatedAt desc
+    filterPlatform_internal:
+      title: filterPlatform_internal
+      x-stoplight:
+        id: 07osm8uexhmzc
+      type: array
+      items:
+        $ref: '#/components/schemas/platform'
+        x-stoplight:
+          id: blbjael8tal1d
+    filterType:
+      title: filterType
+      type: array
+      items:
+        type: string
+    fields_internal:
+      title: fields_internal
+      x-stoplight:
+        id: gllpnqude53mp
+      type: array
+      items:
+        $ref: '#/components/schemas/fields'
+        x-stoplight:
+          id: eak8q4id1p2i3
+    filterClassification_internal:
+      title: filterClassification_internal
+      type: array
+      items:
+        $ref: '#/components/schemas/classification'
+    filterTextMatch:
+      title: filterTextMatch
+      x-stoplight:
+        id: l613i9qr8h8a6
+      type: string
+      enum:
+      - contains
+      - startsWith
+      - endsWith
+      - equals
+    platform:
+      title: platform
+      x-stoplight:
+        id: w4j4h1zy6fji2
+      type: string
+      enum:
+      - acc
+      - bim360
+    currency:
+      title: currency
+      type: string
+      enum:
+      - AED
+      - AFN
+      - ALL
+      - AMD
+      - ANG
+      - AOA
+      - ARS
+      - AUD
+      - AWG
+      - AZN
+      - BAM
+      - BBD
+      - BDT
+      - BGN
+      - BHD
+      - BIF
+      - BMD
+      - BND
+      - BOB
+      - BOV
+      - BRL
+      - BSD
+      - BTN
+      - BWP
+      - BYN
+      - BYR
+      - BZD
+      - CAD
+      - CDF
+      - CHE
+      - CHF
+      - CHW
+      - CLF
+      - CLP
+      - CNY
+      - COP
+      - COU
+      - CRC
+      - CUC
+      - CUP
+      - CVE
+      - CZK
+      - DJF
+      - DKK
+      - DOP
+      - DZD
+      - EEK
+      - EGP
+      - ERN
+      - ETB
+      - EUR
+      - FJD
+      - FKP
+      - GBP
+      - GEL
+      - GHS
+      - GIP
+      - GMD
+      - GNF
+      - GTQ
+      - GYD
+      - HKD
+      - HNL
+      - HRK
+      - HTG
+      - HUF
+      - IDR
+      - ILS
+      - INR
+      - IQD
+      - IRR
+      - ISK
+      - JMD
+      - JOD
+      - JPY
+      - KES
+      - KGS
+      - KHR
+      - KMF
+      - KPW
+      - KRW
+      - KWD
+      - KYD
+      - KZT
+      - LAK
+      - LBP
+      - LKR
+      - LRD
+      - LSL
+      - LTL
+      - LVL
+      - LYD
+      - MAD
+      - MDL
+      - MGA
+      - MKD
+      - MMK
+      - MNT
+      - MOP
+      - MRU
+      - MUR
+      - MVR
+      - MWK
+      - MXN
+      - MXV
+      - MYR
+      - MZN
+      - NAD
+      - NGN
+      - NIO
+      - NOK
+      - NPR
+      - NZD
+      - OMR
+      - PAB
+      - PEN
+      - PGK
+      - PHP
+      - PKR
+      - PLN
+      - PYG
+      - QAR
+      - RON
+      - RSD
+      - RUB
+      - RWF
+      - SAR
+      - SBD
+      - SCR
+      - SDG
+      - SEK
+      - SGD
+      - SHP
+      - SLE
+      - SLL
+      - SOS
+      - SRD
+      - SSP
+      - STN
+      - SVC
+      - SYP
+      - SZL
+      - THB
+      - TJS
+      - TMT
+      - TND
+      - TOP
+      - TRL
+      - TRY
+      - TTD
+      - TWD
+      - TZS
+      - UAH
+      - UGX
+      - USD
+      - USN
+      - UYI
+      - UYU
+      - UYW
+      - UZS
+      - VED
+      - VES
+      - VND
+      - VUV
+      - WST
+      - XAF
+      - XAG
+      - XAU
+      - XBA
+      - XBB
+      - XBC
+      - XBD
+      - XCD
+      - XDR
+      - XOF
+      - XPD
+      - XPF
+      - XPT
+      - XSU
+      - XTS
+      - XUA
+      - XXX
+      - YER
+      - ZAR
+      - ZMW
+      - ZWL
     ProjectPayload:
       title: ProjectPayload
       x-stoplight:
@@ -693,25 +1039,6 @@ components:
       required:
       - name
       - type
-    classification:
-      title: classification
-      x-stoplight:
-        id: kiltb9wsm9iye
-      type: string
-      enum:
-      - production
-      - template
-      - component
-      - sample
-    fields_internal:
-      title: fields_internal
-      x-stoplight:
-        id: gllpnqude53mp
-      type: array
-      items:
-        $ref: '#/components/schemas/fields'
-        x-stoplight:
-          id: eak8q4id1p2i3
     products_internal:
       title: products_internal
       x-stoplight:
@@ -721,71 +1048,16 @@ components:
         $ref: '#/components/schemas/products'
         x-stoplight:
           id: qeezmlysbidw9
-    Region:
-      title: Region
+    status:
+      title: status
       x-stoplight:
-        id: 5rz8jxdpgo4zq
+        id: 7imcqgahx8744
       type: string
       enum:
-      - US
-      - EMEA
-      - AUS
-      - CAN
-      - DEU
-      - IND
-      - JPN
-      - GBR
-      description: 'Specifies the region where your request should be routed. Possible values are:
-
-        - ``US`` - Data center for the US region.
-
-        - ``EMEA`` - Data center for the European Union, Middle East, and Africa regions.
-
-        - ``AUS`` - Data center for the Australia region.
-
-        - ``CAN`` - Data center for the Canada region.
-
-        - ``DEU`` - Data center for the Germany region.
-
-        - ``IND`` - Data center for the India region.
-
-        - ``JPN`` - Data center for the Japan region.
-
-        - ``GBR`` - Data center for the United Kingdom region.'
-    sortBy:
-      title: sortBy
-      x-stoplight:
-        id: th8hud7fjoevd
-      type: string
-      enum:
-      - name asc
-      - startDate asc
-      - endDate asc
-      - type asc
-      - status asc
-      - jobNumber asc
-      - constructionType asc
-      - deliveryMethod asc
-      - contractType asc
-      - currentPhase asc
-      - companyCount asc
-      - memberCount asc
-      - createdAt asc
-      - updatedAt asc
-      - name desc
-      - startDate desc
-      - endDate desc
-      - type desc
-      - status desc
-      - jobNumber desc
-      - constructionType desc
-      - deliveryMethod desc
-      - contractType desc
-      - currentPhase desc
-      - companyCount desc
-      - memberCount desc
-      - createdAt desc
-      - updatedAt desc
+      - active
+      - pending
+      - archived
+      - suspended
     timezone:
       title: timezone
       type: string
@@ -916,50 +1188,6 @@ components:
       - Pacific/Tongatapu
       - Pacific/Apia
       - Pacific/Fakaofo
-    filterPlatform_internal:
-      title: filterPlatform_internal
-      x-stoplight:
-        id: 07osm8uexhmzc
-      type: array
-      items:
-        $ref: '#/components/schemas/platform'
-        x-stoplight:
-          id: blbjael8tal1d
-    sort_internal:
-      title: sort_internal
-      type: array
-      items:
-        $ref: '#/components/schemas/sortBy'
-        x-stoplight:
-          id: rco9c6oaws4eh
-    filterType:
-      title: filterType
-      type: array
-      items:
-        type: string
-    filterClassification_internal:
-      title: filterClassification_internal
-      type: array
-      items:
-        $ref: '#/components/schemas/classification'
-    filterTextMatch:
-      title: filterTextMatch
-      x-stoplight:
-        id: l613i9qr8h8a6
-      type: string
-      enum:
-      - contains
-      - startsWith
-      - endsWith
-      - equals
-    platform:
-      title: platform
-      x-stoplight:
-        id: w4j4h1zy6fji2
-      type: string
-      enum:
-      - acc
-      - bim360
     Project:
       title: Project
       x-stoplight:
@@ -1157,74 +1385,6 @@ components:
           x-stoplight:
             id: zpt9et6ahhjj8
           description: The ID of the project that was used as a template to create this project.
-    products:
-      title: products
-      x-stoplight:
-        id: qr6chlzpjohw0
-      type: string
-      enum:
-      - build
-      - docs
-      - takeoff
-      - cost
-      - autospecs
-      - financials
-      - buildingConnected
-      - capitalPlanning
-      - accountAdministration
-      - workshopxr
-      - insight
-      - projectAdministration
-      - modelCoordination
-      - designCollaboration
-      - cloudWorksharing
-      - fieldManagement
-      - costManagement
-      - glue
-      - documentManagement
-      - projectHome
-      - assets
-      - quantification
-      - plan
-      - field
-      - projectManagement
-      description: ''
-    fields:
-      title: fields
-      x-stoplight:
-        id: 2u11626lmta32
-      type: string
-      enum:
-      - accountId
-      - addressLine1
-      - addressLine2
-      - businessUnitId
-      - city
-      - companyCount
-      - constructionType
-      - country
-      - createdAt
-      - deliveryMethod
-      - endDate
-      - imageUrl
-      - jobNumber
-      - lastSignIn
-      - latitude
-      - longitude
-      - memberCount
-      - name
-      - platform
-      - postalCode
-      - products
-      - projectValue
-      - sheetCount
-      - startDate
-      - stateOrProvince
-      - status
-      - thumbnailImageUrl
-      - timezone
-      - type
-      - updatedAt
     ProjectsPage:
       title: Projects
       x-stoplight:
@@ -1238,203 +1398,43 @@ components:
           description: The requested page of projects.
           items:
             $ref: '#/components/schemas/Project'
-    currency:
-      title: currency
+    classification:
+      title: classification
+      x-stoplight:
+        id: kiltb9wsm9iye
       type: string
       enum:
-      - AED
-      - AFN
-      - ALL
-      - AMD
-      - ANG
-      - AOA
-      - ARS
-      - AUD
-      - AWG
-      - AZN
-      - BAM
-      - BBD
-      - BDT
-      - BGN
-      - BHD
-      - BIF
-      - BMD
-      - BND
-      - BOB
-      - BOV
-      - BRL
-      - BSD
-      - BTN
-      - BWP
-      - BYN
-      - BYR
-      - BZD
-      - CAD
-      - CDF
-      - CHE
-      - CHF
-      - CHW
-      - CLF
-      - CLP
-      - CNY
-      - COP
-      - COU
-      - CRC
-      - CUC
-      - CUP
-      - CVE
-      - CZK
-      - DJF
-      - DKK
-      - DOP
-      - DZD
-      - EEK
-      - EGP
-      - ERN
-      - ETB
-      - EUR
-      - FJD
-      - FKP
-      - GBP
-      - GEL
-      - GHS
-      - GIP
-      - GMD
-      - GNF
-      - GTQ
-      - GYD
-      - HKD
-      - HNL
-      - HRK
-      - HTG
-      - HUF
-      - IDR
-      - ILS
-      - INR
-      - IQD
-      - IRR
-      - ISK
-      - JMD
-      - JOD
-      - JPY
-      - KES
-      - KGS
-      - KHR
-      - KMF
-      - KPW
-      - KRW
-      - KWD
-      - KYD
-      - KZT
-      - LAK
-      - LBP
-      - LKR
-      - LRD
-      - LSL
-      - LTL
-      - LVL
-      - LYD
-      - MAD
-      - MDL
-      - MGA
-      - MKD
-      - MMK
-      - MNT
-      - MOP
-      - MRU
-      - MUR
-      - MVR
-      - MWK
-      - MXN
-      - MXV
-      - MYR
-      - MZN
-      - NAD
-      - NGN
-      - NIO
-      - NOK
-      - NPR
-      - NZD
-      - OMR
-      - PAB
-      - PEN
-      - PGK
-      - PHP
-      - PKR
-      - PLN
-      - PYG
-      - QAR
-      - RON
-      - RSD
-      - RUB
-      - RWF
-      - SAR
-      - SBD
-      - SCR
-      - SDG
-      - SEK
-      - SGD
-      - SHP
-      - SLE
-      - SLL
-      - SOS
-      - SRD
-      - SSP
-      - STN
-      - SVC
-      - SYP
-      - SZL
-      - THB
-      - TJS
-      - TMT
-      - TND
-      - TOP
-      - TRL
-      - TRY
-      - TTD
-      - TWD
-      - TZS
-      - UAH
-      - UGX
-      - USD
-      - USN
-      - UYI
-      - UYU
-      - UYW
-      - UZS
-      - VED
-      - VES
-      - VND
-      - VUV
-      - WST
-      - XAF
-      - XAG
-      - XAU
-      - XBA
-      - XBB
-      - XBC
-      - XBD
-      - XCD
-      - XDR
-      - XOF
-      - XPD
-      - XPF
-      - XPT
-      - XSU
-      - XTS
-      - XUA
-      - XXX
-      - YER
-      - ZAR
-      - ZMW
-      - ZWL
-    status_internal:
-      title: status_internal
-      type: array
-      items:
-        $ref: '#/components/schemas/status'
-        x-stoplight:
-          id: 3sxoqp01jo0t2
+      - production
+      - template
+      - component
+      - sample
+    Pagination:
+      title: Pagination
+      x-stoplight:
+        id: q1bi13503pl18
+      type: object
+      properties:
+        limit:
+          type: integer
+          x-stoplight:
+            id: 8izi1f176ek68
+        offset:
+          type: integer
+          x-stoplight:
+            id: v1vdhhbk5vhtj
+        totalResults:
+          type: integer
+          x-stoplight:
+            id: o7y9s28pvovds
+        nextUrl:
+          type: string
+          x-stoplight:
+            id: egebyg74p2y51
+        previousUrl:
+          type: string
+          x-stoplight:
+            id: rhoc949ms1w0p
+      description: "\tContains pagination details for the records returned by the endpoint."
   securitySchemes:
     2-legged:
       type: oauth2

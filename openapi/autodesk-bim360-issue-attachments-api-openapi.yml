@@ -1,4 +1,4 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
   title: Construction.Account.Admin Account Users Issue Attachments API
   version: '1.0'
@@ -60,7 +60,16 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/attachmentsPayload'
-      description: "Adds attachments to an existing issue.\r\n\r\nLinks one or more files in Autodesk Docs (uploaded via the Data Management OSS API) to the specified issue.\r\n\r\nNote that an issue can have up to 100 attachments. Files can include images, PDFs, or other supported formats.\r\n\r\nFor more information about uploading attachments, see the Upload Issue Attachment tutorial."
+      description: 'Adds attachments to an existing issue.
+
+
+        Links one or more files in Autodesk Docs (uploaded via the Data Management OSS API) to the specified issue.
+
+
+        Note that an issue can have up to 100 attachments. Files can include images, PDFs, or other supported formats.
+
+
+        For more information about uploading attachments, see the Upload Issue Attachment tutorial.'
       security:
       - 2-legged: []
       - 3-legged: []
@@ -148,7 +157,13 @@ paths:
       operationId: get-attachments
       x-stoplight:
         id: dvrvn24jvv1j5
-      description: "Retrieves all attachments for a specific issue in a project.\r\n\r\nFor details about retrieving metadata for a specific attachment, see the Retrieve Issue Attachment tutorial.\r\n\r\nFor details about downloading an attachment, see the Download Issue Attachment tutorial."
+      description: 'Retrieves all attachments for a specific issue in a project.
+
+
+        For details about retrieving metadata for a specific attachment, see the Retrieve Issue Attachment tutorial.
+
+
+        For details about downloading an attachment, see the Download Issue Attachment tutorial.'
       security:
       - 2-legged: []
       - 3-legged: []
@@ -170,7 +185,12 @@ components:
           description: The human-readable display name for the attachment, including the file extension (for example, .pdf, .jpg, .dwg). This name appears in the ACC web UI and is used when downloading the file from the issue.
         fileName:
           type: string
-          description: "The unique filename of the attachment, typically formatted as {attachmentId}.{fileExtension}.\r\nThis value must exactly match the name of the file stored in Autodesk Docs (OSS) that you uploaded via the OSS process.\r\n\r\nFor more information, see the Upload Issue Attachment tutorial."
+          description: 'The unique filename of the attachment, typically formatted as {attachmentId}.{fileExtension}.
+
+            This value must exactly match the name of the file stored in Autodesk Docs (OSS) that you uploaded via the OSS process.
+
+
+            For more information, see the Upload Issue Attachment tutorial.'
         attachmentType:
           enum:
           - issue-attachment
@@ -252,7 +272,26 @@ components:
           type: boolean
           x-stoplight:
             id: 6dfy2pf5wjpmu
-          description: "true: The attachment has been deleted.\r\nfalse: (default) The attachment has not been deleted."
+          description: 'true: The attachment has been deleted.
+
+            false: (default) The attachment has not been deleted.'
+    attachmentsPayload:
+      title: attachmentspayload
+      x-stoplight:
+        id: pki5fadhz4lko
+      type: object
+      properties:
+        domainEntityId:
+          type: string
+          x-stoplight:
+            id: h11ppw3rpqquf
+          description: The unique identifier of the issue to which the attachments will be added.
+        attachments:
+          type: array
+          items:
+            $ref: '#/components/schemas/attachmentObject'
+          description: The list of attachments to be added to the issue.
+      description: Represents the payload for adding attachments to an issue.
     attachments:
       title: attachments
       x-stoplight:
@@ -293,7 +332,12 @@ components:
           type: string
           x-stoplight:
             id: 66aop0tgqlw3j
-          description: "The unique filename of the attachment, typically formatted as {attachmentId}.{fileExtension}.\r\nThis value must exactly match the name of the file stored in Autodesk Docs (OSS) that you uploaded via the OSS process.\r\n\r\nFor more information, see the Upload Issue Attachment tutorial."
+          description: 'The unique filename of the attachment, typically formatted as {attachmentId}.{fileExtension}.
+
+            This value must exactly match the name of the file stored in Autodesk Docs (OSS) that you uploaded via the OSS process.
+
+
+            For more information, see the Upload Issue Attachment tutorial.'
         attachmentType:
           x-stoplight:
             id: a2yqbbh35br8y
@@ -305,23 +349,6 @@ components:
           x-stoplight:
             id: voywegs8sir9k
           description: The Object Storage Service (OSS) URN that uniquely identifies where the file is stored in Autodesk’s cloud infrastructure. You obtain this value after uploading the file to OSS (see the Upload Issue Attachment tutorial) or by retrieving it from an existing attachment (see the Downloading Issue Attachments tutorial).
-    attachmentsPayload:
-      title: attachmentspayload
-      x-stoplight:
-        id: pki5fadhz4lko
-      type: object
-      properties:
-        domainEntityId:
-          type: string
-          x-stoplight:
-            id: h11ppw3rpqquf
-          description: The unique identifier of the issue to which the attachments will be added.
-        attachments:
-          type: array
-          items:
-            $ref: '#/components/schemas/attachmentObject'
-          description: The list of attachments to be added to the issue.
-      description: Represents the payload for adding attachments to an issue.
   securitySchemes:
     2-legged:
       type: oauth2

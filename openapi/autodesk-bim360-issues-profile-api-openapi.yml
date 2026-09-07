@@ -1,4 +1,4 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
   title: Construction.Account.Admin Account Users Issues Profile API
   version: '1.0'
@@ -58,6 +58,12 @@ paths:
       tags:
       - Issues Profile
 components:
+  parameters:
+    x-ads-region:
+      name: x-ads-region
+      in: header
+      schema:
+        $ref: '#/components/schemas/region'
   schemas:
     User:
       title: User
@@ -151,12 +157,6 @@ components:
       - create
       - read
       - write
-  parameters:
-    x-ads-region:
-      name: x-ads-region
-      in: header
-      schema:
-        $ref: '#/components/schemas/region'
   securitySchemes:
     2-legged:
       type: oauth2
