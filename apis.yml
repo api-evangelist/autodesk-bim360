@@ -142,6 +142,10 @@ apis:
   baseURL: https://developer.api.autodesk.com
   tags:
   - Cost Management
+  - Budgets
+  - Finance
+  tags_raw:
+  - Cost Management
   - Budget
   - Finance
   properties:
@@ -216,6 +220,10 @@ apis:
   humanURL: https://aps.autodesk.com/en/docs/bim360/v1/overview/field-guide/locations
   baseURL: https://developer.api.autodesk.com
   tags:
+  - Location
+  - Building Areas
+  - Spatial Management
+  tags_raw:
   - Locations
   - Building Areas
   - Spatial Management
