@@ -11,7 +11,7 @@ capability_model:
   attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
     CC BY 4.0
   notice: NOTICE
-edge_count: 1
+edge_count: 2
 edges:
 - tag: Account Users
   spec_file: autodesk-bim360-account-users-api-openapi.yml
@@ -25,3 +25,15 @@ edges:
     entitlements — user provisioning and access administration for the platform account, i.e. identity
     & access management. Not HR: these are platform accounts and licence/role assignments, not employee
     records. Confidence tempered because an entitlement/tenant-user reading is also defensible.'
+- tag: Issues
+  spec_file: autodesk-bim360-issues-api-openapi.yml
+  capability_id: BC-1150
+  capability_id_l1: BC-1150
+  capability_name: Construction Management
+  confidence: 0.7
+  evidence: POST /construction/issues/v1/projects/{projectId}/issues createIssue; schemas Issue, filterrootCauseId,
+    filterlocationId
+  reason: Full CRUD over project issues (with location, root cause, assignee) in a construction project
+    platform — this is site issue/punch-list tracking during construction execution. L2 ambiguous between
+    construction quality management and general issue tracking, so L1 only.
+  recovered_from: vertical-engineering-services-edges.json
