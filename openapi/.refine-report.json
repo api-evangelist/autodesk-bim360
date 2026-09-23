@@ -1,25 +1,16 @@
 {
   "provider": "autodesk-bim360",
   "sources": [
-    "autodesk-bim360-account-users-api-openapi.yml",
-    "autodesk-bim360-business-units-api-openapi.yml",
-    "autodesk-bim360-companies-api-openapi.yml",
-    "autodesk-bim360-issue-attachments-api-openapi.yml",
-    "autodesk-bim360-issue-attribute-definitions-api-openapi.yml",
-    "autodesk-bim360-issue-attribute-mappings-api-openapi.yml",
-    "autodesk-bim360-issue-comments-api-openapi.yml",
-    "autodesk-bim360-issue-root-cause-categories-api-openapi.yml",
-    "autodesk-bim360-issue-types-api-openapi.yml",
-    "autodesk-bim360-issues-api-openapi.yml",
-    "autodesk-bim360-issues-profile-api-openapi.yml",
-    "autodesk-bim360-project-users-api-openapi.yml",
-    "autodesk-bim360-projects-api-openapi.yml",
-    "autodesk-bim360-user-projects-api-openapi.yml"
+    "_original/autodesk-bim360-account-admin-openapi.yml",
+    "_original/autodesk-bim360-issues-openapi.yml"
   ],
   "outputs": [
     "autodesk-bim360-account-users-api-openapi.yml",
     "autodesk-bim360-business-units-api-openapi.yml",
     "autodesk-bim360-companies-api-openapi.yml",
+    "autodesk-bim360-project-users-api-openapi.yml",
+    "autodesk-bim360-projects-api-openapi.yml",
+    "autodesk-bim360-user-projects-api-openapi.yml",
     "autodesk-bim360-issue-attachments-api-openapi.yml",
     "autodesk-bim360-issue-attribute-definitions-api-openapi.yml",
     "autodesk-bim360-issue-attribute-mappings-api-openapi.yml",
@@ -27,30 +18,31 @@
     "autodesk-bim360-issue-root-cause-categories-api-openapi.yml",
     "autodesk-bim360-issue-types-api-openapi.yml",
     "autodesk-bim360-issues-api-openapi.yml",
-    "autodesk-bim360-issues-profile-api-openapi.yml",
-    "autodesk-bim360-project-users-api-openapi.yml",
-    "autodesk-bim360-projects-api-openapi.yml",
-    "autodesk-bim360-user-projects-api-openapi.yml"
+    "autodesk-bim360-issues-profile-api-openapi.yml"
   ],
   "archived": [],
   "errors": [],
   "warnings": [],
   "notes": [
-    "autodesk-bim360-account-users-api-openapi.yml: upgraded openapi 3.0.0 -> OpenAPI 3.2.0",
-    "autodesk-bim360-business-units-api-openapi.yml: upgraded openapi 3.0.0 -> OpenAPI 3.2.0",
-    "autodesk-bim360-companies-api-openapi.yml: upgraded openapi 3.0.0 -> OpenAPI 3.2.0",
-    "autodesk-bim360-issue-attachments-api-openapi.yml: upgraded openapi 3.0.0 -> OpenAPI 3.2.0",
-    "autodesk-bim360-issue-attribute-definitions-api-openapi.yml: upgraded openapi 3.0.0 -> OpenAPI 3.2.0",
-    "autodesk-bim360-issue-attribute-mappings-api-openapi.yml: upgraded openapi 3.0.0 -> OpenAPI 3.2.0",
-    "autodesk-bim360-issue-comments-api-openapi.yml: upgraded openapi 3.0.0 -> OpenAPI 3.2.0",
-    "autodesk-bim360-issue-root-cause-categories-api-openapi.yml: upgraded openapi 3.0.0 -> OpenAPI 3.2.0",
-    "autodesk-bim360-issue-types-api-openapi.yml: upgraded openapi 3.0.0 -> OpenAPI 3.2.0",
-    "autodesk-bim360-issues-api-openapi.yml: upgraded openapi 3.0.0 -> OpenAPI 3.2.0",
-    "autodesk-bim360-issues-profile-api-openapi.yml: upgraded openapi 3.0.0 -> OpenAPI 3.2.0",
-    "autodesk-bim360-project-users-api-openapi.yml: upgraded openapi 3.0.0 -> OpenAPI 3.2.0",
-    "autodesk-bim360-projects-api-openapi.yml: upgraded openapi 3.0.0 -> OpenAPI 3.2.0",
-    "autodesk-bim360-user-projects-api-openapi.yml: upgraded openapi 3.0.0 -> OpenAPI 3.2.0",
+    "sourced from openapi/_original/ (2 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "autodesk-bim360-account-admin-openapi.yml: upgraded openapi 3.0.0 -> OpenAPI 3.2.0",
+    "autodesk-bim360-issues-openapi.yml: upgraded openapi 3.0.0 -> OpenAPI 3.2.0",
     "apis.yml register: already-registered"
   ],
-  "skipped": []
+  "skipped": [
+    "autodesk-bim360-account-users-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "autodesk-bim360-business-units-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "autodesk-bim360-companies-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "autodesk-bim360-issue-attachments-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "autodesk-bim360-issue-attribute-definitions-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "autodesk-bim360-issue-attribute-mappings-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "autodesk-bim360-issue-comments-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "autodesk-bim360-issue-root-cause-categories-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "autodesk-bim360-issue-types-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "autodesk-bim360-issues-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "autodesk-bim360-issues-profile-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "autodesk-bim360-project-users-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "autodesk-bim360-projects-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "autodesk-bim360-user-projects-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

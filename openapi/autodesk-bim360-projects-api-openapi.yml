@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: Construction.Account.Admin Account Users Projects API
+  title: Construction.Account.Admin Projects API
   version: '1.0'
   contact:
     name: Autodesk Plaform Services
@@ -8,9 +8,7 @@ info:
     email: aps.help@autodesk.com
   termsOfService: https://www.autodesk.com/company/legal-notices-trademarks/terms-of-service-autodesk360-web-services/forge-platform-web-services-api-terms-of-service
   x-support: https://stackoverflow.com/questions/tagged/autodesk-platform-services
-  description: 'The Account Admin API automates creating and managing projects, assigning and managing project users, and managing member and partner company directories. You can also synchronize data with external systems.
-
-    '
+  description: The Account Admin API automates creating and managing projects, assigning and managing project users, and managing member and partner company directories. You can also synchronize data with external systems.
 servers:
 - url: https://developer.api.autodesk.com
 security:
@@ -333,309 +331,6 @@ paths:
         description: 'The geographic area where the data is stored. Acceptable values: US, EMEA, AUS, CAN, DEU, IND, JPN, GBR. By default, it is set to US.'
 components:
   schemas:
-    ProjectPatch:
-      title: ProjectPatch
-      x-stoplight:
-        id: g4k3if9lta3pg
-      type: object
-      properties:
-        id:
-          type: string
-          description: Project ID
-        account_id:
-          type: string
-          x-stoplight:
-            id: e67zvdyuagrvb
-          description: Account ID
-        name:
-          type: string
-          x-stoplight:
-            id: dmzvvk6gp4fvg
-          description: Name of the project
-        start_date:
-          type: string
-          x-stoplight:
-            id: xn0vpzsk6nrpn
-          description: 'The starting date of a project; must be earlier than end_date
-
-            Format: YYYY-MM-DD'
-        end_date:
-          type: string
-          x-stoplight:
-            id: 8k65nul995k5g
-          description: 'The ending date of a project; must be later than start_date
-
-            Format: YYYY-MM-DD'
-        project_type:
-          type: string
-          x-stoplight:
-            id: 0ougx4e12wc5e
-          description: The type of project; accepts preconfigured and customized project types
-        value:
-          type: number
-          x-stoplight:
-            id: 3gfeukdzeddnr
-          description: Monetary value of the project
-        currency:
-          type: string
-          x-stoplight:
-            id: e1jzwyjpobyt8
-          description: Currency for project value
-        status:
-          x-stoplight:
-            id: gruqhoco7k1hr
-          description: The status of project.
-          type: string
-        job_number:
-          type: string
-          x-stoplight:
-            id: x97wzdzwxscc8
-          description: Project job number to connect a BIM 360 project to project or job in a financial or ERP system.
-        address_line_1:
-          type: string
-          x-stoplight:
-            id: be7zse4sz643m
-          description: Project address line 1
-        address_line_2:
-          type: string
-          x-stoplight:
-            id: unu5zecux1alc
-          description: Project address line 2
-        city:
-          type: string
-          x-stoplight:
-            id: mcn6w0lvgnp20
-          description: City in which project is located
-        state_or_province:
-          type: string
-          x-stoplight:
-            id: w39x7lnnh9myp
-          description: State or province in which project is located
-        postal_code:
-          type: string
-          x-stoplight:
-            id: owsyshcr8hvna
-          description: Postal code for the project location
-        country:
-          type: string
-          x-stoplight:
-            id: 8p08o8arqn17l
-          description: Country for this project
-        business_unit_id:
-          type: string
-          x-stoplight:
-            id: 17xu7kyhn7del
-          description: The business unit ID of this project
-        timezone:
-          type: string
-          x-stoplight:
-            id: qs32hyvg8ajfy
-          description: Time zone for this project
-        language:
-          x-stoplight:
-            id: g6dvm8dmqd5yw
-          description: Language of the project; applicable to the BIM 360 Field service only
-          type: string
-        construction_type:
-          x-stoplight:
-            id: beot2pj6n3azw
-          description: Type of construction
-          type: string
-        contract_type:
-          x-stoplight:
-            id: ovt9kdgv1cqxh
-          description: Contract Type for your project
-          type: string
-        last_sign_in:
-          type: string
-          x-stoplight:
-            id: 10g0wn1qosciu
-          description: Timestamp of the last sign in, YYYY-MM-DDThh:mm:ss.sssZ format
-    products:
-      title: products
-      x-stoplight:
-        id: qr6chlzpjohw0
-      type: string
-      enum:
-      - build
-      - docs
-      - takeoff
-      - cost
-      - autospecs
-      - financials
-      - buildingConnected
-      - capitalPlanning
-      - accountAdministration
-      - workshopxr
-      - insight
-      - projectAdministration
-      - modelCoordination
-      - designCollaboration
-      - cloudWorksharing
-      - fieldManagement
-      - costManagement
-      - glue
-      - documentManagement
-      - projectHome
-      - assets
-      - quantification
-      - plan
-      - field
-      - projectManagement
-      description: ''
-    Region:
-      title: Region
-      x-stoplight:
-        id: 5rz8jxdpgo4zq
-      type: string
-      enum:
-      - US
-      - EMEA
-      - AUS
-      - CAN
-      - DEU
-      - IND
-      - JPN
-      - GBR
-      description: 'Specifies the region where your request should be routed. Possible values are:
-
-        - ``US`` - Data center for the US region.
-
-        - ``EMEA`` - Data center for the European Union, Middle East, and Africa regions.
-
-        - ``AUS`` - Data center for the Australia region.
-
-        - ``CAN`` - Data center for the Canada region.
-
-        - ``DEU`` - Data center for the Germany region.
-
-        - ``IND`` - Data center for the India region.
-
-        - ``JPN`` - Data center for the Japan region.
-
-        - ``GBR`` - Data center for the United Kingdom region.'
-    status_internal:
-      title: status_internal
-      type: array
-      items:
-        $ref: '#/components/schemas/status'
-        x-stoplight:
-          id: 3sxoqp01jo0t2
-    sort_internal:
-      title: sort_internal
-      type: array
-      items:
-        $ref: '#/components/schemas/sortBy'
-        x-stoplight:
-          id: rco9c6oaws4eh
-    fields:
-      title: fields
-      x-stoplight:
-        id: 2u11626lmta32
-      type: string
-      enum:
-      - accountId
-      - addressLine1
-      - addressLine2
-      - businessUnitId
-      - city
-      - companyCount
-      - constructionType
-      - country
-      - createdAt
-      - deliveryMethod
-      - endDate
-      - imageUrl
-      - jobNumber
-      - lastSignIn
-      - latitude
-      - longitude
-      - memberCount
-      - name
-      - platform
-      - postalCode
-      - products
-      - projectValue
-      - sheetCount
-      - startDate
-      - stateOrProvince
-      - status
-      - thumbnailImageUrl
-      - timezone
-      - type
-      - updatedAt
-    sortBy:
-      title: sortBy
-      x-stoplight:
-        id: th8hud7fjoevd
-      type: string
-      enum:
-      - name asc
-      - startDate asc
-      - endDate asc
-      - type asc
-      - status asc
-      - jobNumber asc
-      - constructionType asc
-      - deliveryMethod asc
-      - contractType asc
-      - currentPhase asc
-      - companyCount asc
-      - memberCount asc
-      - createdAt asc
-      - updatedAt asc
-      - name desc
-      - startDate desc
-      - endDate desc
-      - type desc
-      - status desc
-      - jobNumber desc
-      - constructionType desc
-      - deliveryMethod desc
-      - contractType desc
-      - currentPhase desc
-      - companyCount desc
-      - memberCount desc
-      - createdAt desc
-      - updatedAt desc
-    filterPlatform_internal:
-      title: filterPlatform_internal
-      x-stoplight:
-        id: 07osm8uexhmzc
-      type: array
-      items:
-        $ref: '#/components/schemas/platform'
-        x-stoplight:
-          id: blbjael8tal1d
-    filterType:
-      title: filterType
-      type: array
-      items:
-        type: string
-    fields_internal:
-      title: fields_internal
-      x-stoplight:
-        id: gllpnqude53mp
-      type: array
-      items:
-        $ref: '#/components/schemas/fields'
-        x-stoplight:
-          id: eak8q4id1p2i3
-    filterClassification_internal:
-      title: filterClassification_internal
-      type: array
-      items:
-        $ref: '#/components/schemas/classification'
-    filterTextMatch:
-      title: filterTextMatch
-      x-stoplight:
-        id: l613i9qr8h8a6
-      type: string
-      enum:
-      - contains
-      - startsWith
-      - endsWith
-      - equals
     platform:
       title: platform
       x-stoplight:
@@ -644,6 +339,15 @@ components:
       enum:
       - acc
       - bim360
+    products_internal:
+      title: products_internal
+      x-stoplight:
+        id: 9c80166a5fe5a
+      type: array
+      items:
+        $ref: '#/components/schemas/products'
+        x-stoplight:
+          id: qeezmlysbidw9
     currency:
       title: currency
       type: string
@@ -834,6 +538,238 @@ components:
       - ZAR
       - ZMW
       - ZWL
+    filterClassification_internal:
+      title: filterClassification_internal
+      type: array
+      items:
+        $ref: '#/components/schemas/classification'
+    fields_internal:
+      title: fields_internal
+      x-stoplight:
+        id: gllpnqude53mp
+      type: array
+      items:
+        $ref: '#/components/schemas/fields'
+        x-stoplight:
+          id: eak8q4id1p2i3
+    Region:
+      title: Region
+      x-stoplight:
+        id: 5rz8jxdpgo4zq
+      type: string
+      enum:
+      - US
+      - EMEA
+      - AUS
+      - CAN
+      - DEU
+      - IND
+      - JPN
+      - GBR
+      description: 'Specifies the region where your request should be routed. Possible values are:
+
+        - ``US`` - Data center for the US region.
+
+        - ``EMEA`` - Data center for the European Union, Middle East, and Africa regions.
+
+        - ``AUS`` - Data center for the Australia region.
+
+        - ``CAN`` - Data center for the Canada region.
+
+        - ``DEU`` - Data center for the Germany region.
+
+        - ``IND`` - Data center for the India region.
+
+        - ``JPN`` - Data center for the Japan region.
+
+        - ``GBR`` - Data center for the United Kingdom region.'
+    products:
+      title: products
+      x-stoplight:
+        id: qr6chlzpjohw0
+      type: string
+      enum:
+      - build
+      - docs
+      - takeoff
+      - cost
+      - autospecs
+      - financials
+      - buildingConnected
+      - capitalPlanning
+      - accountAdministration
+      - workshopxr
+      - insight
+      - projectAdministration
+      - modelCoordination
+      - designCollaboration
+      - cloudWorksharing
+      - fieldManagement
+      - costManagement
+      - glue
+      - documentManagement
+      - projectHome
+      - assets
+      - quantification
+      - plan
+      - field
+      - projectManagement
+      description: ''
+    status:
+      title: status
+      x-stoplight:
+        id: 7imcqgahx8744
+      type: string
+      enum:
+      - active
+      - pending
+      - archived
+      - suspended
+    filterPlatform_internal:
+      title: filterPlatform_internal
+      x-stoplight:
+        id: 07osm8uexhmzc
+      type: array
+      items:
+        $ref: '#/components/schemas/platform'
+        x-stoplight:
+          id: blbjael8tal1d
+    ProjectsPage:
+      title: Projects
+      x-stoplight:
+        id: ikvjx87zn5n72
+      type: object
+      properties:
+        pagination:
+          $ref: '#/components/schemas/Pagination'
+        results:
+          type: array
+          description: The requested page of projects.
+          items:
+            $ref: '#/components/schemas/Project'
+    filterType:
+      title: filterType
+      type: array
+      items:
+        type: string
+    ProjectPatch:
+      title: ProjectPatch
+      x-stoplight:
+        id: g4k3if9lta3pg
+      type: object
+      properties:
+        id:
+          type: string
+          description: Project ID
+        account_id:
+          type: string
+          x-stoplight:
+            id: e67zvdyuagrvb
+          description: Account ID
+        name:
+          type: string
+          x-stoplight:
+            id: dmzvvk6gp4fvg
+          description: Name of the project
+        start_date:
+          type: string
+          x-stoplight:
+            id: xn0vpzsk6nrpn
+          description: 'The starting date of a project; must be earlier than end_date
+
+            Format: YYYY-MM-DD'
+        end_date:
+          type: string
+          x-stoplight:
+            id: 8k65nul995k5g
+          description: 'The ending date of a project; must be later than start_date
+
+            Format: YYYY-MM-DD'
+        project_type:
+          type: string
+          x-stoplight:
+            id: 0ougx4e12wc5e
+          description: The type of project; accepts preconfigured and customized project types
+        value:
+          type: number
+          x-stoplight:
+            id: 3gfeukdzeddnr
+          description: Monetary value of the project
+        currency:
+          type: string
+          x-stoplight:
+            id: e1jzwyjpobyt8
+          description: Currency for project value
+        status:
+          x-stoplight:
+            id: gruqhoco7k1hr
+          description: The status of project.
+          type: string
+        job_number:
+          type: string
+          x-stoplight:
+            id: x97wzdzwxscc8
+          description: Project job number to connect a BIM 360 project to project or job in a financial or ERP system.
+        address_line_1:
+          type: string
+          x-stoplight:
+            id: be7zse4sz643m
+          description: Project address line 1
+        address_line_2:
+          type: string
+          x-stoplight:
+            id: unu5zecux1alc
+          description: Project address line 2
+        city:
+          type: string
+          x-stoplight:
+            id: mcn6w0lvgnp20
+          description: City in which project is located
+        state_or_province:
+          type: string
+          x-stoplight:
+            id: w39x7lnnh9myp
+          description: State or province in which project is located
+        postal_code:
+          type: string
+          x-stoplight:
+            id: owsyshcr8hvna
+          description: Postal code for the project location
+        country:
+          type: string
+          x-stoplight:
+            id: 8p08o8arqn17l
+          description: Country for this project
+        business_unit_id:
+          type: string
+          x-stoplight:
+            id: 17xu7kyhn7del
+          description: The business unit ID of this project
+        timezone:
+          type: string
+          x-stoplight:
+            id: qs32hyvg8ajfy
+          description: Time zone for this project
+        language:
+          x-stoplight:
+            id: g6dvm8dmqd5yw
+          description: Language of the project; applicable to the BIM 360 Field service only
+          type: string
+        construction_type:
+          x-stoplight:
+            id: beot2pj6n3azw
+          description: Type of construction
+          type: string
+        contract_type:
+          x-stoplight:
+            id: ovt9kdgv1cqxh
+          description: Contract Type for your project
+          type: string
+        last_sign_in:
+          type: string
+          x-stoplight:
+            id: 10g0wn1qosciu
+          description: Timestamp of the last sign in, YYYY-MM-DDThh:mm:ss.sssZ format
     ProjectPayload:
       title: ProjectPayload
       x-stoplight:
@@ -1039,25 +975,33 @@ components:
       required:
       - name
       - type
-    products_internal:
-      title: products_internal
+    Pagination:
+      title: Pagination
       x-stoplight:
-        id: 9c80166a5fe5a
-      type: array
-      items:
-        $ref: '#/components/schemas/products'
-        x-stoplight:
-          id: qeezmlysbidw9
-    status:
-      title: status
-      x-stoplight:
-        id: 7imcqgahx8744
-      type: string
-      enum:
-      - active
-      - pending
-      - archived
-      - suspended
+        id: q1bi13503pl18
+      type: object
+      properties:
+        limit:
+          type: integer
+          x-stoplight:
+            id: 8izi1f176ek68
+        offset:
+          type: integer
+          x-stoplight:
+            id: v1vdhhbk5vhtj
+        totalResults:
+          type: integer
+          x-stoplight:
+            id: o7y9s28pvovds
+        nextUrl:
+          type: string
+          x-stoplight:
+            id: egebyg74p2y51
+        previousUrl:
+          type: string
+          x-stoplight:
+            id: rhoc949ms1w0p
+      description: "\tContains pagination details for the records returned by the endpoint."
     timezone:
       title: timezone
       type: string
@@ -1385,19 +1329,6 @@ components:
           x-stoplight:
             id: zpt9et6ahhjj8
           description: The ID of the project that was used as a template to create this project.
-    ProjectsPage:
-      title: Projects
-      x-stoplight:
-        id: ikvjx87zn5n72
-      type: object
-      properties:
-        pagination:
-          $ref: '#/components/schemas/Pagination'
-        results:
-          type: array
-          description: The requested page of projects.
-          items:
-            $ref: '#/components/schemas/Project'
     classification:
       title: classification
       x-stoplight:
@@ -1408,33 +1339,100 @@ components:
       - template
       - component
       - sample
-    Pagination:
-      title: Pagination
+    fields:
+      title: fields
       x-stoplight:
-        id: q1bi13503pl18
-      type: object
-      properties:
-        limit:
-          type: integer
-          x-stoplight:
-            id: 8izi1f176ek68
-        offset:
-          type: integer
-          x-stoplight:
-            id: v1vdhhbk5vhtj
-        totalResults:
-          type: integer
-          x-stoplight:
-            id: o7y9s28pvovds
-        nextUrl:
-          type: string
-          x-stoplight:
-            id: egebyg74p2y51
-        previousUrl:
-          type: string
-          x-stoplight:
-            id: rhoc949ms1w0p
-      description: "\tContains pagination details for the records returned by the endpoint."
+        id: 2u11626lmta32
+      type: string
+      enum:
+      - accountId
+      - addressLine1
+      - addressLine2
+      - businessUnitId
+      - city
+      - companyCount
+      - constructionType
+      - country
+      - createdAt
+      - deliveryMethod
+      - endDate
+      - imageUrl
+      - jobNumber
+      - lastSignIn
+      - latitude
+      - longitude
+      - memberCount
+      - name
+      - platform
+      - postalCode
+      - products
+      - projectValue
+      - sheetCount
+      - startDate
+      - stateOrProvince
+      - status
+      - thumbnailImageUrl
+      - timezone
+      - type
+      - updatedAt
+    sortBy:
+      title: sortBy
+      x-stoplight:
+        id: th8hud7fjoevd
+      type: string
+      enum:
+      - name asc
+      - startDate asc
+      - endDate asc
+      - type asc
+      - status asc
+      - jobNumber asc
+      - constructionType asc
+      - deliveryMethod asc
+      - contractType asc
+      - currentPhase asc
+      - companyCount asc
+      - memberCount asc
+      - createdAt asc
+      - updatedAt asc
+      - name desc
+      - startDate desc
+      - endDate desc
+      - type desc
+      - status desc
+      - jobNumber desc
+      - constructionType desc
+      - deliveryMethod desc
+      - contractType desc
+      - currentPhase desc
+      - companyCount desc
+      - memberCount desc
+      - createdAt desc
+      - updatedAt desc
+    filterTextMatch:
+      title: filterTextMatch
+      x-stoplight:
+        id: l613i9qr8h8a6
+      type: string
+      enum:
+      - contains
+      - startsWith
+      - endsWith
+      - equals
+    status_internal:
+      title: status_internal
+      type: array
+      items:
+        $ref: '#/components/schemas/status'
+        x-stoplight:
+          id: 3sxoqp01jo0t2
+    sort_internal:
+      title: sort_internal
+      type: array
+      items:
+        $ref: '#/components/schemas/sortBy'
+        x-stoplight:
+          id: rco9c6oaws4eh
   securitySchemes:
     2-legged:
       type: oauth2
