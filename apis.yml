@@ -47,7 +47,7 @@ tags:
   - Construction
   - Project Management
   - BIM
-  - Document-Management
+  - Document Management
   - Field Management
   - Issues Tracking
   - Cost Management
@@ -65,6 +65,7 @@ tags_raw:
   - Model Coordination
   - RFIs
   - Checklists
+  - Document-Management
 apis:
 - name: BIM 360 Account Admin API
   description: >
@@ -106,13 +107,14 @@ apis:
     https://aps.autodesk.com/en/docs/bim360/v1/tutorials/getting-started/manage-access-to-docs/
   baseURL: https://developer.api.autodesk.com
   tags:
-  - Document-Management
+  - Document Management
   - File Storage
   - BIM Models
   tags_raw:
   - Document Management
   - File Storage
   - BIM Models
+  - Document-Management
   properties:
   - type: Documentation
     url: >-

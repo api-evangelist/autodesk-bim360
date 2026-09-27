@@ -83,6 +83,20 @@ paths:
           $ref: '#/components/schemas/filterdataType_internal'
 components:
   schemas:
+    attr_definition_page:
+      title: attr_definition
+      type: object
+      description: The pagination object.
+      x-stoplight:
+        id: bvhkdkasjb7j1
+      properties:
+        pagination:
+          $ref: '#/components/schemas/Pagination'
+        results:
+          type: array
+          description: A list of issue attribute definition.
+          items:
+            $ref: '#/components/schemas/attr_definition'
     filterdataType_internal:
       title: fields_internal
       x-stoplight:
@@ -176,31 +190,6 @@ components:
         deletedBy:
           type: string
           description: The Autodesk ID of the user who deleted the custom attribute.
-    dataType:
-      title: filterdataType
-      x-stoplight:
-        id: szgoga8vkzknv
-      type: string
-      enum:
-      - list
-      - text
-      - paragraph
-      - numeric
-      description: Retrieves issue custom attribute definitions with the specified data type
-    attr_definition_page:
-      title: attr_definition
-      type: object
-      description: The pagination object.
-      x-stoplight:
-        id: bvhkdkasjb7j1
-      properties:
-        pagination:
-          $ref: '#/components/schemas/Pagination'
-        results:
-          type: array
-          description: A list of issue attribute definition.
-          items:
-            $ref: '#/components/schemas/attr_definition'
     region:
       title: region
       x-stoplight:
@@ -229,6 +218,17 @@ components:
         totalResults:
           type: integer
           description: The number of items in the response.
+    dataType:
+      title: filterdataType
+      x-stoplight:
+        id: szgoga8vkzknv
+      type: string
+      enum:
+      - list
+      - text
+      - paragraph
+      - numeric
+      description: Retrieves issue custom attribute definitions with the specified data type
   parameters:
     x-ads-region:
       name: x-ads-region
