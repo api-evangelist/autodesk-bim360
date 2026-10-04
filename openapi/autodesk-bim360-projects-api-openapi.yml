@@ -331,45 +331,124 @@ paths:
         description: 'The geographic area where the data is stored. Acceptable values: US, EMEA, AUS, CAN, DEU, IND, JPN, GBR. By default, it is set to US.'
 components:
   schemas:
-    products:
-      title: products
+    ProjectPatch:
+      title: ProjectPatch
       x-stoplight:
-        id: qr6chlzpjohw0
-      type: string
-      enum:
-      - build
-      - docs
-      - takeoff
-      - cost
-      - autospecs
-      - financials
-      - buildingConnected
-      - capitalPlanning
-      - accountAdministration
-      - workshopxr
-      - insight
-      - projectAdministration
-      - modelCoordination
-      - designCollaboration
-      - cloudWorksharing
-      - fieldManagement
-      - costManagement
-      - glue
-      - documentManagement
-      - projectHome
-      - assets
-      - quantification
-      - plan
-      - field
-      - projectManagement
-      description: ''
-    sort_internal:
-      title: sort_internal
-      type: array
-      items:
-        $ref: '#/components/schemas/sortBy'
-        x-stoplight:
-          id: rco9c6oaws4eh
+        id: g4k3if9lta3pg
+      type: object
+      properties:
+        id:
+          type: string
+          description: Project ID
+        account_id:
+          type: string
+          x-stoplight:
+            id: e67zvdyuagrvb
+          description: Account ID
+        name:
+          type: string
+          x-stoplight:
+            id: dmzvvk6gp4fvg
+          description: Name of the project
+        start_date:
+          type: string
+          x-stoplight:
+            id: xn0vpzsk6nrpn
+          description: 'The starting date of a project; must be earlier than end_date
+
+            Format: YYYY-MM-DD'
+        end_date:
+          type: string
+          x-stoplight:
+            id: 8k65nul995k5g
+          description: 'The ending date of a project; must be later than start_date
+
+            Format: YYYY-MM-DD'
+        project_type:
+          type: string
+          x-stoplight:
+            id: 0ougx4e12wc5e
+          description: The type of project; accepts preconfigured and customized project types
+        value:
+          type: number
+          x-stoplight:
+            id: 3gfeukdzeddnr
+          description: Monetary value of the project
+        currency:
+          type: string
+          x-stoplight:
+            id: e1jzwyjpobyt8
+          description: Currency for project value
+        status:
+          x-stoplight:
+            id: gruqhoco7k1hr
+          description: The status of project.
+          type: string
+        job_number:
+          type: string
+          x-stoplight:
+            id: x97wzdzwxscc8
+          description: Project job number to connect a BIM 360 project to project or job in a financial or ERP system.
+        address_line_1:
+          type: string
+          x-stoplight:
+            id: be7zse4sz643m
+          description: Project address line 1
+        address_line_2:
+          type: string
+          x-stoplight:
+            id: unu5zecux1alc
+          description: Project address line 2
+        city:
+          type: string
+          x-stoplight:
+            id: mcn6w0lvgnp20
+          description: City in which project is located
+        state_or_province:
+          type: string
+          x-stoplight:
+            id: w39x7lnnh9myp
+          description: State or province in which project is located
+        postal_code:
+          type: string
+          x-stoplight:
+            id: owsyshcr8hvna
+          description: Postal code for the project location
+        country:
+          type: string
+          x-stoplight:
+            id: 8p08o8arqn17l
+          description: Country for this project
+        business_unit_id:
+          type: string
+          x-stoplight:
+            id: 17xu7kyhn7del
+          description: The business unit ID of this project
+        timezone:
+          type: string
+          x-stoplight:
+            id: qs32hyvg8ajfy
+          description: Time zone for this project
+        language:
+          x-stoplight:
+            id: g6dvm8dmqd5yw
+          description: Language of the project; applicable to the BIM 360 Field service only
+          type: string
+        construction_type:
+          x-stoplight:
+            id: beot2pj6n3azw
+          description: Type of construction
+          type: string
+        contract_type:
+          x-stoplight:
+            id: ovt9kdgv1cqxh
+          description: Contract Type for your project
+          type: string
+        last_sign_in:
+          type: string
+          x-stoplight:
+            id: 10g0wn1qosciu
+          description: Timestamp of the last sign in, YYYY-MM-DDThh:mm:ss.sssZ format
     fields_internal:
       title: fields_internal
       x-stoplight:
@@ -379,16 +458,6 @@ components:
         $ref: '#/components/schemas/fields'
         x-stoplight:
           id: eak8q4id1p2i3
-    filterTextMatch:
-      title: filterTextMatch
-      x-stoplight:
-        id: l613i9qr8h8a6
-      type: string
-      enum:
-      - contains
-      - startsWith
-      - endsWith
-      - equals
     fields:
       title: fields
       x-stoplight:
@@ -425,31 +494,19 @@ components:
       - timezone
       - type
       - updatedAt
-    status:
-      title: status
+    ProjectsPage:
+      title: Projects
       x-stoplight:
-        id: 7imcqgahx8744
-      type: string
-      enum:
-      - active
-      - pending
-      - archived
-      - suspended
-    platform:
-      title: platform
-      x-stoplight:
-        id: w4j4h1zy6fji2
-      type: string
-      enum:
-      - acc
-      - bim360
-    status_internal:
-      title: status_internal
-      type: array
-      items:
-        $ref: '#/components/schemas/status'
-        x-stoplight:
-          id: 3sxoqp01jo0t2
+        id: ikvjx87zn5n72
+      type: object
+      properties:
+        pagination:
+          $ref: '#/components/schemas/Pagination'
+        results:
+          type: array
+          description: The requested page of projects.
+          items:
+            $ref: '#/components/schemas/Project'
     ProjectPayload:
       title: ProjectPayload
       x-stoplight:
@@ -689,314 +746,262 @@ components:
       - memberCount desc
       - createdAt desc
       - updatedAt desc
-    ProjectPatch:
-      title: ProjectPatch
+    filterPlatform_internal:
+      title: filterPlatform_internal
       x-stoplight:
-        id: g4k3if9lta3pg
-      type: object
-      properties:
-        id:
-          type: string
-          description: Project ID
-        account_id:
-          type: string
-          x-stoplight:
-            id: e67zvdyuagrvb
-          description: Account ID
-        name:
-          type: string
-          x-stoplight:
-            id: dmzvvk6gp4fvg
-          description: Name of the project
-        start_date:
-          type: string
-          x-stoplight:
-            id: xn0vpzsk6nrpn
-          description: 'The starting date of a project; must be earlier than end_date
-
-            Format: YYYY-MM-DD'
-        end_date:
-          type: string
-          x-stoplight:
-            id: 8k65nul995k5g
-          description: 'The ending date of a project; must be later than start_date
-
-            Format: YYYY-MM-DD'
-        project_type:
-          type: string
-          x-stoplight:
-            id: 0ougx4e12wc5e
-          description: The type of project; accepts preconfigured and customized project types
-        value:
-          type: number
-          x-stoplight:
-            id: 3gfeukdzeddnr
-          description: Monetary value of the project
-        currency:
-          type: string
-          x-stoplight:
-            id: e1jzwyjpobyt8
-          description: Currency for project value
-        status:
-          x-stoplight:
-            id: gruqhoco7k1hr
-          description: The status of project.
-          type: string
-        job_number:
-          type: string
-          x-stoplight:
-            id: x97wzdzwxscc8
-          description: Project job number to connect a BIM 360 project to project or job in a financial or ERP system.
-        address_line_1:
-          type: string
-          x-stoplight:
-            id: be7zse4sz643m
-          description: Project address line 1
-        address_line_2:
-          type: string
-          x-stoplight:
-            id: unu5zecux1alc
-          description: Project address line 2
-        city:
-          type: string
-          x-stoplight:
-            id: mcn6w0lvgnp20
-          description: City in which project is located
-        state_or_province:
-          type: string
-          x-stoplight:
-            id: w39x7lnnh9myp
-          description: State or province in which project is located
-        postal_code:
-          type: string
-          x-stoplight:
-            id: owsyshcr8hvna
-          description: Postal code for the project location
-        country:
-          type: string
-          x-stoplight:
-            id: 8p08o8arqn17l
-          description: Country for this project
-        business_unit_id:
-          type: string
-          x-stoplight:
-            id: 17xu7kyhn7del
-          description: The business unit ID of this project
-        timezone:
-          type: string
-          x-stoplight:
-            id: qs32hyvg8ajfy
-          description: Time zone for this project
-        language:
-          x-stoplight:
-            id: g6dvm8dmqd5yw
-          description: Language of the project; applicable to the BIM 360 Field service only
-          type: string
-        construction_type:
-          x-stoplight:
-            id: beot2pj6n3azw
-          description: Type of construction
-          type: string
-        contract_type:
-          x-stoplight:
-            id: ovt9kdgv1cqxh
-          description: Contract Type for your project
-          type: string
-        last_sign_in:
-          type: string
-          x-stoplight:
-            id: 10g0wn1qosciu
-          description: Timestamp of the last sign in, YYYY-MM-DDThh:mm:ss.sssZ format
-    currency:
-      title: currency
+        id: 07osm8uexhmzc
+      type: array
+      items:
+        $ref: '#/components/schemas/platform'
+        x-stoplight:
+          id: blbjael8tal1d
+    products:
+      title: products
+      x-stoplight:
+        id: qr6chlzpjohw0
       type: string
       enum:
-      - AED
-      - AFN
-      - ALL
-      - AMD
-      - ANG
-      - AOA
-      - ARS
-      - AUD
-      - AWG
-      - AZN
-      - BAM
-      - BBD
-      - BDT
-      - BGN
-      - BHD
-      - BIF
-      - BMD
-      - BND
-      - BOB
-      - BOV
-      - BRL
-      - BSD
-      - BTN
-      - BWP
-      - BYN
-      - BYR
-      - BZD
-      - CAD
-      - CDF
-      - CHE
-      - CHF
-      - CHW
-      - CLF
-      - CLP
-      - CNY
-      - COP
-      - COU
-      - CRC
-      - CUC
-      - CUP
-      - CVE
-      - CZK
-      - DJF
-      - DKK
-      - DOP
-      - DZD
-      - EEK
-      - EGP
-      - ERN
-      - ETB
-      - EUR
-      - FJD
-      - FKP
-      - GBP
-      - GEL
-      - GHS
-      - GIP
-      - GMD
-      - GNF
-      - GTQ
-      - GYD
-      - HKD
-      - HNL
-      - HRK
-      - HTG
-      - HUF
-      - IDR
-      - ILS
-      - INR
-      - IQD
-      - IRR
-      - ISK
-      - JMD
-      - JOD
-      - JPY
-      - KES
-      - KGS
-      - KHR
-      - KMF
-      - KPW
-      - KRW
-      - KWD
-      - KYD
-      - KZT
-      - LAK
-      - LBP
-      - LKR
-      - LRD
-      - LSL
-      - LTL
-      - LVL
-      - LYD
-      - MAD
-      - MDL
-      - MGA
-      - MKD
-      - MMK
-      - MNT
-      - MOP
-      - MRU
-      - MUR
-      - MVR
-      - MWK
-      - MXN
-      - MXV
-      - MYR
-      - MZN
-      - NAD
-      - NGN
-      - NIO
-      - NOK
-      - NPR
-      - NZD
-      - OMR
-      - PAB
-      - PEN
-      - PGK
-      - PHP
-      - PKR
-      - PLN
-      - PYG
-      - QAR
-      - RON
-      - RSD
-      - RUB
-      - RWF
-      - SAR
-      - SBD
-      - SCR
-      - SDG
-      - SEK
-      - SGD
-      - SHP
-      - SLE
-      - SLL
-      - SOS
-      - SRD
-      - SSP
-      - STN
-      - SVC
-      - SYP
-      - SZL
-      - THB
-      - TJS
-      - TMT
-      - TND
-      - TOP
-      - TRL
-      - TRY
-      - TTD
-      - TWD
-      - TZS
-      - UAH
-      - UGX
-      - USD
-      - USN
-      - UYI
-      - UYU
-      - UYW
-      - UZS
-      - VED
-      - VES
-      - VND
-      - VUV
-      - WST
-      - XAF
-      - XAG
-      - XAU
-      - XBA
-      - XBB
-      - XBC
-      - XBD
-      - XCD
-      - XDR
-      - XOF
-      - XPD
-      - XPF
-      - XPT
-      - XSU
-      - XTS
-      - XUA
-      - XXX
-      - YER
-      - ZAR
-      - ZMW
-      - ZWL
+      - build
+      - docs
+      - takeoff
+      - cost
+      - autospecs
+      - financials
+      - buildingConnected
+      - capitalPlanning
+      - accountAdministration
+      - workshopxr
+      - insight
+      - projectAdministration
+      - modelCoordination
+      - designCollaboration
+      - cloudWorksharing
+      - fieldManagement
+      - costManagement
+      - glue
+      - documentManagement
+      - projectHome
+      - assets
+      - quantification
+      - plan
+      - field
+      - projectManagement
+      description: ''
+    products_internal:
+      title: products_internal
+      x-stoplight:
+        id: 9c80166a5fe5a
+      type: array
+      items:
+        $ref: '#/components/schemas/products'
+        x-stoplight:
+          id: qeezmlysbidw9
+    filterTextMatch:
+      title: filterTextMatch
+      x-stoplight:
+        id: l613i9qr8h8a6
+      type: string
+      enum:
+      - contains
+      - startsWith
+      - endsWith
+      - equals
+    filterType:
+      title: filterType
+      type: array
+      items:
+        type: string
+    platform:
+      title: platform
+      x-stoplight:
+        id: w4j4h1zy6fji2
+      type: string
+      enum:
+      - acc
+      - bim360
+    filterClassification_internal:
+      title: filterClassification_internal
+      type: array
+      items:
+        $ref: '#/components/schemas/classification'
+    sort_internal:
+      title: sort_internal
+      type: array
+      items:
+        $ref: '#/components/schemas/sortBy'
+        x-stoplight:
+          id: rco9c6oaws4eh
+    timezone:
+      title: timezone
+      type: string
+      enum:
+      - Pacific/Honolulu
+      - America/Juneau
+      - America/Los_Angeles
+      - America/Phoenix
+      - America/Denver
+      - America/Chicago
+      - America/New_York
+      - America/Indiana/Indianapolis
+      - Pacific/Pago_Pago
+      - Pacific/Midway
+      - America/Tijuana
+      - America/Chihuahua
+      - America/Mazatlan
+      - America/Guatemala
+      - America/Mexico_City
+      - America/Monterrey
+      - America/Regina
+      - America/Bogota
+      - America/Lima
+      - America/Caracas
+      - America/Halifax
+      - America/Guyana
+      - America/La_Paz
+      - America/Santiago
+      - America/St_Johns
+      - America/Sao_Paulo
+      - America/Argentina/Buenos_Aires
+      - America/Godthab
+      - Atlantic/South_Georgia
+      - Atlantic/Azores
+      - Atlantic/Cape_Verde
+      - Africa/Casablanca
+      - Europe/Dublin
+      - Europe/Lisbon
+      - Europe/London
+      - Africa/Monrovia
+      - Etc/UTC
+      - Europe/Amsterdam
+      - Europe/Belgrade
+      - Europe/Berlin
+      - Europe/Bratislava
+      - Europe/Brussels
+      - Europe/Budapest
+      - Europe/Copenhagen
+      - Europe/Ljubljana
+      - Europe/Madrid
+      - Europe/Paris
+      - Europe/Prague
+      - Europe/Rome
+      - Europe/Sarajevo
+      - Europe/Skopje
+      - Europe/Stockholm
+      - Europe/Vienna
+      - Europe/Warsaw
+      - Africa/Algiers
+      - Europe/Zagreb
+      - Europe/Athens
+      - Europe/Bucharest
+      - Africa/Cairo
+      - Africa/Harare
+      - Europe/Helsinki
+      - Europe/Istanbul
+      - Asia/Jerusalem
+      - Europe/Kiev
+      - Africa/Johannesburg
+      - Europe/Riga
+      - Europe/Sofia
+      - Europe/Tallinn
+      - Europe/Vilnius
+      - Asia/Baghdad
+      - Asia/Kuwait
+      - Europe/Minsk
+      - Africa/Nairobi
+      - Asia/Riyadh
+      - Asia/Tehran
+      - Asia/Muscat
+      - Asia/Baku
+      - Europe/Moscow
+      - Asia/Tbilisi
+      - Asia/Yerevan
+      - Asia/Kabul
+      - Asia/Karachi
+      - Asia/Tashkent
+      - Asia/Kolkata
+      - Asia/Colombo
+      - Asia/Kathmandu
+      - Asia/Almaty
+      - Asia/Dhaka
+      - Asia/Yekaterinburg
+      - Asia/Rangoon
+      - Asia/Bangkok
+      - Asia/Jakarta
+      - Asia/Novosibirsk
+      - Asia/Shanghai
+      - Asia/Chongqing
+      - Asia/Hong_Kong
+      - Asia/Krasnoyarsk
+      - Asia/Kuala_Lumpur
+      - Australia/Perth
+      - Asia/Singapore
+      - Asia/Taipei
+      - Asia/Ulaanbaatar
+      - Asia/Urumqi
+      - Asia/Irkutsk
+      - Asia/Tokyo
+      - Asia/Seoul
+      - Australia/Adelaide
+      - Australia/Darwin
+      - Australia/Brisbane
+      - Australia/Melbourne
+      - Pacific/Guam
+      - Australia/Hobart
+      - Pacific/Port_Moresby
+      - Australia/Sydney
+      - Asia/Yakutsk
+      - Pacific/Noumea
+      - Asia/Vladivostok
+      - Pacific/Auckland
+      - Pacific/Fiji
+      - Asia/Kamchatka
+      - Asia/Magadan
+      - Pacific/Majuro
+      - Pacific/Guadalcanal
+      - Pacific/Tongatapu
+      - Pacific/Apia
+      - Pacific/Fakaofo
+    classification:
+      title: classification
+      x-stoplight:
+        id: kiltb9wsm9iye
+      type: string
+      enum:
+      - production
+      - template
+      - component
+      - sample
+    Region:
+      title: Region
+      x-stoplight:
+        id: 5rz8jxdpgo4zq
+      type: string
+      enum:
+      - US
+      - EMEA
+      - AUS
+      - CAN
+      - DEU
+      - IND
+      - JPN
+      - GBR
+      description: 'Specifies the region where your request should be routed. Possible values are:
+
+        - ``US`` - Data center for the US region.
+
+        - ``EMEA`` - Data center for the European Union, Middle East, and Africa regions.
+
+        - ``AUS`` - Data center for the Australia region.
+
+        - ``CAN`` - Data center for the Canada region.
+
+        - ``DEU`` - Data center for the Germany region.
+
+        - ``IND`` - Data center for the India region.
+
+        - ``JPN`` - Data center for the Japan region.
+
+        - ``GBR`` - Data center for the United Kingdom region.'
     Pagination:
       title: Pagination
       x-stoplight:
@@ -1024,28 +1029,6 @@ components:
           x-stoplight:
             id: rhoc949ms1w0p
       description: "\tContains pagination details for the records returned by the endpoint."
-    filterPlatform_internal:
-      title: filterPlatform_internal
-      x-stoplight:
-        id: 07osm8uexhmzc
-      type: array
-      items:
-        $ref: '#/components/schemas/platform'
-        x-stoplight:
-          id: blbjael8tal1d
-    ProjectsPage:
-      title: Projects
-      x-stoplight:
-        id: ikvjx87zn5n72
-      type: object
-      properties:
-        pagination:
-          $ref: '#/components/schemas/Pagination'
-        results:
-          type: array
-          description: The requested page of projects.
-          items:
-            $ref: '#/components/schemas/Project'
     Project:
       title: Project
       x-stoplight:
@@ -1243,196 +1226,213 @@ components:
           x-stoplight:
             id: zpt9et6ahhjj8
           description: The ID of the project that was used as a template to create this project.
-    timezone:
-      title: timezone
+    currency:
+      title: currency
       type: string
       enum:
-      - Pacific/Honolulu
-      - America/Juneau
-      - America/Los_Angeles
-      - America/Phoenix
-      - America/Denver
-      - America/Chicago
-      - America/New_York
-      - America/Indiana/Indianapolis
-      - Pacific/Pago_Pago
-      - Pacific/Midway
-      - America/Tijuana
-      - America/Chihuahua
-      - America/Mazatlan
-      - America/Guatemala
-      - America/Mexico_City
-      - America/Monterrey
-      - America/Regina
-      - America/Bogota
-      - America/Lima
-      - America/Caracas
-      - America/Halifax
-      - America/Guyana
-      - America/La_Paz
-      - America/Santiago
-      - America/St_Johns
-      - America/Sao_Paulo
-      - America/Argentina/Buenos_Aires
-      - America/Godthab
-      - Atlantic/South_Georgia
-      - Atlantic/Azores
-      - Atlantic/Cape_Verde
-      - Africa/Casablanca
-      - Europe/Dublin
-      - Europe/Lisbon
-      - Europe/London
-      - Africa/Monrovia
-      - Etc/UTC
-      - Europe/Amsterdam
-      - Europe/Belgrade
-      - Europe/Berlin
-      - Europe/Bratislava
-      - Europe/Brussels
-      - Europe/Budapest
-      - Europe/Copenhagen
-      - Europe/Ljubljana
-      - Europe/Madrid
-      - Europe/Paris
-      - Europe/Prague
-      - Europe/Rome
-      - Europe/Sarajevo
-      - Europe/Skopje
-      - Europe/Stockholm
-      - Europe/Vienna
-      - Europe/Warsaw
-      - Africa/Algiers
-      - Europe/Zagreb
-      - Europe/Athens
-      - Europe/Bucharest
-      - Africa/Cairo
-      - Africa/Harare
-      - Europe/Helsinki
-      - Europe/Istanbul
-      - Asia/Jerusalem
-      - Europe/Kiev
-      - Africa/Johannesburg
-      - Europe/Riga
-      - Europe/Sofia
-      - Europe/Tallinn
-      - Europe/Vilnius
-      - Asia/Baghdad
-      - Asia/Kuwait
-      - Europe/Minsk
-      - Africa/Nairobi
-      - Asia/Riyadh
-      - Asia/Tehran
-      - Asia/Muscat
-      - Asia/Baku
-      - Europe/Moscow
-      - Asia/Tbilisi
-      - Asia/Yerevan
-      - Asia/Kabul
-      - Asia/Karachi
-      - Asia/Tashkent
-      - Asia/Kolkata
-      - Asia/Colombo
-      - Asia/Kathmandu
-      - Asia/Almaty
-      - Asia/Dhaka
-      - Asia/Yekaterinburg
-      - Asia/Rangoon
-      - Asia/Bangkok
-      - Asia/Jakarta
-      - Asia/Novosibirsk
-      - Asia/Shanghai
-      - Asia/Chongqing
-      - Asia/Hong_Kong
-      - Asia/Krasnoyarsk
-      - Asia/Kuala_Lumpur
-      - Australia/Perth
-      - Asia/Singapore
-      - Asia/Taipei
-      - Asia/Ulaanbaatar
-      - Asia/Urumqi
-      - Asia/Irkutsk
-      - Asia/Tokyo
-      - Asia/Seoul
-      - Australia/Adelaide
-      - Australia/Darwin
-      - Australia/Brisbane
-      - Australia/Melbourne
-      - Pacific/Guam
-      - Australia/Hobart
-      - Pacific/Port_Moresby
-      - Australia/Sydney
-      - Asia/Yakutsk
-      - Pacific/Noumea
-      - Asia/Vladivostok
-      - Pacific/Auckland
-      - Pacific/Fiji
-      - Asia/Kamchatka
-      - Asia/Magadan
-      - Pacific/Majuro
-      - Pacific/Guadalcanal
-      - Pacific/Tongatapu
-      - Pacific/Apia
-      - Pacific/Fakaofo
-    filterType:
-      title: filterType
+      - AED
+      - AFN
+      - ALL
+      - AMD
+      - ANG
+      - AOA
+      - ARS
+      - AUD
+      - AWG
+      - AZN
+      - BAM
+      - BBD
+      - BDT
+      - BGN
+      - BHD
+      - BIF
+      - BMD
+      - BND
+      - BOB
+      - BOV
+      - BRL
+      - BSD
+      - BTN
+      - BWP
+      - BYN
+      - BYR
+      - BZD
+      - CAD
+      - CDF
+      - CHE
+      - CHF
+      - CHW
+      - CLF
+      - CLP
+      - CNY
+      - COP
+      - COU
+      - CRC
+      - CUC
+      - CUP
+      - CVE
+      - CZK
+      - DJF
+      - DKK
+      - DOP
+      - DZD
+      - EEK
+      - EGP
+      - ERN
+      - ETB
+      - EUR
+      - FJD
+      - FKP
+      - GBP
+      - GEL
+      - GHS
+      - GIP
+      - GMD
+      - GNF
+      - GTQ
+      - GYD
+      - HKD
+      - HNL
+      - HRK
+      - HTG
+      - HUF
+      - IDR
+      - ILS
+      - INR
+      - IQD
+      - IRR
+      - ISK
+      - JMD
+      - JOD
+      - JPY
+      - KES
+      - KGS
+      - KHR
+      - KMF
+      - KPW
+      - KRW
+      - KWD
+      - KYD
+      - KZT
+      - LAK
+      - LBP
+      - LKR
+      - LRD
+      - LSL
+      - LTL
+      - LVL
+      - LYD
+      - MAD
+      - MDL
+      - MGA
+      - MKD
+      - MMK
+      - MNT
+      - MOP
+      - MRU
+      - MUR
+      - MVR
+      - MWK
+      - MXN
+      - MXV
+      - MYR
+      - MZN
+      - NAD
+      - NGN
+      - NIO
+      - NOK
+      - NPR
+      - NZD
+      - OMR
+      - PAB
+      - PEN
+      - PGK
+      - PHP
+      - PKR
+      - PLN
+      - PYG
+      - QAR
+      - RON
+      - RSD
+      - RUB
+      - RWF
+      - SAR
+      - SBD
+      - SCR
+      - SDG
+      - SEK
+      - SGD
+      - SHP
+      - SLE
+      - SLL
+      - SOS
+      - SRD
+      - SSP
+      - STN
+      - SVC
+      - SYP
+      - SZL
+      - THB
+      - TJS
+      - TMT
+      - TND
+      - TOP
+      - TRL
+      - TRY
+      - TTD
+      - TWD
+      - TZS
+      - UAH
+      - UGX
+      - USD
+      - USN
+      - UYI
+      - UYU
+      - UYW
+      - UZS
+      - VED
+      - VES
+      - VND
+      - VUV
+      - WST
+      - XAF
+      - XAG
+      - XAU
+      - XBA
+      - XBB
+      - XBC
+      - XBD
+      - XCD
+      - XDR
+      - XOF
+      - XPD
+      - XPF
+      - XPT
+      - XSU
+      - XTS
+      - XUA
+      - XXX
+      - YER
+      - ZAR
+      - ZMW
+      - ZWL
+    status_internal:
+      title: status_internal
       type: array
       items:
-        type: string
-    products_internal:
-      title: products_internal
-      x-stoplight:
-        id: 9c80166a5fe5a
-      type: array
-      items:
-        $ref: '#/components/schemas/products'
+        $ref: '#/components/schemas/status'
         x-stoplight:
-          id: qeezmlysbidw9
-    filterClassification_internal:
-      title: filterClassification_internal
-      type: array
-      items:
-        $ref: '#/components/schemas/classification'
-    Region:
-      title: Region
+          id: 3sxoqp01jo0t2
+    status:
+      title: status
       x-stoplight:
-        id: 5rz8jxdpgo4zq
+        id: 7imcqgahx8744
       type: string
       enum:
-      - US
-      - EMEA
-      - AUS
-      - CAN
-      - DEU
-      - IND
-      - JPN
-      - GBR
-      description: 'Specifies the region where your request should be routed. Possible values are:
-
-        - ``US`` - Data center for the US region.
-
-        - ``EMEA`` - Data center for the European Union, Middle East, and Africa regions.
-
-        - ``AUS`` - Data center for the Australia region.
-
-        - ``CAN`` - Data center for the Canada region.
-
-        - ``DEU`` - Data center for the Germany region.
-
-        - ``IND`` - Data center for the India region.
-
-        - ``JPN`` - Data center for the Japan region.
-
-        - ``GBR`` - Data center for the United Kingdom region.'
-    classification:
-      title: classification
-      x-stoplight:
-        id: kiltb9wsm9iye
-      type: string
-      enum:
-      - production
-      - template
-      - component
-      - sample
+      - active
+      - pending
+      - archived
+      - suspended
   securitySchemes:
     2-legged:
       type: oauth2

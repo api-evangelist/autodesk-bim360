@@ -296,15 +296,6 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    filterid:
-      title: filterid
-      x-stoplight:
-        id: az48o4u31pbvt
-      type: array
-      items:
-        x-stoplight:
-          id: 9dnhirox70yde
-        type: string
     fields_internal:
       title: fields_internal
       x-stoplight:
@@ -347,6 +338,48 @@ components:
       - updatedBy
       - updatedAt
       - customAttributes
+    filterissueSubtypeId:
+      title: filterissueSubtypeId
+      x-stoplight:
+        id: kbtr780g1ioa3
+      type: array
+      items:
+        x-stoplight:
+          id: zmn50bfqs15li
+        type: string
+    sortBy:
+      title: sortBy
+      x-stoplight:
+        id: j8v94gty0f6up
+      type: string
+      enum:
+      - createdAt
+      - updatedAt
+      - createdBy
+      - displayId
+      - title
+      - description
+      - status
+      - assignedTo
+      - assignedToType
+      - dueDate
+      - locationDetails
+      - published
+      - closedBy
+      - closedAt
+      - issueSubType
+      - issueType
+      - customAttributes
+      - startDate
+    filterlocationId:
+      title: filterrootCauseId
+      x-stoplight:
+        id: o6mccjxmn3fxg
+      type: array
+      items:
+        x-stoplight:
+          id: isppzqxf1r4c9
+        type: string
     Issue:
       title: issue
       type: object
@@ -605,29 +638,14 @@ components:
           description: 'Not relevant
 
             '
-    status:
-      type: string
+    filterclosedBy:
+      title: filterrootCauseId
       x-stoplight:
-        id: w3v9ah58nfw7e
-      description: The current status of the issue. To check the available statuses for the project, call GET users/me and check the permitted statuses list (issue.new.permittedStatuses). For more information about statuses, see the Help documentation.
-      enum:
-      - draft
-      - open
-      - pending
-      - in_progress
-      - in_review
-      - completed
-      - not_approved
-      - in_dispute
-      - closed
-    filterassignedTo:
-      title: filterassignedTo
-      x-stoplight:
-        id: chrtdtj1ebfb3
+        id: jiz1hji0gp0o5
       type: array
       items:
         x-stoplight:
-          id: x44vzy9svtq9p
+          id: isppzqxf1r4c9
         type: string
     filterupdatedBy:
       title: filterupdatedBy
@@ -639,6 +657,22 @@ components:
           id: 64w55gwhiyl87
         type: string
       description: Filter issues by the unique identifier of the user who updated the issue. Separate multiple values with commas.
+    filtercreatedBy:
+      title: filtercreatedBy
+      x-stoplight:
+        id: 2drtvpglpzdg5
+      type: array
+      items:
+        type: string
+    filterissueTypeId:
+      title: filterissueTypeId
+      x-stoplight:
+        id: wiudkmxcv9nbu
+      type: array
+      items:
+        x-stoplight:
+          id: oes0op5k8yucv
+        type: string
     filterlinkedDocumentUrn:
       title: filterlinkedDocumentUrn
       x-stoplight:
@@ -651,43 +685,76 @@ components:
       description: 'Retrieves pushpin issues associated with the specified files. We support all file types that are compatible with the Files tool. You need to specify the URL-encoded file item IDs. To find the file item IDs, use the Data Management API.
 
         Note that you need to specify the 3D model item ID, which retrieves all pushpins associated with all 2D sheets and views associated with the 3D model. Similarly, if you specify a specific PDF file it retrieves all the pushpin issues associated with all the PDF file pages. We do not currently support retrieving pushpin issues associated with a specific 2D sheet or view.'
-    sortBy:
-      title: sortBy
+    region:
+      title: region
       x-stoplight:
-        id: j8v94gty0f6up
+        id: pvg574irwjt8w
       type: string
       enum:
-      - createdAt
-      - updatedAt
-      - createdBy
-      - displayId
-      - title
-      - description
-      - status
-      - assignedTo
-      - assignedToType
-      - dueDate
-      - locationDetails
-      - published
-      - closedBy
-      - closedAt
-      - issueSubType
-      - issueType
-      - customAttributes
-      - startDate
-    filterclosedBy:
-      title: filterrootCauseId
+      - US
+      - EMEA
+      - AUS
+      - CAN
+      - DEU
+      - IND
+      - JPN
+      - GBR
+      description: "Specifies where the bucket containing the object is stored. Possible values are:\n            - ``US`` - (Default) Data center for the US region.\n            - ``EMEA`` - Data center for the European Union, Middle East, and Africa.\n            - ``AUS`` -  Data center for Australia.\n            - ``CAN`` - Data center for the Canada region.\n            - ``DEU`` - Data center for the Germany region.\n            - ``IND`` - Data center for the India region.\n            - ``JPN`` - Data center for the Japan region.\n            - ``GBR`` - Data center for the United Kingdom region.\n**Note:** Beta features are subject to change. Please do not use in production environments."
+    IssuesPage:
+      title: issues
       x-stoplight:
-        id: jiz1hji0gp0o5
+        id: ea3111d9b097d
+      type: object
+      properties:
+        pagination:
+          $ref: '#/components/schemas/Pagination'
+        results:
+          type: array
+          description: The list of issues in the current page
+          items:
+            $ref: '#/components/schemas/Issue'
+    filtercustomAttributes:
+      title: filtercustomAttributes
+      x-stoplight:
+        id: ja16zkxz19t3s
       type: array
       items:
         x-stoplight:
-          id: isppzqxf1r4c9
+          id: nq5ihyumsc9l3
         type: string
-    filterlocationId:
+    sortBy_internal:
+      title: sortBy_internal
+      x-stoplight:
+        id: jf3fxohnckp1q
+      type: array
+      items:
+        $ref: '#/components/schemas/sortBy'
+    Pagination:
+      type: object
+      description: The pagination object.
+      properties:
+        limit:
+          type: integer
+          description: The number of items per page.
+        offset:
+          type: integer
+          description: The page number that the results begin from.
+        totalResults:
+          type: integer
+          description: The number of items in the response.
+    filterid:
+      title: filterid
+      x-stoplight:
+        id: az48o4u31pbvt
+      type: array
+      items:
+        x-stoplight:
+          id: 9dnhirox70yde
+        type: string
+    filterrootCauseId:
       title: filterrootCauseId
       x-stoplight:
-        id: o6mccjxmn3fxg
+        id: yij9lduzyuzd1
       type: array
       items:
         x-stoplight:
@@ -841,82 +908,14 @@ components:
       - title
       - issueSubtypeId
       - status
-    Pagination:
-      type: object
-      description: The pagination object.
-      properties:
-        limit:
-          type: integer
-          description: The number of items per page.
-        offset:
-          type: integer
-          description: The page number that the results begin from.
-        totalResults:
-          type: integer
-          description: The number of items in the response.
-    IssuesPage:
-      title: issues
+    filterassignedTo:
+      title: filterassignedTo
       x-stoplight:
-        id: ea3111d9b097d
-      type: object
-      properties:
-        pagination:
-          $ref: '#/components/schemas/Pagination'
-        results:
-          type: array
-          description: The list of issues in the current page
-          items:
-            $ref: '#/components/schemas/Issue'
-    filterissueSubtypeId:
-      title: filterissueSubtypeId
-      x-stoplight:
-        id: kbtr780g1ioa3
+        id: chrtdtj1ebfb3
       type: array
       items:
         x-stoplight:
-          id: zmn50bfqs15li
-        type: string
-    region:
-      title: region
-      x-stoplight:
-        id: pvg574irwjt8w
-      type: string
-      enum:
-      - US
-      - EMEA
-      - AUS
-      - CAN
-      - DEU
-      - IND
-      - JPN
-      - GBR
-      description: "Specifies where the bucket containing the object is stored. Possible values are:\n            - ``US`` - (Default) Data center for the US region.\n            - ``EMEA`` - Data center for the European Union, Middle East, and Africa.\n            - ``AUS`` -  Data center for Australia.\n            - ``CAN`` - Data center for the Canada region.\n            - ``DEU`` - Data center for the Germany region.\n            - ``IND`` - Data center for the India region.\n            - ``JPN`` - Data center for the Japan region.\n            - ``GBR`` - Data center for the United Kingdom region.\n**Note:** Beta features are subject to change. Please do not use in production environments."
-    filterrootCauseId:
-      title: filterrootCauseId
-      x-stoplight:
-        id: yij9lduzyuzd1
-      type: array
-      items:
-        x-stoplight:
-          id: isppzqxf1r4c9
-        type: string
-    filterissueTypeId:
-      title: filterissueTypeId
-      x-stoplight:
-        id: wiudkmxcv9nbu
-      type: array
-      items:
-        x-stoplight:
-          id: oes0op5k8yucv
-        type: string
-    filtercustomAttributes:
-      title: filtercustomAttributes
-      x-stoplight:
-        id: ja16zkxz19t3s
-      type: array
-      items:
-        x-stoplight:
-          id: nq5ihyumsc9l3
+          id: x44vzy9svtq9p
         type: string
     filtersubLocationId:
       title: filterrootCauseId
@@ -927,20 +926,21 @@ components:
         x-stoplight:
           id: isppzqxf1r4c9
         type: string
-    filtercreatedBy:
-      title: filtercreatedBy
+    status:
+      type: string
       x-stoplight:
-        id: 2drtvpglpzdg5
-      type: array
-      items:
-        type: string
-    sortBy_internal:
-      title: sortBy_internal
-      x-stoplight:
-        id: jf3fxohnckp1q
-      type: array
-      items:
-        $ref: '#/components/schemas/sortBy'
+        id: w3v9ah58nfw7e
+      description: The current status of the issue. To check the available statuses for the project, call GET users/me and check the permitted statuses list (issue.new.permittedStatuses). For more information about statuses, see the Help documentation.
+      enum:
+      - draft
+      - open
+      - pending
+      - in_progress
+      - in_review
+      - completed
+      - not_approved
+      - in_dispute
+      - closed
   parameters:
     x-ads-region:
       name: x-ads-region

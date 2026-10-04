@@ -102,80 +102,6 @@ paths:
               $ref: '#/components/schemas/BusinessUnitsPayload'
 components:
   schemas:
-    BusinessUnitsObject:
-      title: BusinessUnitsObject
-      x-stoplight:
-        id: ofwz7wxle2i79
-      type: object
-      properties:
-        id:
-          type: string
-          x-stoplight:
-            id: 1t6r79la6n8xx
-          description: 'Business unit ID
-
-
-            If specified and already existing, the existing business unit will be replaced
-
-            with the provided attributes.
-
-
-            If specified and not already existing, a new business unit will be created with the id.
-
-
-            If unspecified, a new business unit will be created with a server-generated id.'
-        parent_id:
-          type: string
-          x-stoplight:
-            id: vaqvh4gbvaq4i
-          description: 'The ID of the parent business unit
-
-
-            Note that an entire business unit hierarchy can be created by manually specifying the id
-
-            attribute for each business unit and using it as appropriate in other parent_id
-
-            attributes.'
-        name:
-          type: string
-          x-stoplight:
-            id: vp8m48lup86mn
-          description: The name of the business unit
-        description:
-          type: string
-          x-stoplight:
-            id: gjwcknccphtzc
-          description: The description of the business unit
-      required:
-      - name
-    BusinessUnits:
-      title: BusinessUnitsResponse
-      x-stoplight:
-        id: bje738qyuuz2v
-      type: object
-      properties:
-        business_units:
-          type: array
-          x-stoplight:
-            id: n5utlu9b7jz16
-          items:
-            $ref: '#/components/schemas/BusinessUnit'
-            x-stoplight:
-              id: 2sl170itvk70g
-    BusinessUnitsPayload:
-      title: BusinessUnitsPayload
-      x-stoplight:
-        id: vg238uncrewqq
-      type: object
-      properties:
-        business_units:
-          type: array
-          x-stoplight:
-            id: 9dce24721l40s
-          items:
-            $ref: '#/components/schemas/BusinessUnitsObject'
-            x-stoplight:
-              id: xmd2c1g2ax76z
     Region:
       title: Region
       x-stoplight:
@@ -207,6 +133,34 @@ components:
         - ``JPN`` - Data center for the Japan region.
 
         - ``GBR`` - Data center for the United Kingdom region.'
+    BusinessUnitsPayload:
+      title: BusinessUnitsPayload
+      x-stoplight:
+        id: vg238uncrewqq
+      type: object
+      properties:
+        business_units:
+          type: array
+          x-stoplight:
+            id: 9dce24721l40s
+          items:
+            $ref: '#/components/schemas/BusinessUnitsObject'
+            x-stoplight:
+              id: xmd2c1g2ax76z
+    BusinessUnits:
+      title: BusinessUnitsResponse
+      x-stoplight:
+        id: bje738qyuuz2v
+      type: object
+      properties:
+        business_units:
+          type: array
+          x-stoplight:
+            id: n5utlu9b7jz16
+          items:
+            $ref: '#/components/schemas/BusinessUnit'
+            x-stoplight:
+              id: 2sl170itvk70g
     BusinessUnit:
       title: BusinessUnit
       x-stoplight:
@@ -253,6 +207,52 @@ components:
           type: string
           x-stoplight:
             id: epd0mv6uik60l
+    BusinessUnitsObject:
+      title: BusinessUnitsObject
+      x-stoplight:
+        id: ofwz7wxle2i79
+      type: object
+      properties:
+        id:
+          type: string
+          x-stoplight:
+            id: 1t6r79la6n8xx
+          description: 'Business unit ID
+
+
+            If specified and already existing, the existing business unit will be replaced
+
+            with the provided attributes.
+
+
+            If specified and not already existing, a new business unit will be created with the id.
+
+
+            If unspecified, a new business unit will be created with a server-generated id.'
+        parent_id:
+          type: string
+          x-stoplight:
+            id: vaqvh4gbvaq4i
+          description: 'The ID of the parent business unit
+
+
+            Note that an entire business unit hierarchy can be created by manually specifying the id
+
+            attribute for each business unit and using it as appropriate in other parent_id
+
+            attributes.'
+        name:
+          type: string
+          x-stoplight:
+            id: vp8m48lup86mn
+          description: The name of the business unit
+        description:
+          type: string
+          x-stoplight:
+            id: gjwcknccphtzc
+          description: The description of the business unit
+      required:
+      - name
   securitySchemes:
     2-legged:
       type: oauth2
