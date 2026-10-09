@@ -1,3 +1,7 @@
+# Provenance stamped 2026-10-07 (roadmap#943): written by an API Evangelist sweep (undated — the file carries no date and git cannot supply one), not
+# harvested from the provider. `method: generated` so the economics campaign may replace it with a
+# dated, verbatim transcription; every figure below is unverified until it does.
+method: generated
 specificationVersion: "0.1"
 id: autodesk-bim360-plans-pricing
 name: Autodesk BIM 360 / APS Plans and Pricing
@@ -77,3 +81,38 @@ plans:
       - Monthly API usage included with qualifying Autodesk subscriptions
       - Extends rated API access without separate token purchase
       - Covers BIM 360 and AEC Data Model APIs
+x-canonical:
+  generated: '2026-10-08'
+  vocabulary: all/0-working/economics/plans-canonical.yml
+  models:
+  - free
+  units: []
+  plans:
+  - name: Free Tier
+    access: other
+    model: free
+    model_how: derived
+    units: []
+    periods:
+    - month
+  - name: Prepay (Flex Tokens)
+    access: other
+    model: unstated
+    model_how: derived
+    units: []
+    periods:
+    - other
+  - name: Pay as You Go
+    access: other
+    model: unstated
+    model_how: derived
+    units: []
+    periods:
+    - month
+  - name: Subscription Included
+    access: other
+    model: unstated
+    model_how: derived
+    units: []
+    periods:
+    - month
